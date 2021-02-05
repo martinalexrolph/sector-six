@@ -1,17 +1,10 @@
 <template>
-  <Game />
+  <div id="nav">
+    <router-link to="/">Home</router-link> |
+    <router-link to="/game">Game</router-link>
+  </div>
+  <router-view/>
 </template>
-
-<script>
-import Game from './components/Game.vue'
-
-export default {
-  name: 'App',
-  components: {
-    Game
-  }
-}
-</script>
 
 <style>
 
@@ -64,5 +57,20 @@ html, body {
 
 * {
   box-sizing: border-box;
+}
+
+#nav {
+  position: absolute;
+  padding: 10px;
+  width: 100%;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #eee;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>

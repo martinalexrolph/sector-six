@@ -17,11 +17,15 @@
 
 <script>
 import { newGameState } from '../logic/state'
-import Question from './Question'
-import Answer from './Answer'
-import Compose from './Compose'
-import NextQuestion from './NextQuestion'
-import Introduction from './Introduction'
+import Question from '../components/Question'
+import Answer from '../components/Answer'
+import Compose from '../components/Compose'
+import NextQuestion from '../components/NextQuestion'
+import Introduction from '../components/Introduction'
+
+import { Plugins } from '@capacitor/core';
+
+const { Storage } = Plugins;
 
 export default {
   name: 'HelloWorld',
@@ -30,8 +34,11 @@ export default {
       gameState: newGameState(),
     }
   },
-  mounted() {
-
+  async mounted() {
+    const {value} = await Storage.get({key: this.$route.params.gameId})
+    if (value) {
+      this.gameState = JSON.parse(value)
+    }
   },
   methods: {
     submitAnswer(text) {
@@ -45,6 +52,7 @@ export default {
       })
       var container = this.$el.querySelector("#messages");
       container.scrollTop = container.scrollHeight;
+      Storage.set({key: this.$route.params.gameId, value: JSON.stringify(this.gameState)})
     }
   },
   props: {
@@ -56,7 +64,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .game {
   height: 100%;

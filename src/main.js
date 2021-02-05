@@ -1,8 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import VueTextareaAutosize from "vue-textarea-autosize";
+import router from './router'
 
-const app = createApp(App)
+const app = createApp(App).use(router)
 
-app.use(VueTextareaAutosize)
 app.mount('#app')
