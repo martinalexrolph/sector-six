@@ -1,11 +1,13 @@
 <template>
   <div class="game">
 
-    <div class="messages">
-      <Introduction v-bind:introduction="gameState.introduction"/>
-      <div v-for="(message, index) in gameState.messages" v-bind:key="index">
-        <Question v-if="message.type === 'question'" v-bind:question="message"/>
-        <Answer v-if="message.type === 'answer'" v-bind:answer="message"/>
+    <div class="main-container">
+      <div class="messages" id="messages">
+        <Introduction v-bind:introduction="gameState.introduction"/>
+        <div v-for="(message, index) in gameState.messages" v-bind:key="index">
+          <Question v-if="message.type === 'question'" v-bind:question="message"/>
+          <Answer v-if="message.type === 'answer'" v-bind:answer="message"/>
+        </div>
       </div>
     </div>
     <Compose v-bind:onSubmit="submitAnswer" />
@@ -41,6 +43,8 @@ export default {
         text: this.gameState.questions.shift(),
         type: 'question'
       })
+      var container = this.$el.querySelector("#messages");
+      container.scrollTop = container.scrollHeight;
     }
   },
   props: {
@@ -62,10 +66,27 @@ export default {
 }
 
 .messages {
+  font-size: 20px;
   width: 90%;
   max-width: 800px;
   margin: 0 auto;
+}
+
+.main-container {
+  width: 100%;
   overflow: scroll;
   flex-grow: 1;
+}
+
+@media screen and (max-width: 700px) {
+  .messages {
+    width: 100%;
+    max-width: initial;
+    border-radius: 0;
+    border: none;
+    font-size: 16px;
+    margin-bottom: 3px;
+    margin-top: 0;
+  }
 }
 </style>

@@ -27,4 +27,15 @@ export default {
   border-radius: 4px;
   margin: 10px auto;
 }
+
+@media screen and (max-width: 700px) {
+  .next-question {
+    width: 100%;
+    border-radius: 0;
+    border: none;
+    font-size: 16px;
+    margin-bottom: 3px;
+    margin-top: 0;
+  }
+}
 </style>

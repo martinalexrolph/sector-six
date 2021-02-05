@@ -53,6 +53,7 @@ export default {
   margin: 0;
   height: 100%;
   line-height: 1.3;
+  font-size: 20px;
 }
 
 html, body {

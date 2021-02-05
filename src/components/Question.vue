@@ -17,7 +17,6 @@ export default {
 <style scoped>
 .container {
   width: 100%;
-  font-size: 20px;
   font-weight: 700;
   color: #fff;
   text-align: left;

@@ -1,7 +1,15 @@
 <template>
   <div class="compose">
-    <textarea class="textarea" rows="4" v-model="text"/>
-    <button class="submit" @click="submit(text)">Submit answer</button>
+    <textarea
+      class="textarea"
+      @keypress.enter.prevent="submit(text)"
+      rows="3"
+      v-model="text"
+      enterkeyhint="send"
+    />
+    <button class="submit" @click="submit(text)">
+      >
+    </button>
   </div>
 </template>
 
@@ -33,23 +41,34 @@ export default {
   max-width: 800px;
   font-size: 20px;
   font-weight: 400;
-  color: #fff;
+  color: #eee;
   text-align: left;
-  margin: 10px auto;
+  margin: 0 auto 10px;
+  display: flex;
 }
 
 .submit {
   font-family: "Source Code Pro", monospace;
-  width: 100%;
+  width: 50px;
+  background: #ddd;
   border-radius: 4px;
+  border: 1px solid #eee;
   font-size: 20px;
   font-weight: 400;
   padding: 10px;
-  margin-top: 10px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  outline: none;
+  font-weight: 700;
+}
+
+.submit:focus, .submit:hover {
+  background: #eee;
+  border-color: #fff;
 }
 
 .textarea {
-  border: 1px solid #eee;
+  border: 1px solid #ddd;
   padding: 10px;
   width: 100%;
   background: none;
@@ -58,7 +77,26 @@ export default {
   font-size: 20px;
   font-weight: 400;
   resize: none;
-  margin-bottom: 10px;
   line-height: 1.3;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  outline: none;
+  border-right: none;
+}
+
+textarea:focus {
+  background: #444;
+}
+
+@media screen and (max-width: 700px) {
+  .compose {
+    width: 100%;
+    padding: 0 10px;
+    margin-bottom: 0;
+  }
+
+  .textarea {
+    font-size: 16px
+  }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="answer">
     {{ answer.text }}
   </div>
 </template>
@@ -15,9 +15,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.container {
+.answer {
   width: 100%;
-  font-size: 20px;
   font-weight: 400;
   color: #fff;
   text-align: left;
@@ -25,4 +24,5 @@ export default {
   border-radius: 4px;
   margin: 10px 0;
 }
+
 </style>

@@ -27,7 +27,6 @@ export default {
 
 .container {
   width: 100%;
-  font-size: 20px;
   font-weight: 400;
   color: #fff;
   text-align: left;
