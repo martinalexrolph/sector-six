@@ -1,6 +1,5 @@
 <template>
-  <div class="game">
-
+  <div v-if="!loading" class="game">
     <div class="main-container">
       <div class="messages" id="messages">
         <Introduction v-bind:introduction="gameState.introduction"/>
@@ -31,14 +30,18 @@ export default {
   name: 'HelloWorld',
   data() {
     return {
-      gameState: newGameState(),
+      loading: true
     }
   },
   async mounted() {
     const {value} = await Storage.get({key: this.$route.params.gameId})
+    console.log(value)
     if (value) {
       this.gameState = JSON.parse(value)
+    } else {
+      this.gameState = newGameState()
     }
+    this.loading = false
   },
   methods: {
     submitAnswer(text) {
