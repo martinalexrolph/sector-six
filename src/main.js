@@ -1,4 +1,8 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import VueTextareaAutosize from "vue-textarea-autosize";
 
-createApp(App).mount('#app')
+const app = createApp(App)
+
+app.use(VueTextareaAutosize)
+app.mount('#app')
