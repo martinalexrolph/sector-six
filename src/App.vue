@@ -78,7 +78,7 @@ html, body {
   height: 100%;
   background: #333;
   color: #fff;
-  /* text-shadow: 0px 0px 3px #49ff4e91; */
+  text-shadow: 0px 0px 6px #49ff4e70;
 }
 
 * {
