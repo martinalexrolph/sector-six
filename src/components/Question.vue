@@ -18,7 +18,6 @@ export default {
 .container {
   width: 100%;
   font-weight: 700;
-  color: #fff;
   text-align: left;
   padding: 10px;
   border-radius: 4px;

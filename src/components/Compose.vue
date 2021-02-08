@@ -41,7 +41,6 @@ export default {
   max-width: 800px;
   font-size: 20px;
   font-weight: 400;
-  color: #eee;
   text-align: left;
   margin: 0 auto 10px;
   display: flex;
@@ -68,6 +67,7 @@ export default {
 }
 
 .textarea {
+  font-family: "Source Code Pro", monospace;
   border: 1px solid #ddd;
   padding: 10px;
   width: 100%;

@@ -18,7 +18,6 @@ export default {
 .answer {
   width: 100%;
   font-weight: 400;
-  color: #fff;
   text-align: left;
   padding: 10px;
   border-radius: 4px;
