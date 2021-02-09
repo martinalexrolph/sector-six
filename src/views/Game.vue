@@ -27,6 +27,7 @@ export default {
   name: 'HelloWorld',
   data() {
     return {
+      gameState: null,
       loading: true
     }
   },
