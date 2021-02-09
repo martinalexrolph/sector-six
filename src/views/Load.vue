@@ -1,37 +1,45 @@
 <template>
   <div class="container">
     <div>
-      <div class="title-1">----- MEMORIES OF THE -----</div>
-      <div class="title-2">REBELLION</div>
-      <div class="title-1">----- by Martin Rolph -----</div>
+      <div class="title-1">--- LOAD GAME ---</div>
     </div>
 
-    <div class="primary-button">
-      <button class="button" @click="newGame()">LEARN TO PLAY</button>
+    <div class="games">
+      <button v-for="game in games" class="button game" :key="game.id" @click="loadGame()">
+        <span class="game-name">{{game.name}}</span><br>{{game.updatedAt}}
+        <span class="game-id">{{game.id}}</span>
+      </button>
     </div>
 
     <div class="secondary-buttons">
-      <button class="button" @click="newGame()">NEW GAME</button>
-      <button class="button" @click="loadGame()">LOAD GAME</button>
-      <button class="button">OPTIONS</button>
+      <button class="button" @click="goHome()">&lt; GO BACK</button>
     </div>
   </div>
 </template>
 
 <script>
 import { nanoid } from 'nanoid'
+import { getAllGames } from '../logic/saving'
 
 export default {
   name: 'Question',
   props: {
     question: Object
   },
+  async mounted() {
+    this.games = await getAllGames()
+  },
+  data: function() {
+    return {
+      games: []
+    }
+  },
   methods: {
-    newGame() {
+    loadGame() {
       this.$router.push({name: 'Game', params: {gameId: nanoid(10)}})
     },
-    loadGame() {
-      this.$router.push({name: 'Load'})
+    goHome() {
+      this.$router.push({name: 'Home'})
     }
   }
 }
@@ -52,19 +60,12 @@ export default {
 }
 
 .title-1 {
-  font-size: 24px;
+  font-size: 30px;
   line-height: 1;
-  font-weight: 400;
+  font-weight: 700;
   padding-right: 2px;
 }
 
-.title-2 {
-  font-size: 120px;
-  line-height: 1;
-  font-weight: 700;
-  letter-spacing: -5px;
-  margin-bottom: 7px;
-}
 
 .button {
   font-family: "Source Code Pro", monospace;
@@ -93,5 +94,35 @@ export default {
   margin: 8px auto;
 }
 
+.games {
+  width: 100%;
+  box-shadow: 0px 0px 6px #49ff4e70, inset 0px 0px 6px #49ff4e70;
+  background: none;
+  border-radius: 4px;
+  border: 1px solid #eee;
+  height: 460px;
+  padding: 20px;
+  overflow: scroll;
+}
+
+.game {
+  font-weight: 400;
+  font-size: 20px;
+  width: 100%;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.game:last-child {
+  margin-bottom: 0;
+}
+
+.game-id {
+  float: right
+}
+
+.game-name {
+  font-weight: bold;
+}
 
 </style>

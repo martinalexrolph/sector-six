@@ -1,17 +1,18 @@
 import { Plugins } from '@capacitor/core';
+import { nanoid } from 'nanoid';
 
 // Cannot import ElectronStroe in a non-electron env, and can only import at the top level, so use require instead
-let ElectronStore
 
-let saveGame, loadGame
+let saveGame, loadGame, getAllGames
 
 if (/electron/i.test(navigator.userAgent)) {
 
-  ElectronStore = require('electron-store')
+  const ElectronStore = require('electron-store')
 
-  const electronStore = ElectronStore()
+  const electronStore = new ElectronStore()
 
   saveGame = async function(id, data) {
+    data.updatedAt = (new Date()).toJSON()
     electronStore.set(`games.${id}`, JSON.stringify(data))
     return;
   }
@@ -22,11 +23,23 @@ if (/electron/i.test(navigator.userAgent)) {
     return json ? JSON.parse(json) : null;
   }
 
+  getAllGames = async function() {
+    const games = electronStore.get('games')
+    console.log(games)
+    return [
+      {
+        id: nanoid(),
+        name: "Marty Skywalker II",
+        createdAt: (new Date()).toJSON()
+      }
+    ]
+  }
+
 } else {
-  
   const { Storage } = Plugins;
 
   saveGame = async function(id, data) {
+    data.updatedAt = (new Date()).toJSON()
     await Storage.set({ key: `games.${id}`, value: JSON.stringify(data) })
     console.log('not in electron')
     return;
@@ -44,6 +57,20 @@ if (/electron/i.test(navigator.userAgent)) {
     }
   }
 
+  getAllGames = async function() {
+    const keys = await Storage.keys()
+    const gameKeys = keys.keys.filter(k => k.startsWith('games.'))
+    const games = [];
+    for (let i = 0; i < gameKeys.length; i++) {
+      const gameObject = await Storage.get({key: gameKeys[i]})
+      const game = JSON.parse(gameObject.value)
+      game.id = gameKeys[i].split('games.')[1]
+      games.push(game)
+    }
+    const sorted = games.sort((g1, g2) => (g1.updatedAt > g2.updatedAt) ? 1 : -1)
+    return sorted
+  }
+
 }
 
-export { saveGame, loadGame }
+export { saveGame, loadGame, getAllGames }
