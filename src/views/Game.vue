@@ -16,15 +16,12 @@
 
 <script>
 import { newGameState } from '../logic/state'
+import { saveGame, loadGame } from '../logic/saving'
 import Question from '../components/Question'
 import Answer from '../components/Answer'
 import Compose from '../components/Compose'
 import NextQuestion from '../components/NextQuestion'
 import Introduction from '../components/Introduction'
-
-import { Plugins } from '@capacitor/core';
-
-const { Storage } = Plugins;
 
 export default {
   name: 'HelloWorld',
@@ -34,10 +31,10 @@ export default {
     }
   },
   async mounted() {
-    const {value} = await Storage.get({key: this.$route.params.gameId})
+    const value = await loadGame(this.$route.params.gameId)
     console.log(value)
     if (value) {
-      this.gameState = JSON.parse(value)
+      this.gameState = value
     } else {
       this.gameState = newGameState()
     }
@@ -55,7 +52,8 @@ export default {
       })
       var container = this.$el.querySelector("#messages");
       container.scrollTop = container.scrollHeight;
-      Storage.set({key: this.$route.params.gameId, value: JSON.stringify(this.gameState)})
+
+      saveGame(this.$route.params.gameId, this.gameState)
     }
   },
   props: {
