@@ -5,7 +5,7 @@
     </div>
 
     <div class="games">
-      <button v-for="game in games" class="button game" :key="game.id" @click="loadGame()">
+      <button v-for="game in games" class="button game" :key="game.id" @click="loadGame(game.id)">
         <span class="game-name">{{game.name}}</span><br>{{game.updatedAt}}
         <span class="game-id">{{game.id}}</span>
       </button>
@@ -18,7 +18,6 @@
 </template>
 
 <script>
-import { nanoid } from 'nanoid'
 import { getAllGames } from '../logic/saving'
 
 export default {
@@ -35,8 +34,8 @@ export default {
     }
   },
   methods: {
-    loadGame() {
-      this.$router.push({name: 'Game', params: {gameId: nanoid(10)}})
+    loadGame(id) {
+      this.$router.push({name: 'Game', params: {gameId: id}})
     },
     goHome() {
       this.$router.push({name: 'Home'})

@@ -1,5 +1,4 @@
 import { Plugins } from '@capacitor/core';
-import { nanoid } from 'nanoid';
 
 // Cannot import ElectronStroe in a non-electron env, and can only import at the top level, so use require instead
 
@@ -13,26 +12,28 @@ if (/electron/i.test(navigator.userAgent)) {
 
   saveGame = async function(id, data) {
     data.updatedAt = (new Date()).toJSON()
-    electronStore.set(`games.${id}`, JSON.stringify(data))
+    electronStore.set(`games.${id}`, data)
     return;
   }
 
   loadGame = async function(id) {
     console.log('in electron');
     const json = electronStore.get(`games.${id}`)
-    return json ? JSON.parse(json) : null;
+    return json ? json : null;
   }
 
   getAllGames = async function() {
     const games = electronStore.get('games')
     console.log(games)
-    return [
-      {
-        id: nanoid(),
-        name: "Marty Skywalker II",
-        createdAt: (new Date()).toJSON()
-      }
-    ]
+    const result = [];
+    Object.keys(games).forEach(k => {
+      result.push({
+        id: k,
+        name: 'Test',
+        createdAt: games[k].createdAt
+      })
+    })
+    return result
   }
 
 } else {
