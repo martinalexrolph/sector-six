@@ -1,5 +1,5 @@
 <template>
-  <div class="next-question">
+  <div class="next-question outline">
     <b>Next question:</b> <i>{{ question.text }}</i>
   </div>
 </template>
@@ -18,12 +18,7 @@ export default {
 .next-question {
   width: 90%;
   max-width: 800px;
-  border: 1px solid #eee;
-  font-size: 20px;
-  font-weight: 400;
   text-align: left;
-  padding: 10px;
-  border-radius: 4px;
   margin: 10px auto;
 }
 
@@ -35,6 +30,7 @@ export default {
     font-size: 16px;
     margin-bottom: 3px;
     margin-top: 0;
+    box-shadow: none;
   }
 }
 </style>

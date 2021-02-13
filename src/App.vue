@@ -1,5 +1,9 @@
 <template>
-  <router-view/>
+  <router-view v-slot="{ Component }">
+    <transition name="fade" mode="out-in">
+      <component :is="Component" />
+    </transition>
+  </router-view>
 </template>
 
 <style>
@@ -42,9 +46,21 @@
   height: 100%;
   line-height: 1.3;
   font-size: 20px;
-  background: #333;
-  color: #fff;
-  text-shadow: 0px 0px 6px #49ff4e70;
+  background: #222;
+  color: #fbfbfb;
+  text-shadow: 0px 0px 8px #49ff4e90;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.25s ease-in-out;
+}
+
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  transform: scale(0.99);
 }
 
 /* body:after {
@@ -57,18 +73,26 @@
   z-index:1000;
   background: repeating-linear-gradient(0deg, #111 0px, #111 1px, transparent 2px, transparent 5px);
   background-size:100% 5px;
-  animation: lines 3s ease-in-out infinite;
-  opacity:0.3;
+  animation: move 3s linear infinite, flicker 1s ease-in-out infinite;
   mix-blend-mode: color-burn;
   pointer-events: none;
 }
 
-@keyframes lines {
+@keyframes move {
    0% {
       background-position:0px 0px;
    }
    100% {
-      background-position:0px 25px;
+      background-position:0px 20px;
+   }
+}
+
+@keyframes flicker {
+   0% {
+      opacity: 0.2;
+   }
+   100% {
+      opacity: 0.3;
    }
 } */
 </style>
