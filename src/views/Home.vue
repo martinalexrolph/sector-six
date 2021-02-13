@@ -7,7 +7,7 @@
     </div>
 
     <div class="primary-button">
-      <button class="button" @click="newGame()">LEARN TO PLAY</button>
+      <button class="button" @click="learnToPlay()">LEARN TO PLAY</button>
     </div>
 
     <div class="secondary-buttons">
@@ -33,6 +33,9 @@ export default {
     },
     loadGame() {
       this.$router.push({name: 'Load'})
+    },
+    learnToPlay() {
+      this.$router.push({name: 'Learn'})
     }
   }
 }

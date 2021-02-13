@@ -3,6 +3,7 @@ import Home from '../views/Home.vue'
 import Game from '../views/Game.vue'
 import Load from '../views/Load.vue'
 import New from '../views/New.vue'
+import Learn from '../views/Learn.vue'
 
 const routes = [
   {
@@ -19,6 +20,11 @@ const routes = [
     path: '/new',
     name: 'New',
     component: New
+  },
+  {
+    path: '/learn',
+    name: 'Learn',
+    component: Learn
   },
   {
     path: '/game/:gameId',
