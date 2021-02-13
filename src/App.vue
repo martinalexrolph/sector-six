@@ -1,8 +1,4 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/game">Game</router-link>
-  </div>
   <router-view/>
 </template>
 
@@ -46,6 +42,9 @@
   height: 100%;
   line-height: 1.3;
   font-size: 20px;
+  background: #333;
+  color: #fff;
+  text-shadow: 0px 0px 6px #49ff4e70;
 }
 
 /* body:after {
@@ -72,31 +71,4 @@
       background-position:0px 25px;
    }
 } */
-
-html, body {
-  margin: 0;
-  height: 100%;
-  background: #333;
-  color: #fff;
-  text-shadow: 0px 0px 6px #49ff4e70;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-#nav {
-  position: absolute;
-  padding: 10px;
-  width: 100%;
-}
-
-#nav a {
-  font-weight: bold;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-
 </style>

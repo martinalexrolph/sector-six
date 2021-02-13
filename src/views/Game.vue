@@ -1,5 +1,8 @@
 <template>
   <div v-if="!loading" class="game">
+    <button class="home-button" @click="goHome()">
+      &lt; HOME
+    </button>
     <div class="main-container">
       <div class="messages" id="messages">
         <Introduction v-bind:introduction="gameState.introduction"/>
@@ -55,6 +58,9 @@ export default {
       container.scrollTop = container.scrollHeight;
 
       saveGame(this.$route.params.gameId, this.gameState)
+    },
+    goHome() {
+      this.$router.push({name: 'Home'})
     }
   },
   props: {
@@ -85,6 +91,14 @@ export default {
   width: 100%;
   overflow: scroll;
   flex-grow: 1;
+  padding-top: 80px;
+}
+
+.home-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 16px;
 }
 
 @media screen and (max-width: 700px) {

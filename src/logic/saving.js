@@ -29,11 +29,12 @@ if (/electron/i.test(navigator.userAgent)) {
     Object.keys(games).forEach(k => {
       result.push({
         id: k,
-        name: 'Test',
-        createdAt: games[k].createdAt
+        name: games[k].name,
+        updatedAt: games[k].updatedAt
       })
     })
-    return result
+    const sorted = result.sort((g1, g2) => (g1.updatedAt < g2.updatedAt) ? 1 : -1)
+    return sorted
   }
 
 } else {

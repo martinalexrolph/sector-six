@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="menu-container">
     <div>
       <div class="title-1">--- LOAD GAME ---</div>
     </div>
@@ -46,18 +46,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.container {
-  width: 800px;
-  height: 100%;
-  text-align: center;
-  padding: 50px 10px;
-  border-radius: 4px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  margin: 0 auto;
-}
-
 .title-1 {
   font-size: 30px;
   line-height: 1;

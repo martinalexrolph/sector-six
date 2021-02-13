@@ -23,14 +23,15 @@ function exampleState() {
   }
 }
 
-function newGameState() {
+function newGameState(name) {
   const introQuestions = introductoryQuestions()
   const firstQuestion = introQuestions.shift()
 
   return {
+    name: name,
     introduction: {
-      text: "To celebrate the 30th anniversary of the defeat of the Empire at the Battle of Insulata Prime this year, we are interviewing people involved in the conflict. This week, we are speaking to Marty Exampleface.",
-      title: "An Oral History of the Rebellion"
+      title: "An Oral History of the Rebellion",
+      text: `To celebrate the 30th anniversary of the defeat of the Empire at the Battle of Insulata Prime this year, we are interviewing people involved in the conflict. This week, we are speaking to ${name}.`
     },
     messages: [{
       text: firstQuestion,

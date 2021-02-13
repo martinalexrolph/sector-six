@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { nanoid } from 'nanoid'
+// import { nanoid } from 'nanoid'
 
 export default {
   name: 'Question',
@@ -28,7 +28,8 @@ export default {
   },
   methods: {
     newGame() {
-      this.$router.push({name: 'Game', params: {gameId: nanoid(10)}})
+      // this.$router.push({name: 'Game', params: {gameId: nanoid(10)}})
+      this.$router.push({name: 'New'})
     },
     loadGame() {
       this.$router.push({name: 'Load'})
@@ -67,25 +68,8 @@ export default {
 }
 
 .button {
-  font-family: "Source Code Pro", monospace;
   width: 400px;
-  background: none;
-  border-radius: 4px;
-  border: 1px solid #eee;
   font-size: 30px;
-  font-weight: 400;
-  padding: 10px;
-  outline: none;
-  font-weight: 700;
-  color: #fff;
-  display: block;
-  margin: 0 auto;
-  box-shadow: 0px 0px 6px #49ff4e70, inset 0px 0px 6px #49ff4e70;
-  text-shadow: 0px 0px 6px #49ff4e70;
-}
-
-.button:hover {
-  background: #444
 }
 
 .secondary-buttons .button {
