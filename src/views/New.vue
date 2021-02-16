@@ -12,8 +12,8 @@
     </div>
 
     <div class="secondary-buttons">
-      <button class="button" @click="goHome()">&lt; GO BACK</button>
-      <button class="button" @click="newGame()">BEGIN ></button>
+      <button class="button" @click="goHome()">&lt; MAIN MENU</button>
+      <button class="button" :disabled="!name" @click="newGame()">BEGIN ></button>
     </div>
   </div>
 </template>
@@ -61,10 +61,6 @@ export default {
   width: 300px;
   max-width: calc(50% - 10px);
   margin: 0 5px;
-}
-
-.button:hover {
-  background: #444
 }
 
 .options {

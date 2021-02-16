@@ -1,7 +1,7 @@
 <template>
   <div class="menu-container">
     <div>
-      <div class="title-1">--- LOAD GAME ---</div>
+      <div class="title-1">--- COMPLETED GAMES ---</div>
     </div>
 
     <div class="games">
@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { getIncompleteGames } from '../logic/saving'
+import { getCompletedGames } from '../logic/saving'
 
 export default {
   name: 'Question',
@@ -26,7 +26,7 @@ export default {
     question: Object
   },
   async mounted() {
-    this.games = await getIncompleteGames()
+    this.games = await getCompletedGames()
   },
   data: function() {
     return {

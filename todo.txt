@@ -1,7 +1,7 @@
-[ ] Learn to play
-[ ] Require name to be entered before starting game
-[ ] Game end 
-[ ] View completed games
+[✔] Learn to play
+[✔] Require name to be entered before starting game
+[✔] Game end 
+[✔] View completed games
 [ ] Complete set of prompts for the 'short game'
 [ ] Exit button on home screen
 [ ] Font option

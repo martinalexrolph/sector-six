@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import Game from '../views/Game.vue'
 import Load from '../views/Load.vue'
+import Complete from '../views/Complete.vue'
 import New from '../views/New.vue'
 import Learn from '../views/Learn.vue'
 
@@ -15,6 +16,11 @@ const routes = [
     path: '/load',
     name: 'Load',
     component: Load
+  },
+  {
+    path: '/complete',
+    name: 'Complete',
+    component: Complete
   },
   {
     path: '/new',

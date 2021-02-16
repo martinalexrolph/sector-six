@@ -13,6 +13,7 @@
     <div class="secondary-buttons">
       <button class="button" @click="newGame()">NEW GAME</button>
       <button class="button" @click="loadGame()">LOAD GAME</button>
+      <button class="button" @click="completedGames()">COMPLETED GAMES</button>
       <button class="button">OPTIONS</button>
     </div>
   </div>
@@ -33,6 +34,9 @@ export default {
     },
     loadGame() {
       this.$router.push({name: 'Load'})
+    },
+    completedGames() {
+      this.$router.push({name: 'Complete'})
     },
     learnToPlay() {
       this.$router.push({name: 'Learn'})

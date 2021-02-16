@@ -12,8 +12,11 @@
         </div>
       </div>
     </div>
-    <Compose v-bind:onSubmit="submitAnswer" />
-    <NextQuestion v-bind:question="{text: gameState.questions[0]}"/>
+    <Compose v-if="!gameState.completed" v-bind:onSubmit="submitAnswer" />
+    <NextQuestion v-if="!gameState.completed" v-bind:question="{text: gameState.questions[0]}"/>
+    <div class="outline game-complete" v-if="gameState.completed">
+      <b>Game complete!</b> Start a <router-link to='/new'>new game</router-link> or go to the <router-link to='/'>main menu</router-link>
+    </div>
   </div>
 </template>
 
@@ -50,10 +53,15 @@ export default {
         text: text,
         type: 'answer'
       })
-      this.gameState.messages.push({
-        text: this.gameState.questions.shift(),
-        type: 'question'
-      })
+
+      if (this.gameState.questions.length) {
+        this.gameState.messages.push({
+          text: this.gameState.questions.shift(),
+          type: 'question'
+        })
+      } else {
+        this.gameState.completed = true
+      }
       var container = this.$el.querySelector("#messages");
       container.scrollTop = container.scrollHeight;
 
@@ -92,6 +100,7 @@ export default {
   overflow: scroll;
   flex-grow: 1;
   padding-top: 80px;
+  padding-bottom: 20px;
 }
 
 .home-button {
@@ -101,7 +110,24 @@ export default {
   font-size: 16px;
 }
 
+.game-complete {
+  width: 90%;
+  max-width: 800px;
+  text-align: left;
+  margin: 10px auto;
+}
+
+.button {
+  width: 400px;
+  font-size: 20px;
+  margin: 8px auto;
+}
+
 @media screen and (max-width: 700px) {
+  .main-container {
+    padding-top: 40px;
+  }
+
   .messages {
     width: 100%;
     max-width: initial;
@@ -110,6 +136,12 @@ export default {
     font-size: 16px;
     margin-bottom: 3px;
     margin-top: 0;
+  }
+
+  .game-complete {
+    width: calc(100% - 20px);
+    font-size: 16px;
+    margin: 0 10px 10px;
   }
 }
 </style>

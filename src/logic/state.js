@@ -29,6 +29,7 @@ function newGameState(name) {
 
   return {
     name: name,
+    completed: false,
     introduction: {
       title: "An Oral History of the Rebellion",
       text: `To celebrate the 30th anniversary of the defeat of the Empire at the Battle of Insulata Prime this year, we are interviewing people involved in the conflict. This week, we are speaking to ${name}.`

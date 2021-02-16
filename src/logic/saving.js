@@ -27,11 +27,7 @@ if (/electron/i.test(navigator.userAgent)) {
     console.log(games)
     const result = [];
     Object.keys(games).forEach(k => {
-      result.push({
-        id: k,
-        name: games[k].name,
-        updatedAt: games[k].updatedAt
-      })
+      result.push({ ...games[k], id: k })
     })
     const sorted = result.sort((g1, g2) => (g1.updatedAt < g2.updatedAt) ? 1 : -1)
     return sorted
@@ -75,4 +71,14 @@ if (/electron/i.test(navigator.userAgent)) {
 
 }
 
-export { saveGame, loadGame, getAllGames }
+async function getIncompleteGames() {
+  const allGames = await getAllGames()
+  return allGames.filter(g => !g.completed)
+}
+
+async function getCompletedGames() {
+  const allGames = await getAllGames()
+  return allGames.filter(g => g.completed)
+}
+
+export { saveGame, loadGame, getAllGames, getIncompleteGames, getCompletedGames }
