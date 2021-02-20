@@ -114,7 +114,7 @@ export default {
   width: 90%;
   max-width: 800px;
   text-align: left;
-  margin: 10px auto;
+  margin: 0 auto 10px;
 }
 
 .button {

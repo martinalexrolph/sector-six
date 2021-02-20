@@ -4,7 +4,7 @@
       <div class="title-1">--- NEW GAME ---</div>
     </div>
 
-    <div class="options">
+    <div class="menu-box">
       <div class="input-row">
         <label>NAME:</label>
         <input v-model="name"/>
@@ -61,18 +61,6 @@ export default {
   width: 300px;
   max-width: calc(50% - 10px);
   margin: 0 5px;
-}
-
-.options {
-  width: 100%;
-  box-shadow: 0px 0px 6px #49ff4e70, inset 0px 0px 6px #49ff4e70;
-  background: none;
-  border-radius: 4px;
-  border: 1px solid #eee;
-  height: 460px;
-  padding: 20px;
-  overflow: scroll;
-  text-align: left;
 }
 
 .secondary-buttons {

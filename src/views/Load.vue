@@ -4,7 +4,7 @@
       <div class="title-1">--- LOAD GAME ---</div>
     </div>
 
-    <div class="games">
+    <div class="menu-box">
       <button v-for="game in games" class="button game" :key="game.id" @click="loadGame(game.id)">
         <span class="game-name">{{game.name}}</span><br>{{game.updatedAt}}
         <span class="game-id">{{game.id}}</span>
@@ -65,17 +65,6 @@ export default {
 .secondary-buttons .button {
   font-size: 20px;
   margin: 8px auto;
-}
-
-.games {
-  width: 100%;
-  box-shadow: 0px 0px 6px #49ff4e70, inset 0px 0px 6px #49ff4e70;
-  background: none;
-  border-radius: 4px;
-  border: 1px solid #eee;
-  height: 460px;
-  padding: 20px;
-  overflow: scroll;
 }
 
 .game {

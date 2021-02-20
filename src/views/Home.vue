@@ -2,7 +2,7 @@
   <div class="container">
     <div>
       <div class="title-1">----- MEMORIES OF THE -----</div>
-      <div class="title-2">REBELLION</div>
+      <div class="title-2">UPRISING</div>
       <div class="title-1">----- by Martin Rolph -----</div>
     </div>
 
@@ -14,13 +14,16 @@
       <button class="button" @click="newGame()">NEW GAME</button>
       <button class="button" @click="loadGame()">LOAD GAME</button>
       <button class="button" @click="completedGames()">COMPLETED GAMES</button>
-      <button class="button">OPTIONS</button>
+      <!--<button class="button">OPTIONS</button>-->
+    </div>
+
+    <div class="secondary-buttons">
+      <button class="button" @click="exit()">EXIT</button>
     </div>
   </div>
 </template>
 
 <script>
-// import { nanoid } from 'nanoid'
 
 export default {
   name: 'Question',
@@ -29,7 +32,6 @@ export default {
   },
   methods: {
     newGame() {
-      // this.$router.push({name: 'Game', params: {gameId: nanoid(10)}})
       this.$router.push({name: 'New'})
     },
     loadGame() {
@@ -40,6 +42,9 @@ export default {
     },
     learnToPlay() {
       this.$router.push({name: 'Learn'})
+    },
+    exit() {
+      window.close()
     }
   }
 }
@@ -49,6 +54,7 @@ export default {
 <style scoped>
 .container {
   width: 800px;
+  max-width: calc(100% - 20px);
   height: 100%;
   text-align: center;
   padding: 50px 10px;
@@ -76,12 +82,67 @@ export default {
 
 .button {
   width: 400px;
+}
+
+.primary-button .button {
   font-size: 30px;
 }
 
 .secondary-buttons .button {
-  font-size: 20px;
   margin: 8px auto;
+}
+
+@media screen and (max-height: 700px) {
+  .primary-button .button {
+    font-size: 26px;
+  }
+
+  .button {
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+
+  .title-1 {
+    font-size: 18px;
+  }
+
+  .title-2 {
+    font-size: 80px;
+    line-height: 0.9;
+    margin-bottom: 4px;
+  }
+
+  .container {
+    padding: 15px 10px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .primary-button .button {
+    font-size: 26px;
+  }
+
+  .title-1 {
+    font-size: 20px;
+  }
+
+  .title-2 {
+    font-size: 90px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .primary-button .button {
+    font-size: 18px;
+  }
+
+  .title-1 {
+    font-size: 16px;
+  }
+
+  .title-2 {
+    font-size: 70px;
+  }
 }
 
 

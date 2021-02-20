@@ -4,7 +4,7 @@
       <div class="title-1">--- LEARN TO PLAY ---</div>
     </div>
 
-    <div class="learn">
+    <div class="menu-box">
       <h2>INTRODUCTION</h2>
       <p>
         Memories of the Rebellion is a simple sci-fi journalling game, somewhere between a solo RPG and a creative-writing exercise. The goal is simply to create a memorable character and story, guided by the game, by creating a retrospective interview about your character's experience of an event known simply as the <b>Rebellion</b>.
@@ -80,29 +80,9 @@ export default {
   background: #444
 }
 
-.learn {
-  width: 100%;
-  box-shadow: 0px 0px 6px #49ff4e70, inset 0px 0px 6px #49ff4e70;
-  background: none;
-  border-radius: 4px;
-  border: 1px solid #eee;
-  height: 460px;
-  padding: 20px;
-  overflow: scroll;
-  text-align: left;
-}
-
 .secondary-buttons {
   display: flex;
   justify-content: center;
-}
-
-.learn *:first-child {
-  margin-top: 0;
-}
-
-.learn *:last-child {
-  margin-bottom: 0;
 }
 
 </style>

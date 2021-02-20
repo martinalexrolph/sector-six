@@ -1,4 +1,4 @@
-import { introductoryQuestions } from "./questions"
+import { heroJourney } from "./questions"
 
 function exampleState() {
   return {
@@ -23,9 +23,39 @@ function exampleState() {
   }
 }
 
+// function newGameState(name) {
+//   const introQuestions = introductoryQuestions()
+//   const firstQuestion = introQuestions.shift()
+
+//   return {
+//     name: name,
+//     completed: false,
+//     introduction: {
+//       title: "An Oral History of the Rebellion",
+//       text: `To celebrate the 30th anniversary of the defeat of the Empire at the Battle of Insulata Prime this year, we are interviewing people involved in the conflict. This week, we are speaking to ${name}.`
+//     },
+//     messages: [{
+//       text: firstQuestion,
+//       type: 'question'
+//     },],
+//     questions: introQuestions.concat([
+//       "Before all this started you were working in the Outer Rim - what did you parents do?",
+//       "What was your experience of the Empire growing up?",
+//       "But something happened when you had just turned 22, right? Can you tell us more about that?",
+//       "So maybe that planted the seed for your later involvement, would you say that?",
+//       "When did you first hear about the Rebellion?",
+//       "But I understand you didn't do anything at first - why not?",
+//       "It was around that time that you left your homeworld for the first time, looking for work, right?",
+//       "What was it about your experiences on Artec IV that convinced you to join?",
+//       "Who was your first point of contact with the Rebellion?",
+//       "How hard was it to get in touch with them? I guess they must have been pretty secretive!"
+//     ])
+//   }
+// }
+
 function newGameState(name) {
-  const introQuestions = introductoryQuestions()
-  const firstQuestion = introQuestions.shift()
+  const questions = heroJourney()
+  const firstQuestion = questions.shift()
 
   return {
     name: name,
@@ -38,18 +68,7 @@ function newGameState(name) {
       text: firstQuestion,
       type: 'question'
     },],
-    questions: introQuestions.concat([
-      "Before all this started you were working in the Outer Rim - what did you parents do?",
-      "What was your experience of the Empire growing up?",
-      "But something happened when you had just turned 22, right? Can you tell us more about that?",
-      "So maybe that planted the seed for your later involvement, would you say that?",
-      "When did you first hear about the Rebellion?",
-      "But I understand you didn't do anything at first - why not?",
-      "It was around that time that you left your homeworld for the first time, looking for work, right?",
-      "What was it about your experiences on Artec IV that convinced you to join?",
-      "Who was your first point of contact with the Rebellion?",
-      "How hard was it to get in touch with them? I guess they must have been pretty secretive!"
-    ])
+    questions: questions
   }
 }
 

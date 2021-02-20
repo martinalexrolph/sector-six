@@ -2,6 +2,9 @@
 [✔] Require name to be entered before starting game
 [✔] Game end 
 [✔] View completed games
+[✔] Basic responsiveness
 [ ] Complete set of prompts for the 'short game'
-[ ] Exit button on home screen
+[✔] Exit button on home screen
 [ ] Font option
+
+[ ] On the last question it still says 'Next question', should say 'Last question'
