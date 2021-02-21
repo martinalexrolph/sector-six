@@ -1,6 +1,6 @@
 <template>
   <div class="next-question outline">
-    <b>Next question:</b> <i>{{ question.text }}</i>
+    <i>Next question:</i> <b>{{ question.text }}</b>
   </div>
 </template>
 

@@ -3,7 +3,7 @@
     <textarea
       class="textarea"
       @keypress.enter.prevent="submit(text)"
-      rows="3"
+      rows="4"
       v-model="text"
       enterkeyhint="send"
     />

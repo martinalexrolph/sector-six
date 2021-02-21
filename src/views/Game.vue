@@ -4,12 +4,13 @@
       &lt; HOME
     </button>
     <div class="main-container">
-      <div class="messages" id="messages">
+      <div class="messages">
         <Introduction v-bind:introduction="gameState.introduction"/>
         <div v-for="(message, index) in gameState.messages" v-bind:key="index">
           <Question v-if="message.type === 'question'" v-bind:question="message"/>
           <Answer v-if="message.type === 'answer'" v-bind:answer="message"/>
         </div>
+        <div class="end-of-messages"></div>
       </div>
     </div>
     <Compose v-if="!gameState.completed" v-bind:onSubmit="submitAnswer" />
@@ -62,8 +63,13 @@ export default {
       } else {
         this.gameState.completed = true
       }
-      var container = this.$el.querySelector("#messages");
-      container.scrollTop = container.scrollHeight;
+
+      this.$nextTick(function() {
+        const el = this.$el.getElementsByClassName('end-of-messages')[0];
+        if (el) {
+          el.scrollIntoView({behavior: 'smooth'});
+        }
+      })
 
       saveGame(this.$route.params.gameId, this.gameState)
     },
