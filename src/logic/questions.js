@@ -1,4 +1,5 @@
 import { choose } from './helpers'
+import { theOrdinaryWorld } from './steps/theOrdinaryWorld'
 
 function introductoryQuestions() {
   return firstQuestions().concat(homeworldQuestions())
@@ -28,12 +29,10 @@ function homeworldQuestions() {
 }
 
 function heroJourney() {
-  const theOrdinaryWorld = [
-    "Tell me a little bit about where you grew up",
-    "What was it like living in such a remote part of the galaxy?",
-    "Was it a happy childhood? Your parents, for example, did you get on with them well?",
-    "Did you have any exposure to the Authority during this time?"
-  ]
+  // New params:
+  // home.type (planet, fleet, station, asteroid)
+  // home.location (core, frontier)
+  const step1 = theOrdinaryWorld()
 
   const theCallOfAdventure = [
     "When did you first feel the urge to do something about the Authority?",
@@ -123,8 +122,8 @@ function heroJourney() {
     "What was it like, to finally have hope again?"
   ]
 
-  return [
-    ...theOrdinaryWorld,
+  const result = [
+    ...step1.questions,
     ...theCallOfAdventure,
     ...refusalOfTheCall,
     ...meetingTheMentor,
@@ -137,6 +136,8 @@ function heroJourney() {
     ...resurrection,
     ...returnWithTheElixir
   ]
+
+  return result
 }
 
 export {

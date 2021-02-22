@@ -1,6 +1,7 @@
 <template>
   <div class="next-question outline">
-    <i>Next question:</i> <b>{{ question.text }}</b>
+    <div v-if="question && question.text"><i>Next question:</i> <b>{{ question.text }}</b></div>
+    <div v-if="!(question && question.text)"><b>Final question!</b></div>
   </div>
 </template>
 
