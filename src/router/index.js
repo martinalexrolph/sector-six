@@ -5,6 +5,7 @@ import Load from '../views/Load.vue'
 import Complete from '../views/Complete.vue'
 import New from '../views/New.vue'
 import Learn from '../views/Learn.vue'
+import AllQuestions from '../views/AllQuestions.vue'
 
 const routes = [
   {
@@ -31,6 +32,11 @@ const routes = [
     path: '/learn',
     name: 'Learn',
     component: Learn
+  },
+  {
+    path: '/all-questions',
+    name: 'All Questions',
+    component: AllQuestions
   },
   {
     path: '/game/:gameId',

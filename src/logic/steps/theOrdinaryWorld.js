@@ -1,5 +1,25 @@
 import { choose, firstName } from '../helpers'
 
+/*
+params = {
+  home: {
+    type: 'planet',
+    location:  'frontier'
+  },
+  characters: {
+    childhood: {
+      name: 'Bob',
+      relationship: 'father',
+      gender: 'male'
+    }
+  },
+  adventure: {
+    type: 'homeward', // Or 'rebellion', 'exploration', 'defence'
+    scope: 'individual', // Or 'group', 'faction', 'civilization'
+  }
+}
+*/
+
 function theOrdinaryWorld() {
   const initialParams = {
   }
@@ -8,6 +28,7 @@ function theOrdinaryWorld() {
   const obj2 = q2(obj1.params)
   const obj3 = q3(obj2.params)
   const obj4 = q4(obj3.params)
+  const obj5 = q5(obj4.params)
 
   return {
     questions: [
@@ -15,8 +36,9 @@ function theOrdinaryWorld() {
       obj2.question,
       obj3.question,
       obj4.question,
+      obj5.question,
     ],
-    params: obj4.params
+    params: obj5.params
   }
 }
 
@@ -64,8 +86,8 @@ function q2(params) {
       `such a ${params.home.location === 'core' ? 'central' : 'remote'} station?`
     ],
     'asteroid': [
-      `an asteroid base in the ${params.home.location}?`,
-      `a terraformed asteroid in the ${params.home.location}?`
+      `an asteroid base ${params.home.location === 'core' ? 'at the heart of civilisation' : 'at the edge of civilisation'}?`,
+      `a terraformed asteroid in such a ${params.home.location === 'core' ? 'central' : 'remote'} part of the galaxy?`
     ],
   }
 
@@ -106,8 +128,33 @@ function q4(params) {
   }
 
   return {
-    question: `I sounds like you were especially close to your ${relationship}. Can you tell me a bit more about ${pronouns[gender]}?`,
+    question: `I sounds like you were especially close to your ${relationship} ${name}. Can you tell me a bit more about ${pronouns[gender]}?`,
     params: params
   }
+}
+
+function q5(params) {
+  params.adventure = {
+    type: choose(['homeward', 'rebellion', 'exploration', 'defence']),
+    scope: choose(['individual', 'group', 'faction'])
+  }
+
+  let question
+  switch (params.adventure.type) {
+    case 'homeward':
+      question = "Did you feel, growing up, like this was where you really belonged?"
+      break
+    case 'rebellion':
+      question = "Were you rebellious, growing up?"
+      break
+    case 'exploration':
+      question = "Were you much of an explorer growing up, or did you prefer to stay close to home?"
+      break
+    case 'defence':
+      question = "Did you feel safe and secure growing up?"
+      break
+  }
+
+  return { question, params }
 }
 

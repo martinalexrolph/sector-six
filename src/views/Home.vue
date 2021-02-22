@@ -14,6 +14,7 @@
       <button class="button" @click="newGame()">NEW GAME</button>
       <button class="button" @click="loadGame()">LOAD GAME</button>
       <button class="button" @click="completedGames()">COMPLETED GAMES</button>
+      <button class="button" @click="goTo('All Questions')">TEST ALL QUESTIONS</button>
       <!--<button class="button">OPTIONS</button>-->
     </div>
 
@@ -42,6 +43,9 @@ export default {
     },
     learnToPlay() {
       this.$router.push({name: 'Learn'})
+    },
+    goTo(routeName) {
+      this.$router.push({name: routeName})
     },
     exit() {
       window.close()

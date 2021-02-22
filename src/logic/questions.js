@@ -1,5 +1,6 @@
 import { choose } from './helpers'
 import { theOrdinaryWorld } from './steps/theOrdinaryWorld'
+import { callToAdventure } from './steps/callToAdventure'
 
 function introductoryQuestions() {
   return firstQuestions().concat(homeworldQuestions())
@@ -33,13 +34,14 @@ function heroJourney() {
   // home.type (planet, fleet, station, asteroid)
   // home.location (core, frontier)
   const step1 = theOrdinaryWorld()
+  const step2 = callToAdventure(step1.params)
 
-  const theCallOfAdventure = [
-    "When did you first feel the urge to do something about the Authority?",
-    "Had you left home by this point? Where were you living?",
-    "So the Authority took something very important from you. How did you react?",
-    "So this was a pivotal moment, and you know something had to change."
-  ]
+  // const theCallOfAdventure = [
+  //   "When did you first feel the urge to do something about the Authority?",
+  //   "Had you left home by this point? Where were you living?",
+  //   "So the Authority took something very important from you. How did you react?",
+  //   "So this was a pivotal moment, and you know something had to change."
+  // ]
 
   const refusalOfTheCall = [
     "The early seeds of the Uprising movement were already active where you were living, so why didn't you heed their call?",
@@ -124,7 +126,7 @@ function heroJourney() {
 
   const result = [
     ...step1.questions,
-    ...theCallOfAdventure,
+    ...step2.questions,
     ...refusalOfTheCall,
     ...meetingTheMentor,
     ...crossingTheThreshold,
