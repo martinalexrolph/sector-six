@@ -24,7 +24,44 @@ function firstName(gender) {
   }
 }
 
+function lastName() {
+  return choose([
+    'Skywalker',
+    'Inita',
+    'Oiwha',
+    'Starpath',
+    'Orion',
+    'Bern'
+  ])
+}
+
+function fullName() {
+  return `${firstName()} ${lastName()}`
+}
+
+function numberedPlanet() {
+  const star = choose([
+    'Artik',
+    'Teres',
+    'Threll',
+    'Centaura',
+    'Quirran'
+  ])
+  const number = choose(['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'IIX', 'IX'])
+  return `${star} ${number}`
+}
+
+function place() {
+  return choose([
+    numberedPlanet()
+  ])
+}
+
+
 export {
   choose,
-  firstName
+  firstName,
+  lastName,
+  fullName,
+  place
 }

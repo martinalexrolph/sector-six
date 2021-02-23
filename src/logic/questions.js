@@ -3,6 +3,7 @@ import { theOrdinaryWorld } from './steps/theOrdinaryWorld'
 import { callToAdventure } from './steps/callToAdventure'
 import { refusalOfTheCall } from './steps/refusalOfTheCall'
 import { theMentor } from './steps/theMentor'
+import { theFirstThreshold } from './steps/theFirstThreshold'
 
 function introductoryQuestions() {
   return firstQuestions().concat(homeworldQuestions())
@@ -39,6 +40,7 @@ function heroJourney() {
   const step2 = callToAdventure(step1.params)
   const step3 = refusalOfTheCall(step2.params)
   const step4 = theMentor(step3.params)
+  const step5 = theFirstThreshold(step4.params)
 
   // const theCallOfAdventure = [
   //   "When did you first feel the urge to do something about the Authority?",
@@ -62,15 +64,16 @@ function heroJourney() {
   //   "So this is the moment you really decided to join up? Was the Uprising hard to contact?"
   // ]
 
-  const crossingTheThreshold = [
-    "-=-=-=-",
-    "How did it feel, setting foot in such a strange place looking for such wanted... well, criminals, at that point. Outlaws at the very least.",
-    "Tell me a bit more about the spaceport. I think a lot of people know it as it is now, but it must have been so different back then!",
-    "Who did you meet first?",
-    "So that really was a point of no return, quite literally in a sense!",
-  ]
+  // const crossingTheThreshold = [
+  //   "-=-=-=-",
+  //   "How did it feel, setting foot in such a strange place looking for such wanted... well, criminals, at that point. Outlaws at the very least.",
+  //   "Tell me a bit more about the spaceport. I think a lot of people know it as it is now, but it must have been so different back then!",
+  //   "Who did you meet first?",
+  //   "So that really was a point of no return, quite literally in a sense!",
+  // ]
 
   const testsAlliesEnemies = [
+    '-=-=-=-',
     "Iris? As in, the same Iris that led the assault on Artik IV?",
     "What was it like meeting her? Did you get a sense at the time of the massive role she would play?",
     "What was your first mission?",
@@ -135,7 +138,7 @@ function heroJourney() {
     ...step2.questions,
     ...step3.questions,
     ...step4.questions,
-    ...crossingTheThreshold,
+    ...step5.questions,
     ...testsAlliesEnemies,
     ...theApproach,
     ...theOrdeal,

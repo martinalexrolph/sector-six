@@ -15,7 +15,8 @@ params = {
   },
   adventure: {
     type: 'homeward', // Or 'rebellion', 'exploration', 'defence'
-    scope: 'individual', // Or 'group', 'faction'
+    scope: 'individual', // Or 'group', 'faction',
+    location: 'Unknown Regions' // if it's an exploration
   }
 }
 */
