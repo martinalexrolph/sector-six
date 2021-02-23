@@ -1,6 +1,8 @@
 import { choose } from './helpers'
 import { theOrdinaryWorld } from './steps/theOrdinaryWorld'
 import { callToAdventure } from './steps/callToAdventure'
+import { refusalOfTheCall } from './steps/refusalOfTheCall'
+import { theMentor } from './steps/theMentor'
 
 function introductoryQuestions() {
   return firstQuestions().concat(homeworldQuestions())
@@ -35,6 +37,8 @@ function heroJourney() {
   // home.location (core, frontier)
   const step1 = theOrdinaryWorld()
   const step2 = callToAdventure(step1.params)
+  const step3 = refusalOfTheCall(step2.params)
+  const step4 = theMentor(step3.params)
 
   // const theCallOfAdventure = [
   //   "When did you first feel the urge to do something about the Authority?",
@@ -43,21 +47,23 @@ function heroJourney() {
   //   "So this was a pivotal moment, and you know something had to change."
   // ]
 
-  const refusalOfTheCall = [
-    "The early seeds of the Uprising movement were already active where you were living, so why didn't you heed their call?",
-    "Looking back, do you wish that you had done things differently, joined up then?",
-    "How did it feel, going back to your old life after all this?"
-  ]
+  // const refusalOfTheCall = [
+  //   "The early seeds of the Uprising movement were already active where you were living, so why didn't you heed their call?",
+  //   "Looking back, do you wish that you had done things differently, joined up then?",
+  //   "How did it feel, going back to your old life after all this?"
+  // ]
 
-  const meetingTheMentor = [
-    "But we know, since we're having this conversation, that you did eventually join up. What changed?",
-    "How did Ada convince you to join?",
-    "Did you feel equipped to join up, like you had useful skills to offer?",
-    "So Ada trained you, but I sense that she meant more to you than that. What was your relationship with her like?",
-    "So this is the moment you really decided to join up? Was the Uprising hard to contact?"
-  ]
+  // const meetingTheMentor = [
+  //   "-=-=-=-",
+  //   "But we know, since we're having this conversation, that you did eventually join up. What changed?",
+  //   "How did Ada convince you to join?",
+  //   "Did you feel equipped to join up, like you had useful skills to offer?",
+  //   "So Ada trained you, but I sense that she meant more to you than that. What was your relationship with her like?",
+  //   "So this is the moment you really decided to join up? Was the Uprising hard to contact?"
+  // ]
 
   const crossingTheThreshold = [
+    "-=-=-=-",
     "How did it feel, setting foot in such a strange place looking for such wanted... well, criminals, at that point. Outlaws at the very least.",
     "Tell me a bit more about the spaceport. I think a lot of people know it as it is now, but it must have been so different back then!",
     "Who did you meet first?",
@@ -127,8 +133,8 @@ function heroJourney() {
   const result = [
     ...step1.questions,
     ...step2.questions,
-    ...refusalOfTheCall,
-    ...meetingTheMentor,
+    ...step3.questions,
+    ...step4.questions,
     ...crossingTheThreshold,
     ...testsAlliesEnemies,
     ...theApproach,
