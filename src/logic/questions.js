@@ -4,6 +4,7 @@ import { callToAdventure } from './steps/callToAdventure'
 import { refusalOfTheCall } from './steps/refusalOfTheCall'
 import { theMentor } from './steps/theMentor'
 import { theFirstThreshold } from './steps/theFirstThreshold'
+import { testsAlliesEnemies } from './steps/testAlliesEnemies'
 
 function introductoryQuestions() {
   return firstQuestions().concat(homeworldQuestions())
@@ -41,6 +42,7 @@ function heroJourney() {
   const step3 = refusalOfTheCall(step2.params)
   const step4 = theMentor(step3.params)
   const step5 = theFirstThreshold(step4.params)
+  const step6 = testsAlliesEnemies(step5.params)
 
   // const theCallOfAdventure = [
   //   "When did you first feel the urge to do something about the Authority?",
@@ -72,20 +74,20 @@ function heroJourney() {
   //   "So that really was a point of no return, quite literally in a sense!",
   // ]
 
-  const testsAlliesEnemies = [
-    '-=-=-=-',
-    "Iris? As in, the same Iris that led the assault on Artik IV?",
-    "What was it like meeting her? Did you get a sense at the time of the massive role she would play?",
-    "What was your first mission?",
-    "Can you tell me a little bit about the people who you went on that mission with?",
-    "What happened? Did you achieve your goal?",
-    "He sounds like a nasty piece of work!",
-    "Crazy that on your first mission you cross paths with the First Hand of the Authority... I don't envy you!",
-    "Tell me about another of your missions.",
-    "What was going through your head at that moment of betrayal?",
-    "Did you get a sense of any weaknesses as a result of this?",
-    "So by this point, you really knew what had to be done to take down the Authority."
-  ]
+  // const testsAlliesEnemies = [
+  //   '-=-=-=-',
+  //   "Iris? As in, the same Iris that led the assault on Artik IV?",
+  //   "What was it like meeting her? Did you get a sense at the time of the massive role she would play?",
+  //   "What was your first mission?",
+  //   "Can you tell me a little bit about the people who you went on that mission with?",
+  //   "What happened? Did you achieve your goal?",
+  //   "He sounds like a nasty piece of work!",
+  //   "Crazy that on your first mission you cross paths with the First Hand of the Authority... I don't envy you!",
+  //   "Tell me about another of your missions.",
+  //   "What was going through your head at that moment of betrayal?",
+  //   "Did you get a sense of any weaknesses as a result of this?",
+  //   "So by this point, you really knew what had to be done to take down the Authority."
+  // ]
 
   const theApproach = [
     "But knowing what has to be done, that's not enough on it's own. You needed a plan.",
@@ -139,7 +141,7 @@ function heroJourney() {
     ...step3.questions,
     ...step4.questions,
     ...step5.questions,
-    ...testsAlliesEnemies,
+    ...step6.questions,
     ...theApproach,
     ...theOrdeal,
     ...seizingTheSword,
