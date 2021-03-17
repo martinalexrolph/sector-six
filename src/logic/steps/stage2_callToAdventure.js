@@ -50,7 +50,7 @@ function q1(p) {
     } else if (p.scope === 'society') {
       return `Do you remember where you were when you first learnt that there was an expedition from your ${p.locations.home.type} to the ${p.locations.unexplored.name}?`
     } else if (p.scope === 'civilisation') {
-      return `Do you remember where you were when you first learnt about the ${p.organisations.good}'s expedition to the ${p.locations.unexplored.name} which your ${p.home.type} was contributing to?`
+      return `Do you remember where you were when you first learnt about the ${p.organisations.good}'s expedition to the ${p.locations.unexplored.name} which your ${p.locations.home.type} was contributing to?`
     }
   }
 
