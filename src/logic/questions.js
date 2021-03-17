@@ -1,10 +1,13 @@
 import { choose } from './helpers'
-import { theOrdinaryWorld } from './steps/theOrdinaryWorld'
-import { callToAdventure } from './steps/callToAdventure'
-import { refusalOfTheCall } from './steps/refusalOfTheCall'
-import { theMentor } from './steps/theMentor'
-import { theFirstThreshold } from './steps/theFirstThreshold'
-import { testsAlliesEnemies } from './steps/testAlliesEnemies'
+import { getParams } from './params'
+import { theOrdinaryWorld } from './steps/stage1_theOrdinaryWorld'
+import { callToAdventure } from './steps/stage2_callToAdventure'
+import { refusalOfTheCall } from './steps/stage3_refusalOfTheCall'
+// import { refusalOfTheCall } from './steps/refusalOfTheCall'
+// import { theMentor } from './steps/theMentor'
+// import { theFirstThreshold } from './steps/theFirstThreshold'
+// import { testsAlliesEnemies } from './steps/testAlliesEnemies'
+// import { approachInnermostCave } from './steps/approachInnermostCave'
 
 function introductoryQuestions() {
   return firstQuestions().concat(homeworldQuestions())
@@ -37,12 +40,16 @@ function heroJourney() {
   // New params:
   // home.type (planet, fleet, station, asteroid)
   // home.location (core, frontier)
-  const step1 = theOrdinaryWorld()
-  const step2 = callToAdventure(step1.params)
-  const step3 = refusalOfTheCall(step2.params)
-  const step4 = theMentor(step3.params)
-  const step5 = theFirstThreshold(step4.params)
-  const step6 = testsAlliesEnemies(step5.params)
+
+  const params = getParams();
+
+  // const step1 = theOrdinaryWorld()
+  // const step2 = callToAdventure(step1.params)
+  // const step3 = refusalOfTheCall(step2.params)
+  // const step4 = theMentor(step3.params)
+  // const step5 = theFirstThreshold(step4.params)
+  // const step6 = testsAlliesEnemies(step5.params)
+  // const step7 = approachInnermostCave(step6.params)
 
   // const theCallOfAdventure = [
   //   "When did you first feel the urge to do something about the Authority?",
@@ -89,65 +96,67 @@ function heroJourney() {
   //   "So by this point, you really knew what had to be done to take down the Authority."
   // ]
 
-  const theApproach = [
-    "But knowing what has to be done, that's not enough on it's own. You needed a plan.",
-    "Why did the plan require you to travel to Theria?",
-    "Not everyone had the courage to stick around for this. Did anyone you know leave at this point?",
-    "How did it feel to lose someone like that? Did it test your commitment?",
-    "Where did the preparation take place?",
-    "Who was on the team for the final push?"
-  ]
+  // const theApproach = [
+  //   "But knowing what has to be done, that's not enough on it's own. You needed a plan.",
+  //   "Why did the plan require you to travel to Theria?",
+  //   "Not everyone had the courage to stick around for this. Did anyone you know leave at this point?",
+  //   "How did it feel to lose someone like that? Did it test your commitment?",
+  //   "Where did the preparation take place?",
+  //   "Who was on the team for the final push?"
+  // ]
 
-  const theOrdeal = [
-    "So you travelled to Theria. Was the journey eventful?",
-    "What was your role when you arrived?",
-    "How did that go?",
-    "So despite the setback, ultimately the first step was complete. What next?",
-    "Do you know why the First Hand was there? Had he been tipped off?",
-    "How frustrating that he got away! But at least you got out alive too.",
-    "And so, with the help of your squadmates, you finally came to the final goal of the mission. Talk me through what you had to do here?",
-    "And with the Authority standing between you and your goal...",
-    "That's such a price to pay for striking against the Authority. What was going through your mind at that moment?"
-  ]
+  // const theOrdeal = [
+  //   "So you travelled to Theria. Was the journey eventful?",
+  //   "What was your role when you arrived?",
+  //   "How did that go?",
+  //   "So despite the setback, ultimately the first step was complete. What next?",
+  //   "Do you know why the First Hand was there? Had he been tipped off?",
+  //   "How frustrating that he got away! But at least you got out alive too.",
+  //   "And so, with the help of your squadmates, you finally came to the final goal of the mission. Talk me through what you had to do here?",
+  //   "And with the Authority standing between you and your goal...",
+  //   "That's such a price to pay for striking against the Authority. What was going through your mind at that moment?"
+  // ]
 
-  const seizingTheSword = [
-    "I wouldn't have thought that was a difficult choice... you were at your goal, why couldn't you just finish the job?",
-    "Right, so it might not have been done in the way you expected but you did manage to carry out the task."
-  ]
+  // const seizingTheSword = [
+  //   "I wouldn't have thought that was a difficult choice... you were at your goal, why couldn't you just finish the job?",
+  //   "Right, so it might not have been done in the way you expected but you did manage to carry out the task."
+  // ]
 
-  const theRoadBack = [
-    "That wasn't in the plan, right? You were supposed to be leaving straight away - what kept you?",
-    "Did you manage to escape?",
-    "How many of your teammates made it out?",
-    "What happened on the way back?",
-    "So you had no choice but to turn around. That must have been agonising, after going through so much."
-  ]
+  // const theRoadBack = [
+  //   "That wasn't in the plan, right? You were supposed to be leaving straight away - what kept you?",
+  //   "Did you manage to escape?",
+  //   "How many of your teammates made it out?",
+  //   "What happened on the way back?",
+  //   "So you had no choice but to turn around. That must have been agonising, after going through so much."
+  // ]
 
-  const resurrection = [
-    "What did you have to do?",
-    "After all this, you finally faced off against the First Hand and defeated him. How?",
-    "Everything that you had been through seemed to lead up to this point. Do you think you could have managed this even three months before?",
-    "How did it feel, facing off against someone who had stood in your way for so long?"
-  ]
+  // const resurrection = [
+  //   "What did you have to do?",
+  //   "After all this, you finally faced off against the First Hand and defeated him. How?",
+  //   "Everything that you had been through seemed to lead up to this point. Do you think you could have managed this even three months before?",
+  //   "How did it feel, facing off against someone who had stood in your way for so long?"
+  // ]
 
-  const returnWithTheElixir = [
-    "Now I know this wasn't the end of the war by any means, but did it feel like a turning point to you?",
-    "What was it like, to finally have hope again?"
-  ]
+  // const returnWithTheElixir = [
+  //   "Now I know this wasn't the end of the war by any means, but did it feel like a turning point to you?",
+  //   "What was it like, to finally have hope again?"
+  // ]
 
   const result = [
-    ...step1.questions,
-    ...step2.questions,
-    ...step3.questions,
-    ...step4.questions,
-    ...step5.questions,
-    ...step6.questions,
-    ...theApproach,
-    ...theOrdeal,
-    ...seizingTheSword,
-    ...theRoadBack,
-    ...resurrection,
-    ...returnWithTheElixir
+    ...theOrdinaryWorld(params),
+    ...callToAdventure(params),
+    ...refusalOfTheCall(params)
+    // ...step2.questions,
+    // ...step3.questions,
+    // ...step4.questions,
+    // ...step5.questions,
+    // ...step6.questions,
+    // ...step7.questions,
+    // ...theOrdeal,
+    // ...seizingTheSword,
+    // ...theRoadBack,
+    // ...resurrection,
+    // ...returnWithTheElixir
   ]
 
   return result
