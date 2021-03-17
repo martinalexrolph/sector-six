@@ -1,4 +1,4 @@
-import { choose, firstName } from '../helpers'
+import { choose } from '../helpers'
 
 /*
 params = {
@@ -34,93 +34,54 @@ params = {
   //   "So this is the moment you really decided to join up? Was the Uprising hard to contact?"
   // ]
 
-function theMentor(params) {
-  const obj1 = q1(params)
-  const obj2 = q2(obj1.params)
-  const obj3 = q3(obj2.params)
-  const obj4 = q4(obj3.params)
-  const obj5 = q5(obj3.params)
-
-  return {
-    questions: [
-      obj1.question,
-      obj2.question,
-      obj3.question,
-      obj4.question,
-      obj5.question,
-    ],
-    params: obj5.params
-  }
+function theMentor(p) {
+  return [q1(p), q2(p), q3(p), q4(p), q5(p)]
 }
 
 export {theMentor}
 
-function q1(params) {
-  let question = `Why didn't you feel ready?`
-
-  return {
-    question, params
-  }
+function q1() {
+  return `Why didn't you feel ready?`
 }
 
-function q2(params) {
-  let question = 'Did you know at the time what it was that you really needed to learn? Or was that something you only found out later?'
-
-  return {
-    question, params
-  }
+function q2() {
+  return 'Did you know at the time what it was that you really needed to learn? Or was that something you only found out later?'
 }
 
-function q3(params) {
-
-  const gender = choose(['male', 'female', 'neutral'])
-  const name = firstName(gender)
+function q3(p) {
   const pronouns = {
     male: 'him',
     female: 'her',
     neutral: 'them'
   }
+  const mentor = p.characters.mentor
 
-
-  const question = choose([
-    `It's interesting to me that so few people know about how much of a pivotal role ${name} played for you. What was so important about ${pronouns[gender]}?`,
-    `That you trained under ${name} is well known, but can you share something about ${pronouns[gender]} that not many other people know?`
+  return choose([
+    `It's interesting to me that so few people know about how much of a pivotal role ${mentor.name} played for you. What was so important about ${pronouns[mentor.gender]}?`,
+    `That you trained under ${mentor.name} is well known, but can you share something about ${pronouns[mentor.gender]} that not many other people know?`
   ])
-
-  params.characters.mentor = { name, gender }
-
-  return {
-    question, params
-  }
 }
 
-function q4(params) {
+function q4(p) {
   const pronouns = {
     male: 'him',
     female: 'her',
     neutral: 'them'
   }
 
-  let question = `Did ${params.characters[choose(['refusal', 'childhood'])].name} approve of you training with ${pronouns[params.characters.mentor.gender]}?`
-
-  return {
-    question, params
-  }
+  return `Did ${p.characters[choose(['refusal', 'childhood'])].name} approve of you training with ${pronouns[p.characters.mentor.gender]}?`
 }
 
-function q5(params) {
+function q5(p) {
   const pronouns = {
     male: 'him',
     female: 'her',
     neutral: 'them'
   }
+  const mentor = p.characters.mentor
 
-  const question = choose([
-    `I sense that ${params.characters.mentor.name} was more to you than just a ${choose(['teacher', 'trainer', 'mentor'])} - what was your relationship with ${pronouns[params.characters.mentor.gender]} like?`,
+  return choose([
+    `I sense that ${mentor.name} was more to you than just a ${choose(['teacher', 'trainer', 'mentor'])} - what was your relationship with ${pronouns[mentor.gender]} like?`,
     `I sense an undertone of ${choose(['resentment', 'bitterness', 'unhappiness'])} when you talk about your training. Did you not get on well?`,
   ])
-
-  return {
-    question, params
-  }
 }

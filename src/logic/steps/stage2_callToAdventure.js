@@ -1,4 +1,4 @@
-import { choose } from '../helpers'
+// import { choose } from '../helpers'
 
 /*
 params = {
@@ -22,7 +22,7 @@ params = {
 */
 
 function callToAdventure(p) {
-  return [q1(p), q2(p), q3(p)]
+  return [q1(p), q2(p)]
 }
 
 export {callToAdventure}
@@ -84,11 +84,11 @@ function q2(p) {
   return '-'
 }
 
-function q3() {
-  return choose(
-    'So in a sense it was luck - and bad luck at that! - which set you on your path?',
-    'So this was very much your own calling?',
-    'What was it they said that convinced you to try?',
-    "Do you think you'd have tried if you hadn't been asked to?"
-  )
-}
+// function q3() {
+//   return choose(
+//     'So in a sense it was luck - and bad luck at that! - which set you on your path?',
+//     'So this was very much something that you stumbled upon on?',
+//     'What was it they said that convinced you to try?',
+//     "Do you think you'd have tried if you hadn't been asked to?"
+//   )
+// }

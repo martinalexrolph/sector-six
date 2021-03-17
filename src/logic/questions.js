@@ -3,8 +3,7 @@ import { getParams } from './params'
 import { theOrdinaryWorld } from './steps/stage1_theOrdinaryWorld'
 import { callToAdventure } from './steps/stage2_callToAdventure'
 import { refusalOfTheCall } from './steps/stage3_refusalOfTheCall'
-// import { refusalOfTheCall } from './steps/refusalOfTheCall'
-// import { theMentor } from './steps/theMentor'
+import { theMentor } from './steps/stage4_theMentor'
 // import { theFirstThreshold } from './steps/theFirstThreshold'
 // import { testsAlliesEnemies } from './steps/testAlliesEnemies'
 // import { approachInnermostCave } from './steps/approachInnermostCave'
@@ -145,7 +144,8 @@ function heroJourney() {
   const result = [
     ...theOrdinaryWorld(params),
     ...callToAdventure(params),
-    ...refusalOfTheCall(params)
+    ...refusalOfTheCall(params),
+    ...theMentor(params),
     // ...step2.questions,
     // ...step3.questions,
     // ...step4.questions,

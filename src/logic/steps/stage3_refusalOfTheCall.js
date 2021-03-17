@@ -50,8 +50,26 @@ function q2(p) {
   return `${prefix} ${link} with ${p.characters.refusal.name} that made you more reluctant?`
 }
 
-function q3() {
-  return 'But eventually you must have changed your mind. What happened?'
+function q3(p) {
+  let action = ''
+  if (p.scope === 'personal') {
+    if (p.plot === 'find home') {
+      action = 'start looking for your ancestral home'
+    } else if (p.plot === 'explore') {
+      action = 'start planning an expedition'
+    } else if (p.plot === 'rebel') {
+      action = 'start fighting back'
+    }
+  } else {
+    if (p.plot === 'find home') {
+      action = 'join the search for your ancestral home'
+    } else if (p.plot === 'explore') {
+      action = 'join the expedition'
+    } else if (p.plot === 'rebel') {
+      action = 'join the uprising'
+    }
+    return `But we know, since we're having this conversation, that you did eventually ${action}. What changed?`
+  }
 }
 
 function q4() {
