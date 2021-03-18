@@ -22,9 +22,11 @@ import { choose, character, location } from "./helpers";
 function getParams() {
   const params = {
     plot: choose('rebel', 'explore', 'find home'),
-    // plot: 'explore',
+    // plot: 'rebel',
     scope: choose('individual', 'society', 'civilisation'),
-    armature: choose('loyalty', 'honesty', 'authenticity'),
+    // scope: 'civilisation',
+    // armature: choose('loyalty', 'honesty', 'authenticity'),
+    armature: 'loyalty',
     organisations: {
       evil: choose('Regime', 'Authority', 'Imperium', 'Alliance', 'Dynasty', 'Administration', 'Syndicate'),
       good: choose('Alliance', 'Collective', 'Senate', 'Union')
@@ -42,7 +44,7 @@ function getParams() {
     },
     locations: {
       home: location(),
-      // home: {name: 'Xyzzy', type: 'fleet', region: 'core'},
+      // home: {name: 'Xyzzy', type: 'moon', region: 'core'},
       mentor: location(),
       unexplored: {
         name: choose('Unknown Regions', 'Outer Rim', 'Gateway Systems', 'Great Nebula', 'Abyss'),

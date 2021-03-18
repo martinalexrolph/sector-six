@@ -170,5 +170,9 @@ function q10(p) {
     return `I can't imagine growing up in the confines of an asteroid could have prepared you for anything like that!`
   } else if (p.locations.home.type === 'station') {
     return `I can't imagine growing up in the confines of a station could have prepared you for anything like that!`
+  } else if (p.locations.home.type === 'city') {
+    return `I can't imagine growing up in a city like ${p.locations.home.name} could have prepared you for anything like that!`
+  } else if (p.locations.home.type === 'moon') {
+    return `I can't imagine growing up on ${p.locations.home.name} could have prepared you for anything like that!`
   }
 }
