@@ -52,7 +52,7 @@ function q2(p) {
 
 function q3(p) {
   let action = ''
-  if (p.scope === 'personal') {
+  if (p.scope === 'individual') {
     if (p.plot === 'find home') {
       action = 'start looking for your ancestral home'
     } else if (p.plot === 'explore') {
@@ -68,8 +68,8 @@ function q3(p) {
     } else if (p.plot === 'rebel') {
       action = 'join the uprising'
     }
-    return `But we know, since we're having this conversation, that you did eventually ${action}. What changed?`
   }
+  return `But we know, since we're having this conversation, that you did eventually ${action}. What changed?`
 }
 
 function q4() {

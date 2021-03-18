@@ -3,10 +3,10 @@ plot:
   rebel
   explore
   defend
-  reclaim
+  find home
 
 scope:
-  personal
+  individual
   society
   civilisation
 
@@ -22,6 +22,7 @@ import { choose, character, location } from "./helpers";
 function getParams() {
   const params = {
     plot: choose('rebel', 'explore', 'find home'),
+    // plot: 'explore',
     scope: choose('individual', 'society', 'civilisation'),
     armature: choose('loyalty', 'honesty', 'authenticity'),
     organisations: {
@@ -34,15 +35,20 @@ function getParams() {
       mentor: character(),
       nemesis: character(),
       ally: character(),
-      enemy: character()
+      enemy: {
+        ...character(),
+        title: 'First Hand'
+      }
     },
     locations: {
       home: location(),
+      // home: {name: 'Xyzzy', type: 'fleet', region: 'core'},
       mentor: location(),
       unexplored: {
         name: choose('Unknown Regions', 'Outer Rim', 'Gateway Systems', 'Great Nebula', 'Abyss'),
         type: 'sector'
-      }
+      },
+      climax: location()
     }
   };
 
