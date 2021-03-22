@@ -107,8 +107,8 @@ function q3(p) {
       return `That's quite a story! Was it true?`
     case 'loyalty':
       return `Did ${pronouns1[p.characters.ally.gender]} keep ${pronouns2[p.characters.ally.gender]} word?`
-    case 'authenticity':
-      return `Do you think ${pronouns3[p.characters.ally.gender]} really being honest with ${pronouns4[p.characters.ally.gender]}?`
+    // case 'authenticity':
+    //   return `Do you think ${pronouns3[p.characters.ally.gender]} really being honest with ${pronouns4[p.characters.ally.gender]}?`
   }
 }
 
@@ -148,8 +148,8 @@ function q7(p) {
 function q8(p) {
   const character = choose(p.characters.mentor, p.characters.refusal, p.characters.ally)
   switch (p.armature) {
-    case 'authenticity':
-      return `What made you think you were the best person for that job? Surely things would have been easier if you'd left that to ${character.name}?`
+    // case 'authenticity':
+    //   return `What made you think you were the best person for that job? Surely things would have been easier if you'd left that to ${character.name}?`
     case 'loyalty':
       return `${character.name} had every reason to expect your support. Why give your word when you wouldn't keep it?`
     case 'honesty':

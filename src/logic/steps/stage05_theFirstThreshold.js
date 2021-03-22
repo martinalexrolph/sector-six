@@ -102,8 +102,8 @@ function q5(p) {
       return `I'm glad that ${p.characters.refusal.name} gave you a second chance to prove your loyalty. Did you feel like you had to regain ${pronouns1[p.characters.refusal.gender]} trust?`
     case 'honesty':
       return `Do you think ${p.characters.refusal.name} believed you? After all, you'd lied to ${pronouns2[p.characters.refusal.gender]} before.`
-    case 'authenticity':
-      return `That must have been quite unfamiliar. After all, you could no longer just follow ${p.characters.refusal.name}'s example, or indeed anyone else's.`
+    // case 'authenticity':
+    //   return `That must have been quite unfamiliar. After all, you could no longer just follow ${p.characters.refusal.name}'s example, or indeed anyone else's.`
   }
 }
 

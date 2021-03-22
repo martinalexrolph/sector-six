@@ -14,7 +14,7 @@ armature:
   loyalty
   love
   honesty
-  authenticity
+  // authenticity
 */
 
 import { choose, character, location } from "./helpers";
@@ -25,7 +25,7 @@ function getParams() {
     // plot: 'rebel',
     // scope: choose('individual', 'society', 'civilisation'),
     scope: 'civilisation',
-    armature: choose('loyalty', 'honesty', 'authenticity'),
+    armature: choose('loyalty', 'honesty'),
     // armature: 'loyalty',
     organisations: {
       evil: choose('Regime', 'Authority', 'Imperium', 'Alliance', 'Dynasty', 'Administration', 'Syndicate'),

@@ -32,17 +32,14 @@ function q3(p) {
     'rebel': {
       'loyalty': `You had every reason to believe ${p.characters.ally.name} was loyal... how could ${he[p.characters.ally.gender]} betray you?`,
       'honesty': `So everything ${p.characters.ally.name} told you was a lie? How did you find out?`,
-      'authenticity': `ra`,
     },
     'explore': {
       'loyalty': `I understand that this wasn't an obvious choice but the crew said they'd support you whatever decision you made, so why did ${p.characters.ally.name} go behind your back?`,
       'honesty': `At what point did you find out that ${p.characters.ally.name} had lied to you and hadn't actually managed to do that?`,
-      'authenticity': `ea`,
     },
     'find home': {
       'loyalty': `This discovery had such huge ramifications, not least for you personally... so surely ${p.characters.ally.name} must have known that you wouldn't have wanted them to do that?`,
       'honesty': `How did you find out that ${p.characters.ally.name} had lied to you?`,
-      'authenticity': `fa`,
     }
   }
 

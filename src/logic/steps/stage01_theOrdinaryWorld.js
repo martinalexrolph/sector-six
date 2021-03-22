@@ -95,7 +95,7 @@ function q6(p) {
       return `Why did ${pronouns[character.gender]} leave you like that, do you know?`
     case 'honesty':
       return `Why do you think ${pronouns[character.gender]} lied to you about that?`
-    case 'authenticity':
-      return `Why do you think ${pronouns[character.gender]} tried so hard to fit in?`
+    // case 'authenticity':
+    //   return `Why do you think ${pronouns[character.gender]} tried so hard to fit in?`
   }
 }

@@ -60,13 +60,13 @@ function q5(p) {
     return `How did it feel to be abandoned like that?`
   } else if (p.armature === 'honesty') {
     return `How did it feel to be lied to like that?`
-  } else if (p.armature === 'authenticity') {
-    return choose(
-      `If only he'd accepted that his actual skills were just as useful!`,
-      `If only she'd accepted that her actual skills were just as useful!`,
-      `If only they'd accepted that their actual skills were just as useful!`
-    )
-  }
+  } // else if (p.armature === 'authenticity') {
+  //   return choose(
+  //     `If only he'd accepted that his actual skills were just as useful!`,
+  //     `If only she'd accepted that her actual skills were just as useful!`,
+  //     `If only they'd accepted that their actual skills were just as useful!`
+  //   )
+  // }
 }
 
 function q6() {

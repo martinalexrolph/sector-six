@@ -40,8 +40,8 @@ function q2(p) {
       return `So ${p.characters.refusal.name} actually asked you to, and despite everything that ${pronouns1[p.characters.refusal.gender]} meant to you, you abandoned ${pronouns2[p.characters.refusal.gender]}?`
     case 'honesty':
       return `Why did you lie to ${p.characters.refusal.name} about that? After everything you two had been through together?`
-    case 'authenticity':
-      return `Why did you try to do what ${p.characters.refusal.name} did? I know you two were close but surely you could tell that wasn't the right path for you?`
+    // case 'authenticity':
+    //   return `Why did you try to do what ${p.characters.refusal.name} did? I know you two were close but surely you could tell that wasn't the right path for you?`
   }
 
 
