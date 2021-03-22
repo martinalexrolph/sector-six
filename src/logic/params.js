@@ -22,9 +22,9 @@ import { choose, character, location } from "./helpers";
 function getParams() {
   const params = {
     plot: choose('rebel', 'explore', 'find home'),
-    // plot: 'explore',
-    scope: choose('individual', 'society', 'civilisation'),
-    // scope: 'civilisation',
+    // plot: 'rebel',
+    // scope: choose('individual', 'society', 'civilisation'),
+    scope: 'civilisation',
     armature: choose('loyalty', 'honesty', 'authenticity'),
     // armature: 'loyalty',
     organisations: {

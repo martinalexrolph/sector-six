@@ -1,22 +1,7 @@
 import { choose } from '../helpers'
 
-
-
-  // const theOrdeal = [
-  //   "So you travelled to Theria. Was the journey eventful?",
-  //   "What was your role when you arrived?",
-  //   "How did that go?",
-  //   "So despite the setback, ultimately the first step was complete. What next?",
-  //   "Do you know why the First Hand was there? Had he been tipped off?",
-  //   "How frustrating that he got away! But at least you got out alive too.",
-  //   "And so, with the help of your squadmates, you finally came to the final goal of the mission. Talk me through what you had to do here?",
-  //   "And with the Authority standing between you and your goal...",
-  //   "That's such a price to pay for striking against the Authority. What was going through your mind at that moment?"
-  // ]
-
-
 function theReward(p) {
-  return [q1(p), q2(p), q3(p), q4(p)]
+  return [q1(p), q2(p), /*q3(p)*/]
 }
 
 export {theReward}
@@ -42,12 +27,11 @@ function q2(p) {
   return `Incredible! After enduring so much, finally you ${choose(rewards)}. How did that feel?`
 }
 
-function q3() {
-  choose(
-    `Can you explain why this was such a big deal?`,
-    `What did you expect the consequences of this would be?`
-  )
-}
+// function q3() {
+//   return choose(
+//     `What did you expect the consequences of this would be?`
+//   )
+// }
 
 // function q3() {
 //   return choose(

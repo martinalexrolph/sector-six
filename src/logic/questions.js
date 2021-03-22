@@ -1,14 +1,15 @@
 import { choose } from './helpers'
 import { getParams } from './params'
-import { theOrdinaryWorld } from './steps/stage1_theOrdinaryWorld'
-import { callToAdventure } from './steps/stage2_callToAdventure'
-import { refusalOfTheCall } from './steps/stage3_refusalOfTheCall'
-import { theMentor } from './steps/stage4_theMentor'
-import { theFirstThreshold } from './steps/stage5_theFirstThreshold'
-import { testsAlliesEnemies } from './steps/stage6_testAlliesEnemies'
-import { approachInnermostCave } from './steps/stage7_approachInnermostCave'
-import { theOrdeal } from './steps/stage7_theOrdeal'
-import { theReward } from './steps/stage9_theReward'
+import { theOrdinaryWorld } from './steps/stage01_theOrdinaryWorld'
+import { callToAdventure } from './steps/stage02_callToAdventure'
+import { refusalOfTheCall } from './steps/stage03_refusalOfTheCall'
+import { theMentor } from './steps/stage04_theMentor'
+import { theFirstThreshold } from './steps/stage05_theFirstThreshold'
+import { testsAlliesEnemies } from './steps/stage06_testAlliesEnemies'
+import { approachInnermostCave } from './steps/stage07_approachInnermostCave'
+import { theOrdeal } from './steps/stage08_theOrdeal'
+import { theReward } from './steps/stage09_theReward'
+import { theRoadBack } from './steps/stage10_theRoadBack'
 // import { testsAlliesEnemies } from './steps/testAlliesEnemies'
 // import { approachInnermostCave } from './steps/approachInnermostCave'
 
@@ -155,6 +156,7 @@ function heroJourney() {
     ...approachInnermostCave(params),
     ...theOrdeal(params),
     ...theReward(params),
+    ...theRoadBack(params),
     // ...step2.questions,
     // ...step3.questions,
     // ...step4.questions,
