@@ -92,16 +92,16 @@ function q3(p) {
     neutral: 'their'
   }
 
-  const pronouns3 = {
-    male: 'he was',
-    female: 'she was',
-    neutral: 'they were'
-  }
-  const pronouns4 = {
-    male: 'himself',
-    female: 'herself',
-    neutral: 'themselves'
-  }
+  // const pronouns3 = {
+  //   male: 'he was',
+  //   female: 'she was',
+  //   neutral: 'they were'
+  // }
+  // const pronouns4 = {
+  //   male: 'himself',
+  //   female: 'herself',
+  //   neutral: 'themselves'
+  // }
   switch (p.armature) {
     case 'honesty':
       return `That's quite a story! Was it true?`
