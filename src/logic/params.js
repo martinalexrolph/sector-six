@@ -22,11 +22,11 @@ import { choose, character, location } from "./helpers";
 function getParams() {
   const params = {
     plot: choose('rebel', 'explore', 'find home'),
-    // plot: 'rebel',
+    // plot: 'explore',
     scope: choose('individual', 'society', 'civilisation'),
     // scope: 'civilisation',
-    // armature: choose('loyalty', 'honesty', 'authenticity'),
-    armature: 'loyalty',
+    armature: choose('loyalty', 'honesty', 'authenticity'),
+    // armature: 'loyalty',
     organisations: {
       evil: choose('Regime', 'Authority', 'Imperium', 'Alliance', 'Dynasty', 'Administration', 'Syndicate'),
       good: choose('Alliance', 'Collective', 'Senate', 'Union')

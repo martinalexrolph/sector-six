@@ -7,7 +7,8 @@ import { theMentor } from './steps/stage4_theMentor'
 import { theFirstThreshold } from './steps/stage5_theFirstThreshold'
 import { testsAlliesEnemies } from './steps/stage6_testAlliesEnemies'
 import { approachInnermostCave } from './steps/stage7_approachInnermostCave'
-import { theOrdeal } from './steps/stage8_theOrdeal'
+import { theOrdeal } from './steps/stage7_theOrdeal'
+import { theReward } from './steps/stage9_theReward'
 // import { testsAlliesEnemies } from './steps/testAlliesEnemies'
 // import { approachInnermostCave } from './steps/approachInnermostCave'
 
@@ -153,6 +154,7 @@ function heroJourney() {
     ...testsAlliesEnemies(params),
     ...approachInnermostCave(params),
     ...theOrdeal(params),
+    ...theReward(params),
     // ...step2.questions,
     // ...step3.questions,
     // ...step4.questions,
