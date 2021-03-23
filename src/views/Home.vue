@@ -1,9 +1,9 @@
 <template>
   <div class="container">
     <div>
-      <div class="title-1">----- MEMORIES OF THE -----</div>
-      <div class="title-2">UPRISING</div>
-      <div class="title-1">----- by Martin Rolph -----</div>
+      <div class="title-1">STORIES FROM</div>
+      <div class="title-2" style="font-weight: 500; margin-bottom: -25px;">SECTOR</div>
+      <div class="title-2">SIX</div>
     </div>
 
     <div class="primary-button">

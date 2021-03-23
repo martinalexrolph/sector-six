@@ -40,12 +40,12 @@ function homeworldQuestions() {
   return questions
 }
 
-function heroJourney() {
+function heroJourney({name, home}) {
   // New params:
   // home.type (planet, fleet, station, asteroid)
   // home.location (core, frontier)
 
-  const params = getParams();
+  const params = getParams({name, home});
 
   // const step1 = theOrdinaryWorld()
   // const step2 = callToAdventure(step1.params)
@@ -146,7 +146,7 @@ function heroJourney() {
   //   "What was it like, to finally have hope again?"
   // ]
 
-  const result = [
+  const questions = [
     ...theOrdinaryWorld(params),
     ...callToAdventure(params),
     ...refusalOfTheCall(params),
@@ -170,7 +170,7 @@ function heroJourney() {
     // ...returnWithTheElixir
   ]
 
-  return result
+  return {questions, params}
 }
 
 export {

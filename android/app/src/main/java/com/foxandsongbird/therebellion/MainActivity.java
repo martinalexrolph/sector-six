@@ -1,4 +1,4 @@
-package com.foxandsongbird.therebellion;
+package com.foxandsongbird.sectorsix;
 
 import android.os.Bundle;
 

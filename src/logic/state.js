@@ -1,3 +1,4 @@
+import { choose, integer } from "./helpers"
 import { heroJourney } from "./questions"
 
 function exampleState() {
@@ -53,16 +54,39 @@ function exampleState() {
 //   }
 // }
 
-function newGameState(name) {
-  const questions = heroJourney()
+function newGameState(name, home) {
+  const {questions, params} = heroJourney({name, home})
   const firstQuestion = questions.shift()
+
+  const titles = ['An Unlikely Hero', 'A Journey To Remember']
+  if (params.plot === 'rebel') {
+    titles.push('A Rebel With A Cause')
+    titles.push('Fighting the Power')
+  } else if (params.plot === 'find home') {
+    titles.push('Finding Home')
+    titles.push('Origin Story')
+  } else if (params.plot === 'explore') {
+    titles.push('The Great Unknown')
+    titles.push('The True Frontier')
+  }
+
+  let about = 'the part he played'
+  if (params.scope === 'individual') {
+    if (params.plot === 'rebel') {
+      about = `the time he fought back against the ${params.organisations.evil}`
+    } else if (params.plot === 'find home') {
+      about = `his search for answers`
+    } else if (params.plot === 'explore') {
+      about = `his voyage into the ${params.locations.unexplored.name}`
+    }
+  }
 
   return {
     name: name,
     completed: false,
     introduction: {
-      title: "An Oral History of the Rebellion",
-      text: `To celebrate the 30th anniversary of the defeat of the Empire at the Battle of Insulata Prime this year, we are interviewing people involved in the conflict. This week, we are speaking to ${name}.`
+      title: `Episode ${integer(3, 20)}: ${choose(titles)}`,
+      text: `This episode, to mark the ${choose(10, 15, 20, 25, 30)}th anniversary of the events at ${params.locations.climax.name}, we are interviewing ${name} about ${about}.`
     },
     messages: [{
       text: firstQuestion,

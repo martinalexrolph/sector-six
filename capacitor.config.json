@@ -1,6 +1,6 @@
 {
-  "appId": "com.foxandsongbird.therebellion",
-  "appName": "the-rebellion",
+  "appId": "com.martinrolph.sectorsix",
+  "appName": "sectorsix",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "dist",

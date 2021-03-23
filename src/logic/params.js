@@ -19,8 +19,9 @@ armature:
 
 import { choose, character, location } from "./helpers";
 
-function getParams() {
+function getParams({name, home}) {
   const params = {
+    protagonist: name,
     plot: choose('rebel', 'explore', 'find home'),
     // plot: 'rebel',
     // scope: choose('individual', 'society', 'civilisation'),
@@ -53,6 +54,8 @@ function getParams() {
       climax: location()
     }
   };
+
+  params.locations.home.name = home
 
   console.log(params)
   return params

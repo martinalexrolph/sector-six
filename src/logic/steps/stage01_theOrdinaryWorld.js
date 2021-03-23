@@ -1,4 +1,4 @@
-import { choose } from '../helpers'
+import { choose, firstName, lastName, location } from '../helpers'
 
 
 function theOrdinaryWorld(p) {
@@ -9,6 +9,7 @@ function theOrdinaryWorld(p) {
 export {theOrdinaryWorld}
 
 function q1() {
+  const part1 = `Hello, my name is ${firstName()} ${lastName()} from ${location().name} University's history department - thanks for joining us to share your story! Let's start by giving a little context for what happened.`
   const start = choose([
     "Before all this kicked off,",
     "As a young adult,",
@@ -19,7 +20,7 @@ function q1() {
     "what did you do?",
   ])
 
-  return start + ' ' + end
+  return part1 + ' ' + start + ' ' + end
 }
 
 function q2(p) {

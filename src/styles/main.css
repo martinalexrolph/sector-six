@@ -111,6 +111,7 @@ html, body {
 .input-row {
   display: flex;
   align-items: center;
+  margin-bottom: 12px;
 }
 
 @media screen and (max-width: 700px) {

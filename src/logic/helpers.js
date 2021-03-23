@@ -8,6 +8,10 @@ function choose(...options) {
   return options[Math.floor(Math.random() * options.length)];
 }
 
+function integer(from, to) {
+  return Math.floor(Math.random() * (to - from) + from)
+}
+
 function firstName(gender) {
   const masculineNames = [
     "Jon", "Burton", "Frank", "Marco", "Graw", 
@@ -115,6 +119,7 @@ function location() {
 
 export {
   choose,
+  integer,
   firstName,
   lastName,
   fullName,

@@ -23,6 +23,7 @@ async function createWindow() {
     backgroundColor: '#333',
     fullscreen: true,
     frame: false,
+    title: 'An Oral History of the Uprising',
     webPreferences: {
       
       // Use pluginOptions.nodeIntegration, leave this alone

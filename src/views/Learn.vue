@@ -7,12 +7,12 @@
     <div class="menu-box">
       <h2>INTRODUCTION</h2>
       <p>
-        Memories of the Rebellion is a simple sci-fi journalling game, somewhere between a solo RPG and a creative-writing exercise. The goal is simply to create a memorable character and story, guided by the game, by creating a retrospective interview about your character's experience of an event known simply as the <b>Rebellion</b>.
+        Stories of Sector Six is a simple sci-fi journalling game, somewhere between a solo RPG and a creative-writing exercise. The goal is simply to create a memorable character and story, guided by the game, by creating a retrospective interview about your character's involvement in an important moment in the history of Sector Six.
       </p>
 
       <h2>HOW TO PLAY</h2>
       <p>
-        Each round, the interviewer will ask you a question about your involvement in the Rebellion, which you must answer. Depending on the length of game you choose, there will be between 20 and 60 questions, and then the game will end and you will have told a unique story and created a memorable character.
+        Each round, the interviewer will ask you a question which you must answer. There will be around 60 questions; once you have answered them all, the game will end and you will have told a unique story and created a memorable character.
       </p>
       <p>
         To help you answer the questions in a way which flows and tells a coherent story, you will always be able to see not just the current question but also the next question to be asked. This means that every round your aim is to write an answer which answers the first question in a way which means that the follow-up question makes sense, while keeping consistency with your earlier answers.

@@ -5,9 +5,19 @@
     </div>
 
     <div class="menu-box">
+      <h2>Identity Record</h2>
+      <p>Please confirm your personal details</p>
       <div class="input-row">
         <label>NAME:</label>
         <input v-model="name"/>
+      </div>
+      <div class="input-row">
+        <label>ORIGIN:</label>
+        <input v-model="home"/>
+      </div>
+      <div class="input-row">
+        <label>AGE:</label>
+        <input v-model="age"/>
       </div>
     </div>
 
@@ -21,6 +31,7 @@
 <script>
 import { saveGame } from '../logic/saving'
 import { newGameState } from '../logic/state'
+import { location, firstName, lastName, integer } from '../logic/helpers'
 import { nanoid } from 'nanoid'
 
 export default {
@@ -30,12 +41,14 @@ export default {
   },
   data: function() {
     return {
-      name: ''
+      name: `${firstName()} ${lastName()}`,
+      home: location().name,
+      age: integer(16, 40)
     }
   },
   methods: {
     async newGame() {
-      const gameState = newGameState(this.name)
+      const gameState = newGameState(this.name, this.home)
       const gameId = nanoid(10)
       await saveGame(gameId, gameState)
       this.$router.push({name: 'Game', params: {gameId: gameId}})
