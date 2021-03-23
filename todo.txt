@@ -7,4 +7,6 @@
 [✔] Exit button on home screen
 [ ] Font option
 
-[ ] On the last question it still says 'Next question', should say 'Last question'
+[✔] On the last question it still says 'Next question', should say 'Last question'
+
+[ ] Better fullscreen logic (allow windowed mode, switching between fullscreen and not)
