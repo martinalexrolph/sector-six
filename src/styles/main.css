@@ -95,7 +95,7 @@ html, body {
   border: 1px solid #eee;
   height: 460px;
   padding: 20px;
-  overflow: scroll;
+  overflow: auto;
   text-align: left;
   margin: 10px auto;
 }
@@ -129,4 +129,16 @@ html, body {
   .menu-container {
     padding: 20px 10px;
   }
+}
+
+::-webkit-scrollbar {     
+  background-color: none;
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb:window-inactive,
+::-webkit-scrollbar-thumb {
+  background:  #444;
+  border-radius: 3px;
+  margin: 1px;
 }

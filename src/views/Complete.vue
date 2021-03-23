@@ -75,7 +75,7 @@ export default {
   border: 1px solid #eee;
   height: 460px;
   padding: 20px;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .game {

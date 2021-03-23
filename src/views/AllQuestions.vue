@@ -55,7 +55,7 @@ export default {
 
 .main-container {
   width: 100%;
-  overflow: scroll;
+  overflow: auto;
   flex-grow: 1;
   padding-top: 80px;
   padding-bottom: 20px;
