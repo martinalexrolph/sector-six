@@ -51,7 +51,8 @@ function getParams({name, home}) {
         name: choose('Unknown Regions', 'Outer Rim', 'Gateway Systems', 'Great Nebula', 'Abyss'),
         type: 'sector'
       },
-      climax: location()
+      climax: location(),
+      resurrection: location(),
     }
   };
 

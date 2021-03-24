@@ -10,6 +10,7 @@ import { approachInnermostCave } from './steps/stage07_approachInnermostCave'
 import { theOrdeal } from './steps/stage08_theOrdeal'
 import { theReward } from './steps/stage09_theReward'
 import { theRoadBack } from './steps/stage10_theRoadBack'
+import { theResurrection } from './steps/stage11_theResurrection'
 // import { testsAlliesEnemies } from './steps/testAlliesEnemies'
 // import { approachInnermostCave } from './steps/approachInnermostCave'
 
@@ -157,6 +158,7 @@ function heroJourney({name, home}) {
     ...theOrdeal(params),
     ...theReward(params),
     ...theRoadBack(params),
+    ...theResurrection(params),
     // ...step2.questions,
     // ...step3.questions,
     // ...step4.questions,
