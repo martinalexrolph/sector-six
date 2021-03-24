@@ -21,7 +21,7 @@ export {approachInnermostCave}
 function q1(p) {
   if (p.plot === 'explore') {
     return `Can you tell us a little bit about why no-one had previously explored the ${p.locations.unexplored.name}?`
-  } else if (p.plot === 'rebel') {
+  } else if (p.plot === 'rebellion') {
     return `The ${p.organisations.evil} had a fearsome reputation and you were going to strike right at their heart. How did that feel?`
   } else if (p.plot === 'find home') {
     if (p.scope === 'individual') {

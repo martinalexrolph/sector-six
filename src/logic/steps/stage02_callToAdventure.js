@@ -1,32 +1,13 @@
-// import { choose } from '../helpers'
-
-/*
-params = {
-  home: {
-    type: 'planet',
-    location:  'frontier'
-  },
-  characters: {
-    childhood: {
-      name: 'Bob',
-      relationship: 'father',
-      gender: 'male'
-    }
-  },
-  adventure: {
-    type: 'homeward', // Or 'rebellion', 'exploration', 'defence'
-    scope: 'individual', // Or 'group', 'faction',
-    location: 'Unknown Regions' // if it's an exploration
-  }
-}
-*/
+import { choose } from "../helpers"
 
 function callToAdventure(p) {
-  return [q1(p), q2(p)]
+  return [q1(p), q2(p), q3(p)]
 }
 
 export {callToAdventure}
 
+
+// TODO: needs a better call to adventure for the 'explore' plt. Perhaps a mysterious phenomena, signal or transmission?
 function q1(p) {
   if (p.plot === 'find home') {
     if (p.scope === 'individual') {
@@ -36,7 +17,7 @@ function q1(p) {
     } else if (p.scope === 'civilisation') {
       return `Do you remember where you were when you first heard about the guidestone and learnt that this sector was not the original home of the ${p.organisations.good}?`
     }
-  } else if (p.plot === 'rebel') {
+  } else if (p.plot === 'rebellion') {
     if (p.scope === 'individual') {
       return `When did you first learn about the injustices that eventually led to you taking a stand against the ${p.organisations.evil}?`
     } else if (p.scope === 'society') {
@@ -53,19 +34,6 @@ function q1(p) {
       return `Do you remember where you were when you first learnt about the ${p.organisations.good}'s expedition to the ${p.locations.unexplored.name} which your ${p.locations.home.type} was contributing to?`
     }
   }
-
-  return '-'
-  
-  
-  // else if (params.adventure.type === 'defence') {
-  //   if (params.adventure.scope === 'individual') {
-  //     question = `When did you first discover that your life was in danger from the ${params.adventure.threat}?`
-  //   } else if (params.adventure.scope === 'group') {
-  //     question = `When did you first hear rumours of the threat the posed to your ${params.home.type} by the ${params.adventure.threat}?`
-  //   } else if (params.adventure.scope === 'faction') {
-  //     question = `When did you first hear rumours of the threat the posed to the ${params.adventure.yourFaction} by the ${params.adventure.threat}?`
-  //   }
-  // }
 }
 
 function q2(p) {
@@ -77,18 +45,23 @@ function q2(p) {
     } else {
       return 'Were you tempted to try and get involved with the expedition right away?'
     }
-  } else if (p.plot === 'rebel') {
-    return 'Did you you see it as a fight worth getting involved in right away?'
+  } else if (p.plot === 'rebellion') {
+    return choose(
+      `What was it like to experience that first-hand?`,
+      `What did you see? Did they know you witnesed that?`,
+      `Who witnessed that? Was it someone close to you?`
+    )
   }
-
-  return '-'
 }
 
-// function q3() {
-//   return choose(
-//     'So in a sense it was luck - and bad luck at that! - which set you on your path?',
-//     'So this was very much something that you stumbled upon on?',
-//     'What was it they said that convinced you to try?',
-//     "Do you think you'd have tried if you hadn't been asked to?"
-//   )
-// }
+// TODO: An extra question, 'What really drove your anger towards the Syndicate?' or something. A straightforward 'What was your call to adventure?' question.
+
+function q3(p) {
+  if (p.plot === 'find home') {
+    return `What made you so determined to look for answers?`
+  } else if (p.plot === 'explore') {
+    return `What gave you this drive to explore?`
+  } else if (p.plot === 'rebellion') {
+    return `Why did this make you want to fight back?`
+  }
+}

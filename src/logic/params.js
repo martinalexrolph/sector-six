@@ -1,6 +1,6 @@
 /*
 plot:
-  rebel
+  rebellion
   explore
   defend
   find home
@@ -22,8 +22,9 @@ import { choose, character, location } from "./helpers";
 function getParams({name, home}) {
   const params = {
     protagonist: name,
-    plot: choose('rebel', 'explore', 'find home'),
-    // plot: 'rebel',
+    // plot: choose('rebellion', 'explore', 'find home'),
+    // Could add: defend, steal (or heist), rescue
+    plot: 'rebellion',
     // scope: choose('individual', 'society', 'civilisation'),
     scope: 'civilisation',
     armature: choose('loyalty', 'honesty'),

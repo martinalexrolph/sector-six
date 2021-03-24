@@ -59,8 +59,8 @@ function newGameState(name, home) {
   const firstQuestion = questions.shift()
 
   const titles = ['An Unlikely Hero', 'A Journey To Remember']
-  if (params.plot === 'rebel') {
-    titles.push('A Rebel With A Cause')
+  if (params.plot === 'rebellion') {
+    titles.push('A rebellion With A Cause')
     titles.push('Fighting the Power')
   } else if (params.plot === 'find home') {
     titles.push('Finding Home')
@@ -72,7 +72,7 @@ function newGameState(name, home) {
 
   let about = 'the part he played'
   if (params.scope === 'individual') {
-    if (params.plot === 'rebel') {
+    if (params.plot === 'rebellion') {
       about = `the time he fought back against the ${params.organisations.evil}`
     } else if (params.plot === 'find home') {
       about = `his search for answers`

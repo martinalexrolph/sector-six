@@ -46,7 +46,7 @@ export {theFirstThreshold}
 function q1(p) {
   if (p.plot === 'explore') {
     return `An expedition like this is a truly dangerous proposition. Were you scared?`
-  } else if (p.plot === 'rebel') {
+  } else if (p.plot === 'rebellion') {
     const prefix = choose([
       'Taking a stand against',
       'Opposing',
@@ -62,7 +62,7 @@ function q2(p) {
   let action
   if (p.plot === 'rebellion') {
     action = `standing up to them`
-  } else if (p.plot === 'exploration') {
+  } else if (p.plot === 'explore') {
     action = `venturing into the ${p.locations.unexplored}`
   } else {
     if (p.scope === 'faction') {

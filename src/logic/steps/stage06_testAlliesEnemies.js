@@ -56,7 +56,7 @@ function q1(p) {
     return choose([
       `What was the first challenge you had to overcome to prepare for your voyage?`
     ])
-  } else if (p.plot === 'rebel') {
+  } else if (p.plot === 'rebellion') {
     if (p.scope === 'individual') {
       return `What was the first thing you tried to do to undermine the ${p.organisations.evil}?`
     } else {
@@ -121,7 +121,7 @@ function q5(p) {
   if (p.scope === 'individual') {
     if (p.plot === 'explore') {
       return `Were there any other difficulties you had to overcome before you could set off?`
-    } else if (p.plot === 'rebel') {
+    } else if (p.plot === 'rebellion') {
       return `What was your next move?`
     } else if (p.plot === 'find home') {
       return `How did you learn where you had to go?`

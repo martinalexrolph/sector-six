@@ -14,7 +14,7 @@ function q2(p) {
   const rewards = [
     'had reached your goal'
   ]
-  if (p.plot === 'rebel') {
+  if (p.plot === 'rebellion') {
     rewards.push(`could cripple the ${p.organisations.evil}, right here`)
     rewards.push(`could deal a huge blow to the ${p.organisations.evil}`)
   } else if (p.plot === 'find home') {

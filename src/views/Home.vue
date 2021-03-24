@@ -15,7 +15,7 @@
       <button class="button" @click="loadGame()">LOAD GAME</button>
       <button class="button" @click="completedGames()">COMPLETED GAMES</button>
       <button class="button" @click="goTo('All Questions')">TEST ALL QUESTIONS</button>
-      <!--<button class="button">OPTIONS</button>-->
+      <!-- <button class="button">OPTIONS</button> -->
     </div>
 
     <div class="secondary-buttons">
@@ -70,10 +70,10 @@ export default {
 }
 
 .title-1 {
-  font-size: 24px;
+  font-size: 35px;
   line-height: 1;
   font-weight: 400;
-  padding-right: 2px;
+  margin-bottom: -10px;
 }
 
 .title-2 {

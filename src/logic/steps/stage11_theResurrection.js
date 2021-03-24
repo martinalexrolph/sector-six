@@ -17,7 +17,7 @@ function q2(p) {
 
   if (p.plot === 'find home' || p.plot === 'explore') {
     questions.push(`Why did the ${p.organisations.evil} try to stop you returning?`)
-  } else if (p.plot === 'rebel') {
+  } else if (p.plot === 'rebellion') {
     questions.push(`How did the ${p.organisations.evil} know to ambush you here?`)
   }
 
@@ -37,7 +37,7 @@ function q4() {
 }
 
 function q5(p) {
-  if (p.plot === 'rebel') {
+  if (p.plot === 'rebellion') {
     return `How did it feel to face off against ${p.characters.enemy.title} ${p.characters.enemy.name} one final time?`
   } else if (p.plot === 'find home') {
     return `Why was ${p.characters.enemy.title} ${p.characters.enemy.name} so determined to stop you returning with what you'd learnt?`
@@ -47,7 +47,7 @@ function q5(p) {
 }
 
 function q6(p) {
-  if (p.plot === 'rebel') {
+  if (p.plot === 'rebellion') {
     return `How did you make it back to the ${p.organisations.good}?`
   } else if (p.plot === 'find home') {
     return `How did you make it back to ${p.locations.home.name}?`

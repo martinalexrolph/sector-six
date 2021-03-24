@@ -9,7 +9,7 @@ function theOrdinaryWorld(p) {
 export {theOrdinaryWorld}
 
 function q1() {
-  const part1 = `Hello, my name is ${firstName()} ${lastName()} from ${location().name} University's history department - thanks for joining us to share your story! Let's start by giving a little context for what happened.`
+  const part1 = `Hello, my name is ${firstName()} ${lastName()} from ${location().name} University's history department - thanks for joining us to share your story! Let's start by giving a little context for your story.`
   const start = choose([
     "Before all this kicked off,",
     "As a young adult,",
@@ -27,42 +27,46 @@ function q2(p) {
 
   const home = p.locations.home
 
-  const start = choose([
-    `What was it like living on ${home.name}`,
-    `How was it growing up on ${home.name}`,
-  ])
   const options = {
     'planet': [
-      `, one of the ${home.region} worlds?`,
-      `, a planet in such a ${home.region === 'core' ? 'central' : 'remote'} part of the galaxy?`
+      `What was it like living on ${home.name}, one of the ${home.region} worlds?`,
+      `How was it growing up on ${home.name}, a planet in such a ${home.region === 'core' ? 'central' : 'remote'} part of the galaxy?`
     ],
     'fleet': [
-      `? That's one of the traveller ships, right? Between the ${home.region} worlds?`,
-      `, part of a fleet travelling ${home.region === 'core' ? 'the core' : 'the frontier'}?`
+      `What was it like living on ${home.name}? That's one of the traveller ships, right? Between the ${home.region} worlds?`,
+      `How was it growing up on ${home.name}? Must have been strange, travelling ${home.region === 'core' ? 'the core' : 'the frontier'} in a trading fleet?`
     ],
     'station': [
-      `, a station orbiting a ${home.region} planet?`,
-      `, such a ${home.region === 'core' ? 'central' : 'remote'} station?`
+      `What was it like living on ${home.name} Station in the galaxy's ${home.region === 'core' ? 'core' : 'frontier'}?`,
+      `How was it growing up on ${home.name}, such a ${home.region === 'core' ? 'central' : 'remote'} station?`
     ],
     'asteroid': [
-      `, an asteroid base ${home.region === 'core' ? 'at the heart of civilisation' : 'at the edge of civilisation'}?`,
-      `, a terraformed asteroid in such a ${home.region === 'core' ? 'central' : 'remote'} part of the galaxy?`
+      `What was it like living on ${home.name}, an asteroid base at the ${home.region === 'core' ? 'heart' : 'edge'} of civilisation?`,
+      `How was it growing up on ${home.name}, a terraformed asteroid in such a ${home.region === 'core' ? 'central' : 'remote'} part of the galaxy?`
     ],
-    'moon': [`, a moon of such a ${home.region === 'core' ? 'central' : 'remote'} planet?`],
-    'city': [`, such a ${home.region === 'core' ? 'central' : 'remote'} city?`]
+    'moon': [`What was it like living on ${home.name}, a moon at the ${home.region === 'core' ? 'heart' : 'edge'} of civilisation?`],
+    'city': [`How was it growing up on ${home.name}, such a ${home.region === 'core' ? 'central' : 'remote'} city?`]
   }
 
-  return start + choose(options[home.type])
+  return choose(options[home.type])
 }
 
 function q3(p) {
   switch (p.plot) {
     case 'find home':
-      return "Did you feel, growing up, like this was where you really belonged?"
-    case 'rebel':
-      return "Were you rebellious, growing up?"
+      return choose(
+        "Did you feel, growing up, like this was where you really belonged?"
+      )
+    case 'rebellion':
+      return choose(
+        "Were you rebellious, growing up?",
+        "Did you respect authority as a child?",
+        "Did you follow the rules as a kid? Or were you a rebel?"
+      )
     case 'explore':
-      return "Were you much of an explorer growing up, or did you prefer to stay close to home?"
+      return choose(
+        "Were you much of an explorer growing up, or did you prefer to stay close to home?"
+      )
   }
 }
 
@@ -75,13 +79,28 @@ function q4() {
 
 function q5(p) {
   const character = p.characters.childhood
-  const pronouns = {
+  const them = {
     male: 'him',
     female: 'her',
     neutral: 'them'
   }
+  const wereThey = {
+    male: 'was he',
+    female: 'was she',
+    neutral: 'were they'
+  }
 
-  return `It sounds like ${character.name} had a big impact on you. Can you tell me a bit more about ${pronouns[character.gender]}?`
+  const part1 = choose(
+    `It sounds like ${character.name} had a big impact on you.`,
+    `${character.name} sounds like quite a character!`,
+  )
+
+  const part2 = choose(
+    `Can you tell me a bit more about ${them[character.gender]}?`,
+    `What ${wereThey[character.gender]} like to grow up with?`,
+  )
+
+  return `${part1} ${part2}`
 }
 
 function q6(p) {
@@ -93,10 +112,8 @@ function q6(p) {
   }
   switch (p.armature) {
     case 'loyalty':
-      return `Why did ${pronouns[character.gender]} leave you like that, do you know?`
+      return `Why did ${pronouns[character.gender]} ${choose('abandon', 'leave')} you like that, do you know?`
     case 'honesty':
-      return `Why do you think ${pronouns[character.gender]} lied to you about that?`
-    // case 'authenticity':
-    //   return `Why do you think ${pronouns[character.gender]} tried so hard to fit in?`
+      return `Why do you think ${pronouns[character.gender]} ${choose('lied to', 'misled')} you about that?`
   }
 }

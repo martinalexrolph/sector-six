@@ -10,7 +10,7 @@ function q1() {
   return `But of course actions have consequences... and things were far from over. Why weren't you able to turn back right away?`
 }
 
-// plot: choose('rebel', 'explore', 'find home'),
+// plot: choose('rebellion', 'explore', 'find home'),
 // armature: choose('loyalty', 'honesty', 'authenticity'),
 
 function q2(p) {
@@ -29,7 +29,7 @@ function q3(p) {
     'neutral': 'they'
   }
   const questions = {
-    'rebel': {
+    'rebellion': {
       'loyalty': `You had every reason to believe ${p.characters.ally.name} was loyal... how could ${he[p.characters.ally.gender]} betray you?`,
       'honesty': `So everything ${p.characters.ally.name} told you was a lie? How did you find out?`,
     },

@@ -44,7 +44,7 @@ function q4(p) {
     } else {
       options.push(`Did this match up with the theories?`)
     }
-  } else if (p.plot === 'rebel') {
+  } else if (p.plot === 'rebellion') {
     options.push(`How was the base laid out?`)
     options.push(`What was your target?`)
   } else if (p.plot === 'explore') {
@@ -60,7 +60,7 @@ function q5(p) {
     sentence1 = choose(
       `So this... this was the real reason why no-one had ever successfully ventured into the ${p.locations.unexplored.name}.`
     )
-  } else if (p.plot === 'rebel') {
+  } else if (p.plot === 'rebellion') {
     sentence1 = choose(
       `So this... this was key to their whole operation, right in front of you!`
     )

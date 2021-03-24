@@ -7,29 +7,29 @@ function refusalOfTheCall(p) {
 export {refusalOfTheCall}
 
 function q1(p) {
-  if (p.scope === 'individual') {
-    if (p.plot === 'rebel') {
-      return `Why didn't you take a stand? What was holding you back?`
+  if (p.plot === 'rebellion') {
+    if (p.scope === 'individual') {
+      return `Why didn't you take a stand there and then? Were you able to?`
     } else {
-      return `Why didn't you start investigating? What was holding you back?`
+      return `Did you know about the rebellion that was starting`
     }
-  } else {
-    if (p.plot === 'find home') {
-      return `Why didn't you take action right away? What was holding you back?`
+  } else if (p.plot === 'find home') {
+    if (p.scope === 'individual') {
+      return `Why didn't you start investigating?`
     } else {
       return `Why didn't you get involved? What was holding you back?`
+    }
+  } else if (p.plot === 'explore') {
+    if (p.scope === 'individual') {
+      return `Why didn't you start investigating?`
+    } else {
+      return `Why didn't you get involved in the expedition? What was holding you back?`
     }
   }
 }
 
 function q2(p) {
-  const pronouns1 = {
-    male: 'he',
-    female: 'she',
-    neutral: 'they'
-  }
-
-  const pronouns2= {
+  const them= {
     male: 'him',
     female: 'her',
     neutral: 'them'
@@ -37,17 +37,10 @@ function q2(p) {
 
   switch (p.armature) {
     case 'loyalty':
-      return `So ${p.characters.refusal.name} actually asked you to, and despite everything that ${pronouns1[p.characters.refusal.gender]} meant to you, you abandoned ${pronouns2[p.characters.refusal.gender]}?`
+      return `So you'd actually agreed to go with ${p.characters.refusal.name}, but you abandoned ${them[p.characters.refusal.gender]}? Why?`
     case 'honesty':
-      return `Why did you lie to ${p.characters.refusal.name} about that? After everything you two had been through together?`
-    // case 'authenticity':
-    //   return `Why did you try to do what ${p.characters.refusal.name} did? I know you two were close but surely you could tell that wasn't the right path for you?`
+      return `Why did you lie to ${p.characters.refusal.name} about that?`
   }
-
-
-  const link = choose(['connection', 'relationship', 'encounter'])
-  const prefix = choose(['What changed in your', 'What was it about your'])
-  return `${prefix} ${link} with ${p.characters.refusal.name} that made you more reluctant?`
 }
 
 function q3(p) {
@@ -57,7 +50,7 @@ function q3(p) {
       action = 'start looking for your ancestral home'
     } else if (p.plot === 'explore') {
       action = 'start planning an expedition'
-    } else if (p.plot === 'rebel') {
+    } else if (p.plot === 'rebellion') {
       action = 'start fighting back'
     }
   } else {
@@ -65,7 +58,7 @@ function q3(p) {
       action = 'join the search for your ancestral home'
     } else if (p.plot === 'explore') {
       action = 'join the expedition'
-    } else if (p.plot === 'rebel') {
+    } else if (p.plot === 'rebellion') {
       action = 'join the uprising'
     }
   }
