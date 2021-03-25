@@ -1,3 +1,12 @@
+/*
+
+The Ordinary World
+
+A few questions about their childhood, including one that foreshadows the plot and one that
+introduces the armature.
+
+*/
+
 import { choose, firstName, lastName, location } from '../helpers'
 
 
@@ -103,6 +112,8 @@ function q5(p) {
   return `${part1} ${part2}`
 }
 
+
+// Someone else fails to embody the armature
 function q6(p) {
   const character = p.characters.childhood
   const pronouns = {
@@ -111,9 +122,9 @@ function q6(p) {
     neutral: 'they'
   }
   switch (p.armature) {
-    case 'loyalty':
-      return `Why did ${pronouns[character.gender]} ${choose('abandon', 'leave')} you like that, do you know?`
-    case 'honesty':
+    case 'take risks':
+      return `Why didn't ${pronouns[character.gender]} take that chance? Did ${pronouns[character.gender]} think it was too risky?`
+    case 'tell the truth':
       return `Why do you think ${pronouns[character.gender]} ${choose('lied to', 'misled')} you about that?`
   }
 }

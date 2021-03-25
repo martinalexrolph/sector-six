@@ -1,3 +1,12 @@
+/*
+
+Call to Adventure
+
+First the character hears about or learns about the adventure,
+then experiences something that makes them want to act
+
+*/
+
 import { choose } from "../helpers"
 
 function callToAdventure(p) {

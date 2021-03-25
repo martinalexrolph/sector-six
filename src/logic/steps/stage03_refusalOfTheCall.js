@@ -11,7 +11,7 @@ function q1(p) {
     if (p.scope === 'individual') {
       return `Why didn't you take a stand there and then? Were you able to?`
     } else {
-      return `Did you know about the rebellion that was starting`
+      return `Did you know about the rebellion that was starting to gather momentum?`
     }
   } else if (p.plot === 'find home') {
     if (p.scope === 'individual') {
@@ -29,16 +29,10 @@ function q1(p) {
 }
 
 function q2(p) {
-  const them= {
-    male: 'him',
-    female: 'her',
-    neutral: 'them'
-  }
-
   switch (p.armature) {
-    case 'loyalty':
-      return `So you'd actually agreed to go with ${p.characters.refusal.name}, but you abandoned ${them[p.characters.refusal.gender]}? Why?`
-    case 'honesty':
+    case 'take risks':
+      return `So even with ${p.characters.refusal.name} by your side, you weren't willing to take that risk?`
+    case 'tell the truth':
       return `Why did you lie to ${p.characters.refusal.name} about that?`
   }
 }

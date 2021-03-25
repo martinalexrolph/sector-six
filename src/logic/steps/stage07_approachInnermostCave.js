@@ -55,18 +55,13 @@ function q4() {
   return `Can you tell us a bit about your team?`
 }
 
+// How did it feel for someone else to not follow the armature?
 function q5(p) {
-  if (p.armature === 'loyalty') {
-    return `How did it feel to be abandoned like that?`
-  } else if (p.armature === 'honesty') {
+  if (p.armature === 'take risks') {
+    return `Couldn't they see that it was worth the risk?`
+  } else if (p.armature === 'tell the truth') {
     return `How did it feel to be lied to like that?`
-  } // else if (p.armature === 'authenticity') {
-  //   return choose(
-  //     `If only he'd accepted that his actual skills were just as useful!`,
-  //     `If only she'd accepted that her actual skills were just as useful!`,
-  //     `If only they'd accepted that their actual skills were just as useful!`
-  //   )
-  // }
+  }
 }
 
 function q6() {

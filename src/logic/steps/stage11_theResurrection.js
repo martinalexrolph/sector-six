@@ -13,7 +13,7 @@ function q1(p) {
 }
 
 function q2(p) {
-  const questions = [`WHat was a ${p.organisations.evil} fleet doing there?`]
+  const questions = [`What was a ${p.organisations.evil} fleet doing there?`]
 
   if (p.plot === 'find home' || p.plot === 'explore') {
     questions.push(`Why did the ${p.organisations.evil} try to stop you returning?`)
@@ -25,9 +25,9 @@ function q2(p) {
 }
 
 function q3(p) {
-  if (p.armature === 'loyalty') {
-    return `A mistake like that... you could have so easily decided that was unforgivable. Why did you let them stay?`
-  } else if (p.armature === 'honesty') {
+  if (p.armature === 'take risks') {
+    return `It must have taken such courage to try that, in the face of such danger!`
+  } else if (p.armature === 'tell the truth') {
     return `A mistake like that... the crew could have turned on you! What made you admit it?`
   }
 }

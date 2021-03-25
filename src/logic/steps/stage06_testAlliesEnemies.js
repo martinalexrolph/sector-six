@@ -80,35 +80,19 @@ function q2(p) {
   )
 }
 
+// Did another character live up to the armature?
 function q3(p) {
-  const pronouns1 = {
+  const they = {
     male: 'he',
     female: 'she',
     neutral: 'they'
   }
-  const pronouns2 = {
-    male: 'his',
-    female: 'her',
-    neutral: 'their'
-  }
 
-  // const pronouns3 = {
-  //   male: 'he was',
-  //   female: 'she was',
-  //   neutral: 'they were'
-  // }
-  // const pronouns4 = {
-  //   male: 'himself',
-  //   female: 'herself',
-  //   neutral: 'themselves'
-  // }
   switch (p.armature) {
-    case 'honesty':
+    case 'tell the truth':
       return `That's quite a story! Was it true?`
-    case 'loyalty':
-      return `Did ${pronouns1[p.characters.ally.gender]} keep ${pronouns2[p.characters.ally.gender]} word?`
-    // case 'authenticity':
-    //   return `Do you think ${pronouns3[p.characters.ally.gender]} really being honest with ${pronouns4[p.characters.ally.gender]}?`
+    case 'take risks':
+      return `Did ${they[p.characters.ally.gender]} take the leap?`
   }
 }
 
@@ -145,14 +129,13 @@ function q7(p) {
   return `Obviously what you're really known for is what you did on ${p.locations.climax.name}. But before that could begin, you had one final challenge to overcome. Can you tell us a little about that?`
 }
 
+// Why didn't you follow the armature?
 function q8(p) {
   const character = choose(p.characters.mentor, p.characters.refusal, p.characters.ally)
   switch (p.armature) {
-    // case 'authenticity':
-    //   return `What made you think you were the best person for that job? Surely things would have been easier if you'd left that to ${character.name}?`
-    case 'loyalty':
-      return `${character.name} had every reason to expect your support. Why give your word when you wouldn't keep it?`
-    case 'honesty':
+    case 'take risks':
+      return `Why not? Sure, it was dangerous, but ${character.name} needed your help!`
+    case 'tell the truth':
       return `Why didn't you just tell ${character.name} the truth? That would have saved so much trouble.`
   }
 }

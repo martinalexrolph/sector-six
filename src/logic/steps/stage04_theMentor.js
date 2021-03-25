@@ -40,12 +40,26 @@ function theMentor(p) {
 
 export {theMentor}
 
-function q1() {
-  return `Why didn't you feel ready?`
+function q1(p) {
+  if (p.scope === 'individual') {
+    return choose(
+      `Did you feel like you had the skills you needed to do this?`,
+      `Once you'd decided this was something you wanted to do, did you feel that your life up to this point had prepared you for anything like this?`,
+    )
+  } else {
+    return choose(
+      `Did you feel equipped to join up, like you had useful skills to offer?`,
+      `Once you'd decided that you wanted to join, did you feel that you had useful skills to offer?`,
+    )
+  }
 }
 
 function q2() {
-  return 'Did you know at the time what it was that you really needed to learn? Or was that something you only found out later?'
+  return choose(
+    `Ok, so you had a lot to learn there. Did you actively seek out a mentor?`,
+    `What was it you felt you really had to learn?`,
+    `How did you find someone to teach you?`,
+  )
 }
 
 function q3(p) {
@@ -69,7 +83,18 @@ function q4(p) {
     neutral: 'them'
   }
 
-  return `Did ${p.characters[choose(['refusal', 'childhood'])].name} approve of you training with ${pronouns[p.characters.mentor.gender]}?`
+  const characters = [
+    p.characters.refusal.name,
+    p.characters.childhood.name,
+    'your family',
+    'your friends'
+  ]
+
+  return choose(
+    `Did ${choose(characters)} approve of you training with ${pronouns[p.characters.mentor.gender]}?`,
+    `Why did ${choose(characters)} dislike ${pronouns[p.characters.mentor.gender]} so much?`,
+    `What prompted ${choose(characters)} to join you in training?`,
+  )
 }
 
 function q5(p) {

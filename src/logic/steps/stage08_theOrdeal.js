@@ -84,12 +84,11 @@ function q6() {
   )
 }
 
+// Good thing you followed the armature
 function q7(p) {
-  if (p.armature === 'honesty') {
+  if (p.armature === 'tell the truth') {
     return `Thank goodness you admitted the truth! Otherwise the consequences could have been catastrophic!`
-  // } else if (p.armature === 'authenticity') {
-    // return `Thank goodness you stopped trying to emulate ${p.characters.ally.name}! Instead it sounds like what you did was something only you could have done.`
-  } else if (p.armature === 'loyalty') {
-    return `Thank goodness you stood by them! It must have been so tempting to abandon the mission at that moment.`
+  } else if (p.armature === 'take risks') {
+    return `Good thing you took that risk! Otherwise I can't imagine you could have succeeded.`
   }
 }

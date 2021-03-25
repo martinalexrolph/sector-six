@@ -10,9 +10,6 @@ function q1() {
   return `But of course actions have consequences... and things were far from over. Why weren't you able to turn back right away?`
 }
 
-// plot: choose('rebellion', 'explore', 'find home'),
-// armature: choose('loyalty', 'honesty', 'authenticity'),
-
 function q2(p) {
   return choose(
     `Why weren't the ${p.organisations.good} able to help you any more?`,
@@ -22,24 +19,20 @@ function q2(p) {
   )
 }
 
+// Another character failed to follow the armature, with serious consequences.
 function q3(p) {
-  const he = {
-    'male': 'he',
-    'female': 'she',
-    'neutral': 'they'
-  }
   const questions = {
     'rebellion': {
-      'loyalty': `You had every reason to believe ${p.characters.ally.name} was loyal... how could ${he[p.characters.ally.gender]} betray you?`,
-      'honesty': `So everything ${p.characters.ally.name} told you was a lie? How did you find out?`,
+      'take risks': `This was so important to the cause... why did ${p.characters.ally.name} back out?`,
+      'tell the truth': `So everything ${p.characters.ally.name} told you was a lie? How did you find out?`,
     },
     'explore': {
-      'loyalty': `I understand that this wasn't an obvious choice but the crew said they'd support you whatever decision you made, so why did ${p.characters.ally.name} go behind your back?`,
-      'honesty': `At what point did you find out that ${p.characters.ally.name} had lied to you and hadn't actually managed to do that?`,
+      'take risks': `I get that it was the safe option, but potentially at the cost of everything you had worked so hard for! Why do you think ${p.characters.ally.name} did that?`,
+      'tell the truth': `At what point did you find out that ${p.characters.ally.name} had lied to you and hadn't actually managed to do that?`,
     },
     'find home': {
-      'loyalty': `This discovery had such huge ramifications, not least for you personally... so surely ${p.characters.ally.name} must have known that you wouldn't have wanted them to do that?`,
-      'honesty': `How did you find out that ${p.characters.ally.name} had lied to you?`,
+      'take risks': `This discovery had such huge ramifications... so surely ${p.characters.ally.name} could have seen that the risk was worth it?`,
+      'tell the truth': `How did you find out that ${p.characters.ally.name} had lied to you?`,
     }
   }
 

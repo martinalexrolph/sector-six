@@ -1,42 +1,5 @@
 import { choose, fullName, place } from '../helpers'
 
-/*
-params = {
-  home: {
-    type: 'planet',
-    location:  'frontier'
-  },
-  characters: {
-    childhood: {
-      name: 'Bob',
-      relationship: 'father',
-      gender: 'male'
-    },
-    refusal: {
-      name: 'Tii',
-      gender: 'neutral'
-    },
-    mentor: {
-      name: 'Tii',
-      gender: 'neutral'
-    },
-  },
-  adventure: {
-    type: 'homeward', // Or 'rebellion', 'exploration',
-    scope: 'individual', // Or 'group', 'faction',
-    spark: 'invasion', 'murder', 'execution' 
-  },
-
-}
-*/
-
-// const crossingTheThreshold = [
-//   "How did it feel, setting foot in such a strange place looking for such wanted... well, criminals, at that point. Outlaws at the very least.",
-//   "Tell me a bit more about the spaceport. I think a lot of people know it as it is now, but it must have been so different back then!",
-//   "Who did you meet first?",
-//   "So that really was a point of no return, quite literally in a sense!",
-// ]
-
 function theFirstThreshold(p) {
   return [q1(p), q2(p), q3(p), q4(p), q5(p)]
 }
@@ -80,30 +43,27 @@ function q3() {
   return `The ${spark} of ${name} was the spark that really lit the fire. What did you do when you heard the news?`
 }
 
-function q4() {
-  return `There's no backing out after something like that! Was it your choice to act at that moment, or did circumstances force your hand?`
+function q4(p) {
+  return choose(
+    `Why did you go to ${p.locations.threshold.name}?`,
+    `How did you reach ${p.locations.threshold.name}?`,
+  )
+  // return `There's no backing out after something like that! Was it your choice to act at that moment, or did circumstances force your hand?`
 }
 
+// You failed to follow the armature in the past but now you've got a second chance
 function q5(p) {
-  const pronouns1 = {
-    male: 'his',
-    female: 'her',
-    neutral: 'their'
-  }
-  const pronouns2 = {
+  const them = {
     male: 'him',
     female: 'her',
     neutral: 'them'
   }
 
-  // In the call to adventure, you [lie/betray/try to emulate] the 'refusal' character
   switch (p.armature) {
-    case 'loyalty':
-      return `I'm glad that ${p.characters.refusal.name} gave you a second chance to prove your loyalty. Did you feel like you had to regain ${pronouns1[p.characters.refusal.gender]} trust?`
-    case 'honesty':
-      return `Do you think ${p.characters.refusal.name} believed you? After all, you'd lied to ${pronouns2[p.characters.refusal.gender]} before.`
-    // case 'authenticity':
-    //   return `That must have been quite unfamiliar. After all, you could no longer just follow ${p.characters.refusal.name}'s example, or indeed anyone else's.`
+    case 'take risks':
+      return `Do you think ${p.characters.refusal.name} expected you to be able to leave your comfort zone like that?`
+    case 'tell the truth':
+      return `Do you think ${p.characters.refusal.name} believed you? After all, you'd lied to ${them[p.characters.refusal.gender]} before.`
   }
 }
 

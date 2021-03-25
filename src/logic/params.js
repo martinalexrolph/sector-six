@@ -11,10 +11,9 @@ scope:
   civilisation
 
 armature:
-  loyalty
-  love
-  honesty
-  // authenticity
+  tell the truth
+  take risks
+  money is not everything?
 */
 
 import { choose, character, location } from "./helpers";
@@ -27,8 +26,8 @@ function getParams({name, home}) {
     plot: 'rebellion',
     // scope: choose('individual', 'society', 'civilisation'),
     scope: 'civilisation',
-    armature: choose('loyalty', 'honesty'),
-    // armature: 'loyalty',
+    // armature: choose('take risks', 'tell the truth'),
+    armature: 'take risks',
     organisations: {
       evil: choose('Regime', 'Authority', 'Imperium', 'Alliance', 'Dynasty', 'Administration', 'Syndicate'),
       good: choose('Alliance', 'Collective', 'Senate', 'Union')
@@ -48,6 +47,7 @@ function getParams({name, home}) {
       home: location(),
       // home: {name: 'Xyzzy', type: 'moon', region: 'core'},
       mentor: location(),
+      threshold: location(),
       unexplored: {
         name: choose('Unknown Regions', 'Outer Rim', 'Gateway Systems', 'Great Nebula', 'Abyss'),
         type: 'sector'
