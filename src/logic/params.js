@@ -25,7 +25,7 @@ function getParams({name, home}) {
     // Could add: defend, steal (or heist), rescue
     plot: 'rebellion',
     scope: choose('individual', 'organisation'),
-    // scope: 'civilisation',
+    // scope: 'individual',
     armature: choose('take risks', 'tell the truth'),
     // armature: 'take risks',
     organisations: {
