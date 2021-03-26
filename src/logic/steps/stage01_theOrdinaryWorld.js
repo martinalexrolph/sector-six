@@ -39,7 +39,7 @@ function q2(p) {
   const options = {
     'planet': [
       `What was it like living on ${home.name}, one of the ${home.region} worlds?`,
-      `How was it growing up on ${home.name}, a planet in such a ${home.region === 'core' ? 'central' : 'remote'} part of the galaxy?`
+      `How was it growing up on ${home.name}, a planet in the galactic ${home.region === 'core' ? 'core' : 'rim'}?`
     ],
     'fleet': [
       `What was it like living on ${home.name}? That's one of the traveller ships, right? Between the ${home.region} worlds?`,
@@ -47,7 +47,7 @@ function q2(p) {
     ],
     'station': [
       `What was it like living on ${home.name} Station in the galaxy's ${home.region === 'core' ? 'core' : 'frontier'}?`,
-      `How was it growing up on ${home.name}, such a ${home.region === 'core' ? 'central' : 'remote'} station?`
+      `How was it growing up on ${home.name}, such a ${home.region === 'core' ? 'central' : 'remote'} orbital station?`
     ],
     'asteroid': [
       `What was it like living on ${home.name}, an asteroid base at the ${home.region === 'core' ? 'heart' : 'edge'} of civilisation?`,

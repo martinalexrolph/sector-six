@@ -43,13 +43,14 @@ export {theMentor}
 function q1(p) {
   if (p.scope === 'individual') {
     return choose(
-      `Did you feel like you had the skills you needed to do this?`,
-      `Once you'd decided this was something you wanted to do, did you feel that your life up to this point had prepared you for anything like this?`,
+      `Did you feel like you had the skills you needed?`,
+      `Did you feel that your life up to this point had prepared you for anything like this?`,
     )
   } else {
+    const group = p.plot === 'rebellion' ? 'rebels' : 'expedition'
     return choose(
-      `Did you feel equipped to join up, like you had useful skills to offer?`,
-      `Once you'd decided that you wanted to join, did you feel that you had useful skills to offer?`,
+      `Did you feel equipped to join the ${group}, like you had useful skills to offer?`,
+      `Once you'd decided that you wanted to join the ${group}, did you feel that you had useful skills to offer?`,
     )
   }
 }

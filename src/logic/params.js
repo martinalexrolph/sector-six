@@ -24,10 +24,10 @@ function getParams({name, home}) {
     // plot: choose('rebellion', 'explore', 'find home'),
     // Could add: defend, steal (or heist), rescue
     plot: 'rebellion',
-    // scope: choose('individual', 'society', 'civilisation'),
-    scope: 'civilisation',
-    // armature: choose('take risks', 'tell the truth'),
-    armature: 'take risks',
+    scope: choose('individual', 'organisation'),
+    // scope: 'civilisation',
+    armature: choose('take risks', 'tell the truth'),
+    // armature: 'take risks',
     organisations: {
       evil: choose('Regime', 'Authority', 'Imperium', 'Alliance', 'Dynasty', 'Administration', 'Syndicate'),
       good: choose('Alliance', 'Collective', 'Senate', 'Union')

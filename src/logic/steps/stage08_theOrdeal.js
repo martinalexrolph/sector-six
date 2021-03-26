@@ -39,7 +39,7 @@ function q4(p) {
     `How did you manage to land?`
   ]
   if (p.plot === 'find home') {
-    if (p.scope === 'personal') {
+    if (p.scope === 'individual') {
       options.push(`Did you find who you were looking for?`)
     } else {
       options.push(`Did this match up with the theories?`)

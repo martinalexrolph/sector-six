@@ -1,4 +1,4 @@
-import { choose } from '../helpers'
+import { choose, fullName, place } from '../helpers'
 
 /*
 params = {
@@ -51,20 +51,17 @@ function testsAlliesEnemies(p) {
 
 export {testsAlliesEnemies}
 
+
+
 function q1(p) {
-  if (p.plot === 'explore' || p.plot === 'find home') {
-    return choose([
-      `What was the first challenge you had to overcome to prepare for your voyage?`
-    ])
-  } else if (p.plot === 'rebellion') {
-    if (p.scope === 'individual') {
-      return `What was the first thing you tried to do to undermine the ${p.organisations.evil}?`
-    } else {
-      return choose([
-        `How did you go about trying to join up with the ${p.organisations.good}?`
-      ])
-    }
-  }
+  const spark = choose(['invasion of', 'execution of', 'murder of', 'discovery on', 'events on'])
+  const name = ['invasion of', 'discovery on', 'events on'].includes(spark) ? place() : fullName()
+  const effect = choose(
+    'was the spark that really lit the fire',
+    'really changed things'
+  )
+  const actor = p.scope === 'individual' ? 'you' : `the ${p.organisations.good}`
+  return `The ${spark} of ${name} ${effect}. How did ${actor} respond?`
 }
 
 function q2(p) {
@@ -96,8 +93,13 @@ function q3(p) {
   }
 }
 
-function q4() {
-  return 'Did it go to plan?'
+// The mentor is sidelined
+function q4(p) {
+  return choose(
+    `Why couldn't ${p.characters.mentor.name} help you any more?`,
+    `How did ${p.characters.mentor.name} die?`,
+    `What stopped ${p.characters.mentor.name} from getting involved any further?`,
+  )
 }
 
 
@@ -108,17 +110,18 @@ function q5(p) {
     } else if (p.plot === 'rebellion') {
       return `What was your next move?`
     } else if (p.plot === 'find home') {
-      return `How did you learn where you had to go?`
+      return `How did you learn where you had to go next?`
     }
   } else {
-    return 'What was your first assignment, once you were part of the team?' 
+    return 'What was your next assignment, once you were part of the team?' 
   }
 }
 
 
 function q6(p) {
   return choose(
-    `What was it like facing off against ${p.characters.enemy.name}? Did you realise at the time that he was the ${p.characters.enemy.title} of the ${p.organisations.evil}?`
+    `What was it like facing off against ${p.characters.enemy.name}? Did you realise at the time that he was the ${p.characters.enemy.title} of the ${p.organisations.evil}?`,
+    `${p.characters.enemy.title} ${p.characters.enemy.name} was notioriously brutal. How did you escape?`,
   )
 }
 
@@ -131,7 +134,7 @@ function q7(p) {
 
 // Why didn't you follow the armature?
 function q8(p) {
-  const character = choose(p.characters.mentor, p.characters.refusal, p.characters.ally)
+  const character = choose(p.characters.refusal, p.characters.ally)
   switch (p.armature) {
     case 'take risks':
       return `Why not? Sure, it was dangerous, but ${character.name} needed your help!`

@@ -21,26 +21,16 @@ function q1(p) {
   if (p.plot === 'find home') {
     if (p.scope === 'individual') {
       return "Do you remember where you were when you first learnt that you were so far from your original family?"
-    } else if (p.scope === 'society') {
-      return 'Do you remember where you were when you first learnt about the exile your ancestors went through?'
-    } else if (p.scope === 'civilisation') {
+    } else if (p.scope === 'organisation') {
       return `Do you remember where you were when you first heard about the guidestone and learnt that this sector was not the original home of the ${p.organisations.good}?`
     }
   } else if (p.plot === 'rebellion') {
-    if (p.scope === 'individual') {
-      return `When did you first learn about the injustices that eventually led to you taking a stand against the ${p.organisations.evil}?`
-    } else if (p.scope === 'society') {
-      return `When did you first learn about the injustices perpetuated against your people by the ${p.organisations.evil}?`
-    } else if (p.scope === 'civilisation') {
-      return `When did you first get a glimpse of the oppressive rule of the ${p.organisations.evil}?`
-    }
+    return `When did you first get a glimpse of the oppressive rule of the ${p.organisations.evil}?`
   } else if (p.plot === 'explore') {
     if (p.scope === 'individual') {
       return `Do you remember where you were when you first learnt about the ${p.locations.unexplored.name} that you would later be famous for exploring?`
-    } else if (p.scope === 'society') {
-      return `Do you remember where you were when you first learnt that there was an expedition from your ${p.locations.home.type} to the ${p.locations.unexplored.name}?`
-    } else if (p.scope === 'civilisation') {
-      return `Do you remember where you were when you first learnt about the ${p.organisations.good}'s expedition to the ${p.locations.unexplored.name} which your ${p.locations.home.type} was contributing to?`
+    } else if (p.scope === 'organisation') {
+      return `Do you remember where you were when you first learnt about the ${p.organisations.good}'s expedition to the ${p.locations.unexplored.name}?`
     }
   }
 }

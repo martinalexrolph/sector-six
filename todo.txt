@@ -10,3 +10,6 @@
 [✔] On the last question it still says 'Next question', should say 'Last question'
 
 [ ] Better fullscreen logic (allow windowed mode, switching between fullscreen and not)
+
+[ ] Mentor needs to be put out of action at the end of stage 4 or the start of stage 6
+[ ] Better good/evel names depending on the plot

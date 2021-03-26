@@ -1,58 +1,41 @@
-import { choose, fullName, place } from '../helpers'
+import { choose } from '../helpers'
 
 function theFirstThreshold(p) {
-  return [q1(p), q2(p), q3(p), q4(p), q5(p)]
+  return [q1(p), q2(p), q3(p), q4(p), q5(p), q6(p)]
 }
 
 export {theFirstThreshold}
 
+// TODO: Needs attention, especially for the explore/find home plots
 function q1(p) {
-  if (p.plot === 'explore') {
-    return `An expedition like this is a truly dangerous proposition. Were you scared?`
+  if (p.plot === 'explore' || p.plot === 'find home') {
+    if (p.scope === 'individual') {
+      return `What was the first challenge you had to overcome to prepare for your voyage?`
+    } else {
+      return choose([
+        `How did you go about trying to make contact with the ${p.organisations.good} expedition leaders?`
+      ])
+    }
   } else if (p.plot === 'rebellion') {
-    const prefix = choose([
-      'Taking a stand against',
-      'Opposing',
-      'Fighting for freedom from',
-    ])
-    return `${prefix} the ${p.organisations.evil} was an incredibly dangerous thing to do. Were you scared?`
-  } else if (p.plot === 'find home') {
-    return `You were going out and seeking knowledge about your past that powerful people wanted to keep hidden. Were you scared?`
+    if (p.scope === 'individual') {
+      return `What was the first thing you tried to do to undermine the ${p.organisations.evil}?`
+    } else {
+      return choose([
+        `How did you go about trying to join up with the ${p.organisations.good}?`
+      ])
+    }
   }
 }
 
 function q2(p) {
-  let action
-  if (p.plot === 'rebellion') {
-    action = `standing up to them`
-  } else if (p.plot === 'explore') {
-    action = `venturing into the ${p.locations.unexplored}`
-  } else {
-    if (p.scope === 'faction') {
-      action = `learning about our origins`
-    } else {
-      action = `learning about your origins`
-    }
-  }
-  return `Deep down, what was it that you really hoped to achieve by ${action}?`
-}
-
-function q3() {
-  const spark = choose(['invasion', 'execution', 'murder'])
-  const name = spark === 'invasion' ? place() : fullName()
-  return `The ${spark} of ${name} was the spark that really lit the fire. What did you do when you heard the news?`
-}
-
-function q4(p) {
   return choose(
-    `Why did you go to ${p.locations.threshold.name}?`,
+    `Why did you have to go to ${p.locations.threshold.name}?`,
     `How did you reach ${p.locations.threshold.name}?`,
   )
-  // return `There's no backing out after something like that! Was it your choice to act at that moment, or did circumstances force your hand?`
 }
 
 // You failed to follow the armature in the past but now you've got a second chance
-function q5(p) {
+function q3(p) {
   const them = {
     male: 'him',
     female: 'her',
@@ -67,4 +50,42 @@ function q5(p) {
   }
 }
 
+function q4(p) {
+  if (p.plot === 'explore') {
+    return `An expedition like this is a truly dangerous proposition. Were you scared?`
+  } else if (p.plot === 'rebellion') {
+    const prefix = choose([
+      'Taking a stand against',
+      'Opposing',
+      'Fighting for freedom from',
+    ])
+    return `${prefix} the ${p.organisations.evil} was an incredibly dangerous thing to do. Were you scared?`
+  } else if (p.plot === 'find home') {
+    return `You were going out and seeking knowledge about your past that the ${p.organisations.evil} wanted to keep hidden. Were you scared?`
+  }
+}
 
+function q5(p) {
+  return choose(
+    `What happened on ${p.locations.threshold.name}?`,
+    `How did things unfold on ${p.locations.threshold.name}?`,
+  )
+}
+
+function q6(p) {
+  const part1 = choose(
+    `That sounds incredibly dangerous.`,
+    `I'm amazed you survived!`,
+    `Why were there so many ${p.organisations.evil} soldiers there?`,
+  )
+
+  const part2 = choose(
+    `How did you evade detection?`,
+    `How did you get past them?`,
+    `How did you to get past?`,
+    `Did you have to kill anyone to get through?`,
+    `Were you injured?`
+  )
+
+  return `${part1} ${part2}`
+}

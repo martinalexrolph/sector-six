@@ -26,10 +26,8 @@ function q1(p) {
   } else if (p.plot === 'find home') {
     if (p.scope === 'individual') {
       return `You wouldn't expect learning about your family's origins to be such a challenge. Why was it so hard?`
-    } else if (p.scope === 'society') {
+    } else if (p.scope === 'organisation') {
       return `Why was tracing the path of your ancestors' exile so hard?`
-    } else {
-      return `Why was it so hard to trace where in the galaxy the ${p.organisations.good} originally came from?`
     }
   }
 }
