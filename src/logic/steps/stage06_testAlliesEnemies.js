@@ -120,7 +120,7 @@ function q5(p) {
 
 function q6(p) {
   return choose(
-    `What was it like facing off against ${p.characters.enemy.name}? Did you realise at the time that he was the ${p.characters.enemy.title} of the ${p.organisations.evil}?`,
+    `What was it like facing off against ${p.characters.enemy.title} ${p.characters.enemy.name}?`,
     `${p.characters.enemy.title} ${p.characters.enemy.name} was notioriously brutal. How did you escape?`,
   )
 }

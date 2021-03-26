@@ -1,3 +1,5 @@
+import { boysName, constellation, girlsName, neutralName } from "./names";
+
 function choose(...options) {
   // A single argument which is an array of options
   if (options.length === 1 && Array.isArray(options[0])) {
@@ -13,36 +15,23 @@ function integer(from, to) {
 }
 
 function firstName(gender) {
-  const masculineNames = [
-    "Jon", "Burton", "Frank", "Marco", "Graw", 
-  ]
-
-  const feminineNames = [
-    "Ada", "Iris", "Mary", "Jo", "Kelene"
-  ]
-
-  const neutralNames = [
-    "Alex", "Ko", "Tii", "Ton", "Rowan"
-  ]
-
   if (gender === 'male') {
-    return choose(masculineNames.concat(neutralNames))
+    return boysName()
   } else if (gender === 'female') {
-    return choose(feminineNames.concat(neutralNames))
+    return girlsName()
   } else {
-    return choose(feminineNames.concat(masculineNames.concat(neutralNames)))
+    return neutralName()
   }
 }
 
 function lastName() {
-  return choose([
-    'Skywalker',
-    'Inita',
-    'Oiwha',
-    'Starpath',
-    'Orion',
-    'Bern'
-  ])
+  const dramaticNames = () => `${choose('Star', 'Sky', 'Sun', 'Lune', 'Light', 'Jet', 'Dust')}${choose('path', 'smith', 'trail', 'line', 'walk', 'son')}`
+
+  const nameFunctions = [
+    dramaticNames, locationName, constellation
+  ]
+
+  return choose(nameFunctions)()
 }
 
 function fullName() {
@@ -50,21 +39,16 @@ function fullName() {
 }
 
 function numberedPlanet() {
-  const star = choose([
-    'Artik',
-    'Teres',
-    'Threll',
-    'Centaura',
-    'Quirran'
-  ])
+  const star = locationName()
   const number = choose(['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'IIX', 'IX'])
   return `${star} ${number}`
 }
 
 function place() {
   return choose([
-    numberedPlanet()
-  ])
+    numberedPlanet,
+    locationName
+  ])()
 }
 
 function character() {
@@ -116,6 +100,25 @@ function location() {
   }
 }
 
+function evilTitle() {
+  return choose(
+    'Colonel',
+    'Lieutenant',
+    'Commander',
+    'Artificer',
+    'Admiral',
+    'Marshall',
+    'Captain',
+    'Major',
+    'Sergeant',
+    'Centurion',
+    'Praetor',
+    'Imperator',
+    'Officer',
+    'Overseer'
+  )
+}
+
 
 export {
   choose,
@@ -125,5 +128,6 @@ export {
   fullName,
   place,
   character,
-  location
+  location,
+  evilTitle
 }

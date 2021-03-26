@@ -16,7 +16,7 @@ armature:
   money is not everything?
 */
 
-import { choose, character, location } from "./helpers";
+import { choose, character, location, evilTitle } from "./helpers";
 
 function getParams({name, home}) {
   const params = {
@@ -40,7 +40,7 @@ function getParams({name, home}) {
       ally: character(),
       enemy: {
         ...character(),
-        title: 'First Hand'
+        title: evilTitle()
       }
     },
     locations: {
