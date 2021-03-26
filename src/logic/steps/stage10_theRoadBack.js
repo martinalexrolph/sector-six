@@ -30,7 +30,7 @@ function q3(p) {
       'take risks': `I get that it was the safe option, but potentially at the cost of everything you had worked so hard for! Why do you think ${p.characters.ally.name} did that?`,
       'tell the truth': `At what point did you find out that ${p.characters.ally.name} had lied to you and hadn't actually managed to do that?`,
     },
-    'find home': {
+    'lost homeworld': {
       'take risks': `This discovery had such huge ramifications... so surely ${p.characters.ally.name} could have seen that the risk was worth it?`,
       'tell the truth': `How did you find out that ${p.characters.ally.name} had lied to you?`,
     }

@@ -20,7 +20,7 @@ function newGameState(name, home) {
   if (params.plot === 'rebellion') {
     titles.push('A rebellion With A Cause')
     titles.push('Fighting the Power')
-  } else if (params.plot === 'find home') {
+  } else if (params.plot === 'lost homeworld') {
     titles.push('Finding Home')
     titles.push('Origin Story')
   } else if (params.plot === 'explore') {
@@ -32,7 +32,7 @@ function newGameState(name, home) {
   if (params.scope === 'individual') {
     if (params.plot === 'rebellion') {
       about = `the time he fought back against the ${params.organisations.evil}`
-    } else if (params.plot === 'find home') {
+    } else if (params.plot === 'lost homeworld') {
       about = `his search for answers`
     } else if (params.plot === 'explore') {
       about = `his voyage into the ${params.locations.unexplored.name}`

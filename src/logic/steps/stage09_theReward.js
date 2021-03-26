@@ -17,7 +17,7 @@ function q2(p) {
   if (p.plot === 'rebellion') {
     rewards.push(`could cripple the ${p.organisations.evil}, right here`)
     rewards.push(`could deal a huge blow to the ${p.organisations.evil}`)
-  } else if (p.plot === 'find home') {
+  } else if (p.plot === 'lost homeworld') {
     rewards.push(`had the answer`)
     rewards.push(`knew`)
   } else if (p.plot === 'explore') {

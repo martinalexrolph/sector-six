@@ -97,7 +97,7 @@ function q3(p) {
 function q4(p) {
   return choose(
     `Why couldn't ${p.characters.mentor.name} help you any more?`,
-    `How did ${p.characters.mentor.name} die?`,
+    `How horrible, to lose ${p.characters.mentor.name} like that!`,
     `What stopped ${p.characters.mentor.name} from getting involved any further?`,
   )
 }
@@ -109,8 +109,8 @@ function q5(p) {
       return `Were there any other difficulties you had to overcome before you could set off?`
     } else if (p.plot === 'rebellion') {
       return `What was your next move?`
-    } else if (p.plot === 'find home') {
-      return `How did you learn where you had to go next?`
+    } else if (p.plot === 'lost homeworld') {
+      return `How did you find out the co-ordinates?`
     }
   } else {
     return 'What was your next assignment, once you were part of the team?' 
@@ -126,10 +126,13 @@ function q6(p) {
 }
 
 function q7(p) {
-  if (p.plot === 'explore') {
+  if (p.plot === 'lost homeworld') {
+    return `The discovery of ${p.locations.climax.name} was what made you and your team famous. But first you had one final challenge to overcome. Can you tell us a little about that?`
+  } else if (p.plot === 'explore') {
     return `Obviously what you're really known for is what you did when the mission reached the ${p.locations.unexplored.name}. First you had to get there - can you tell us about the launch?`
+  } else if (p.plot === 'rebellion') {
+    return `Obviously what you're really known for is what you did on ${p.locations.climax.name}. But before that could begin, you had one final challenge to overcome. Can you tell us a little about that?`
   }
-  return `Obviously what you're really known for is what you did on ${p.locations.climax.name}. But before that could begin, you had one final challenge to overcome. Can you tell us a little about that?`
 }
 
 // Why didn't you follow the armature?

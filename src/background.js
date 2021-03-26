@@ -22,7 +22,7 @@ async function createWindow() {
     minHeight: 500,
     backgroundColor: '#333',
     fullscreen: true,
-    frame: false,
+    frame: true,
     title: 'An Oral History of the Uprising',
     webPreferences: {
       

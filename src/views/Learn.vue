@@ -7,7 +7,7 @@
     <div class="menu-box">
       <h2>INTRODUCTION</h2>
       <p>
-        Stories of Sector Six is a simple sci-fi journalling game, somewhere between a solo RPG and a creative-writing exercise. The goal is simply to create a memorable character and story, guided by the game, by creating a retrospective interview about your character's involvement in an important moment in the history of Sector Six.
+        Stories from Sector Six is a simple sci-fi journalling game, somewhere between a solo RPG and a creative-writing exercise. The goal is simply to create a memorable character and story, guided by the game, by creating a retrospective interview about your character's involvement in an important moment in the history of Sector Six.
       </p>
 
       <h2>HOW TO PLAY</h2>

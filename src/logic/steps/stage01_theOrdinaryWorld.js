@@ -62,9 +62,9 @@ function q2(p) {
 
 function q3(p) {
   switch (p.plot) {
-    case 'find home':
+    case 'lost homeworld':
       return choose(
-        "Did you feel, growing up, like this was where you really belonged?"
+        "Did you feel, growing up, like this was where you belonged?"
       )
     case 'rebellion':
       return choose(

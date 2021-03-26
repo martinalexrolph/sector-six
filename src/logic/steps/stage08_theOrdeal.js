@@ -38,7 +38,7 @@ function q4(p) {
     `Where did the signal lead you?`,
     `How did you manage to land?`
   ]
-  if (p.plot === 'find home') {
+  if (p.plot === 'lost homeworld') {
     if (p.scope === 'individual') {
       options.push(`Did you find who you were looking for?`)
     } else {
@@ -64,7 +64,7 @@ function q5(p) {
     sentence1 = choose(
       `So this... this was key to their whole operation, right in front of you!`
     )
-  } else if (p.plot === 'find home') {
+  } else if (p.plot === 'lost homeworld') {
     sentence1 = choose(
       `So right here... this was where you could finally get the answers you needed.`
     )

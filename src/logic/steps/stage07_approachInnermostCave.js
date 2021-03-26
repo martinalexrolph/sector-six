@@ -23,16 +23,21 @@ function q1(p) {
     return `Can you tell us a little bit about why no-one had previously explored the ${p.locations.unexplored.name}?`
   } else if (p.plot === 'rebellion') {
     return `The ${p.organisations.evil} had a fearsome reputation and you were going to strike right at their heart. How did that feel?`
-  } else if (p.plot === 'find home') {
-    if (p.scope === 'individual') {
-      return `You wouldn't expect learning about your family's origins to be such a challenge. Why was it so hard?`
-    } else if (p.scope === 'organisation') {
-      return `Why was tracing the path of your ancestors' exile so hard?`
-    }
+  } else if (p.plot === 'lost homeworld') {
+    return `Why did the ${p.organisations.evil} want this hidden so badly? How did you find out?`
   }
 }
 
 function q2(p) {
+  if (p.plot === 'lost homeworld') {
+    // Got to here!
+    return choose(
+      `What was the significance of ${p.locations.climax.name}? so important?`,
+      `How did you learn that what you were looking for was on ${p.locations.climax.name}?`,
+      `Who worked out how to get to ${p.locations.climax.name}?`,
+      `Who had the idea to aim for ${p.locations.climax.name}?`
+    )
+  }
   return choose(
     `Why was getting to ${p.locations.climax.name} so important?`,
     `How did you learn that what you were looking for was on ${p.locations.climax.name}?`,

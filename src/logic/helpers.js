@@ -129,5 +129,6 @@ export {
   place,
   character,
   location,
-  evilTitle
+  evilTitle,
+  locationName
 }

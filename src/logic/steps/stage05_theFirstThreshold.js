@@ -1,4 +1,4 @@
-import { choose } from '../helpers'
+import { choose, locationName } from '../helpers'
 
 function theFirstThreshold(p) {
   return [q1(p), q2(p), q3(p), q4(p), q5(p), q6(p)]
@@ -6,14 +6,13 @@ function theFirstThreshold(p) {
 
 export {theFirstThreshold}
 
-// TODO: Needs attention, especially for the explore/find home plots
 function q1(p) {
-  if (p.plot === 'explore' || p.plot === 'find home') {
+  if (p.plot === 'explore' || p.plot === 'lost homeworld') {
     if (p.scope === 'individual') {
-      return `What was the first challenge you had to overcome to prepare for your voyage?`
+      return `How did you find the lost homeworld was in the ${locationName()} ${choose('Cluster', 'Nebula', 'Rift')}? The ${p.organisations.evil} had tried so hard to keep that a secret.`
     } else {
       return choose([
-        `How did you go about trying to make contact with the ${p.organisations.good} expedition leaders?`
+        `How did you go about trying to make contact with the ${p.organisations.good}'s expedition leaders?`
       ])
     }
   } else if (p.plot === 'rebellion') {
@@ -60,8 +59,17 @@ function q4(p) {
       'Fighting for freedom from',
     ])
     return `${prefix} the ${p.organisations.evil} was an incredibly dangerous thing to do. Were you scared?`
-  } else if (p.plot === 'find home') {
-    return `You were going out and seeking knowledge about your past that the ${p.organisations.evil} wanted to keep hidden. Were you scared?`
+  } else if (p.plot === 'lost homeworld') {
+    const part1 = choose(
+      `You were going out and seeking knowledge about your past that the ${p.organisations.evil} wanted to keep hidden.`,
+      `The ${p.organisations.evil} wanted this part of your history buried forever.`
+    )
+    const part2 = choose(
+      'Were you scared?',
+      'Did you worry about the repercussions?',
+      'Did that give you pause, or did it just make you more determined?'
+    )
+    return `${part1} ${part2}`
   }
 }
 

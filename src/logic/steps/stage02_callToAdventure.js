@@ -18,11 +18,11 @@ export {callToAdventure}
 
 // TODO: needs a better call to adventure for the 'explore' plt. Perhaps a mysterious phenomena, signal or transmission?
 function q1(p) {
-  if (p.plot === 'find home') {
+  if (p.plot === 'lost homeworld') {
     if (p.scope === 'individual') {
-      return "Do you remember where you were when you first learnt that you were so far from your original family?"
+      return "How did you first learn about the lost planet your ancestors once called home?"
     } else if (p.scope === 'organisation') {
-      return `Do you remember where you were when you first heard about the guidestone and learnt that this sector was not the original home of the ${p.organisations.good}?`
+      return `How did you first hear the rumours about the ${p.organisations.good}'s lost homeworld?`
     }
   } else if (p.plot === 'rebellion') {
     return `When did you first get a glimpse of the oppressive rule of the ${p.organisations.evil}?`
@@ -36,8 +36,12 @@ function q1(p) {
 }
 
 function q2(p) {
-  if (p.plot === 'find home') {
-    return `There's a big step between learning something like that and actually going to find your origins. What was it that really made you take this seriously?`
+  if (p.plot === 'lost homeworld') {
+    return choose(
+      `What effect did seeing that artifact have on you?`,
+      `Did you take the ${choose('report', 'article', 'book')} seriously?`,
+      `Did you believe ${choose('his', 'her', 'their')} story?`
+    )
   } else if (p.plot === 'explore') {
     if (p.scope === 'individual') {
       return 'Were you tempted to start planning an expedition there right away?'
@@ -56,11 +60,14 @@ function q2(p) {
 // TODO: An extra question, 'What really drove your anger towards the Syndicate?' or something. A straightforward 'What was your call to adventure?' question.
 
 function q3(p) {
-  if (p.plot === 'find home') {
-    return `What made you so determined to look for answers?`
+  if (p.plot === 'lost homeworld') {
+    return `What attracted you to this mystery?`
   } else if (p.plot === 'explore') {
     return `What gave you this drive to explore?`
   } else if (p.plot === 'rebellion') {
-    return `Why did this make you want to fight back?`
+    return choose(
+      `Why did this make you want to fight back?`,
+      `How did this change your view of the ${p.organisations.evil}?`
+    )
   }
 }

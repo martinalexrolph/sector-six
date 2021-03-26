@@ -11,7 +11,7 @@ export {
 function q1(p) {
   if (p.plot === 'rebellion') {
     return `Of course the ${p.organisations.evil} weren't completely defeated, but how did it feel to be able to return home having struck such a critical blow?`
-  } else if (p.plot === 'find home') {
+  } else if (p.plot === 'lost homeworld') {
     return `Of course there were still more secrets yet to uncover, but how did it feel to return home with everything you had learnt?`
   } else if (p.plot === 'explore') {
     return `Of course the ${p.locations.unexplored.name} still hid plenty of secrets, but how did it feel to return home having made such an important discovery?`

@@ -13,11 +13,11 @@ function q1(p) {
     } else {
       return `Did you know about the rebellion that was starting to gather momentum?`
     }
-  } else if (p.plot === 'find home') {
+  } else if (p.plot === 'lost homeworld') {
     if (p.scope === 'individual') {
-      return `Why didn't you start investigating?`
+      return `Was it fear of the ${p.organisations.evil} that stopped you investigating further? Or was it something else?`
     } else {
-      return `Why didn't you get involved? What was holding you back?`
+      return `Did you know about the search expedition that was being planned?`
     }
   } else if (p.plot === 'explore') {
     if (p.scope === 'individual') {
@@ -40,16 +40,16 @@ function q2(p) {
 function q3(p) {
   let action = ''
   if (p.scope === 'individual') {
-    if (p.plot === 'find home') {
-      action = 'start looking for your ancestral home'
+    if (p.plot === 'lost homeworld') {
+      action = 'start planning an expedition to find your ancestral home'
     } else if (p.plot === 'explore') {
       action = 'start planning an expedition'
     } else if (p.plot === 'rebellion') {
       action = 'start fighting back'
     }
   } else {
-    if (p.plot === 'find home') {
-      action = 'join the search for your ancestral home'
+    if (p.plot === 'lost homeworld') {
+      action = `defy the ${p.organisations.evil} and join the search for your ancestral home`
     } else if (p.plot === 'explore') {
       action = 'join the expedition'
     } else if (p.plot === 'rebellion') {
