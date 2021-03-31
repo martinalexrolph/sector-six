@@ -19,6 +19,14 @@
         <label>AGE:</label>
         <input v-model="age"/>
       </div>
+      <div class="input-row">
+        <label>PRONOUNS:</label>
+        <select v-model="gender">
+          <option value='male'>he/him</option>
+          <option value='female'>she/her</option>
+          <option value='neutral'>they/them</option>
+        </select>
+      </div>
     </div>
 
     <div class="secondary-buttons">
@@ -31,7 +39,7 @@
 <script>
 import { saveGame } from '../logic/saving'
 import { newGameState } from '../logic/state'
-import { location, firstName, lastName, integer } from '../logic/helpers'
+import { location, firstName, lastName, integer, choose } from '../logic/helpers'
 import { nanoid } from 'nanoid'
 
 export default {
@@ -40,15 +48,17 @@ export default {
     question: Object
   },
   data: function() {
+    const gender = choose('male', 'female', 'neutral')
     return {
-      name: `${firstName()} ${lastName()}`,
+      name: `${firstName(gender)} ${lastName()}`,
       home: location().name,
-      age: integer(16, 40)
+      age: integer(16, 40),
+      gender: gender
     }
   },
   methods: {
     async newGame() {
-      const gameState = newGameState(this.name, this.home)
+      const gameState = newGameState(this.name, this.home, this.gender)
       const gameId = nanoid(10)
       await saveGame(gameId, gameState)
       this.$router.push({name: 'Game', params: {gameId: gameId}})

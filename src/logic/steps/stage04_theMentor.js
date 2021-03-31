@@ -73,11 +73,25 @@ function q3(p) {
 
   return choose([
     `It's interesting to me that so few people know about how much of a pivotal role ${mentor.name} played for you. What was so important about ${pronouns[mentor.gender]}?`,
-    `That you trained under ${mentor.name} is well known, but can you share something about ${pronouns[mentor.gender]} that not many other people know?`
+    `That you trained under ${mentor.name} is well known, but can you share something that would surprise people who didn't get a chance to meet ${pronouns[mentor.gender]}?`
   ])
 }
 
 function q4(p) {
+  const pronouns = {
+    male: 'him',
+    female: 'her',
+    neutral: 'them'
+  }
+  const mentor = p.characters.mentor
+
+  return choose([
+    `I sense that ${mentor.name} was more to you than just a ${choose(['teacher', 'trainer', 'mentor'])} - what was your relationship with ${pronouns[mentor.gender]} like?`,
+    `I sense an undertone of ${choose(['resentment', 'bitterness', 'unhappiness'])} when you talk about your training. Did you not get on well?`,
+  ])
+}
+
+function q5(p) {
   const pronouns = {
     male: 'him',
     female: 'her',
@@ -96,18 +110,4 @@ function q4(p) {
     `Why did ${choose(characters)} dislike ${pronouns[p.characters.mentor.gender]} so much?`,
     `What prompted ${choose(characters)} to join you in training?`,
   )
-}
-
-function q5(p) {
-  const pronouns = {
-    male: 'him',
-    female: 'her',
-    neutral: 'them'
-  }
-  const mentor = p.characters.mentor
-
-  return choose([
-    `I sense that ${mentor.name} was more to you than just a ${choose(['teacher', 'trainer', 'mentor'])} - what was your relationship with ${pronouns[mentor.gender]} like?`,
-    `I sense an undertone of ${choose(['resentment', 'bitterness', 'unhappiness'])} when you talk about your training. Did you not get on well?`,
-  ])
 }

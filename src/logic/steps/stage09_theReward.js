@@ -6,6 +6,7 @@ function theReward(p) {
 
 export {theReward}
 
+// TODO: bit of weird question
 function q1() {
   return `So close! What was the final step?`
 }
@@ -24,27 +25,10 @@ function q2(p) {
     rewards.push(`had a true glimpse of what was out there`)
     rewards.push(`had made the ${p.locations.unexplored.name} safe to explore`)
   }
-  return `Incredible! After enduring so much, finally you ${choose(rewards)}. How did that feel?`
+  return choose(
+    `Incredible! After enduring so much, finally you ${choose(rewards)}. How did that feel?`,
+    `You'd overcome so much, and now you ${choose(rewards)}. What were you thinking at that moment?`,
+  )
 }
 
-// function q3() {
-//   return choose(
-//     `What did you expect the consequences of this would be?`
-//   )
-// }
-
-// function q3() {
-//   return choose(
-//     `That being done... where did you go from there?`,
-//     `What was the next step?`,
-//     `Was there anything else you had to do?`
-//   )
-// }
-
-// function q4() {
-//   return choose(
-//     `How did that go?`,
-//     `Did you make it out?`,
-//     `Did you manage?`
-//   )
-// }
+// Perhaps need to underline that the 

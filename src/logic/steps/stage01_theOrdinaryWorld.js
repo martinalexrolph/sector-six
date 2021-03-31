@@ -11,28 +11,67 @@ import { choose, firstName, lastName, location } from '../helpers'
 
 
 function theOrdinaryWorld(p) {
-  return [q1(p), q2(p), q3(p), q4(p), q5(p), q6(p)]
+  return [introduction(p), q1(p), q2(p), q3(p), q4(p), q5(p), q6(p), q7(p)]
 }
 
 
 export {theOrdinaryWorld}
 
-function q1() {
-  const part1 = `Hello, my name is ${firstName()} ${lastName()} from ${location().name} University's history department - thanks for joining us to share your story! Let's start by giving a little context for your story.`
-  const start = choose([
-    "Before all this kicked off,",
-    "As a young adult,",
-  ])
+function introduction(p) {
 
-  const end = choose([
-    "what was your life like?",
-    "what did you do?",
-  ])
+  const their = {
+    male: 'his',
+    female: 'her',
+    neutral: 'their'
+  }
 
-  return part1 + ' ' + start + ' ' + end
+  const options = {
+    'rebellion': {
+      'individual': `Everyone knows the story of the Great Uprising that toppled the ${p.organisations.evil}, but the early days of the rebellion are less well known. This week, we are talking to ${p.protagonist} about ${their[p.gender]} actions almost five years previously which played a small but significant role in bringing the rule of the ${p.organisations.evil} to an end.`,
+      'organisation': `This episode we're marking the ${choose(10, 15, 20, 25)}th anniversary of the ${p.organisations.good}'s victory over the ${p.organisations.evil} on ${p.locations.climax.name}. My guest is ${p.protagonist}, who played a key role in these events which led, ultimautely, to the end of the rule of the ${p.organisations.evil}.`
+    },
+    'find home': {
+      'individual': '[unfinished]',
+      'organisation': '[unfinished]'
+    }
+  }
+
+  return options[p.plot][p.scope]
+  // let about = 'the part he played'
+  // if (p.scope === 'individual') {
+  //   if (p.plot === 'rebellion') {
+  //     about = `the time he fought back against the ${p.organisations.evil}`
+  //   } else if (p.plot === 'lost homeworld') {
+  //     about = `his search for answers`
+  //   } else if (p.plot === 'explore') {
+  //     about = `his voyage into the ${p.locations.unexplored.name}`
+  //   }
+  // }
+  // return `This episode, to mark the ${choose(10, 15, 20, 25, 30)}th anniversary of the events at ${p.locations.climax.name}, we are interviewing ${p.protagonist} about ${about}.`
 }
 
-function q2(p) {
+function q1(p) {
+  return choose(
+    `Hello, my name is ${firstName()} ${lastName()} from ${location().name} University's history department - thanks for joining us!`,
+    `Hello listeners! I'm your host ${firstName()} ${lastName()} coming to you from ${location().name}. Thanks for joining me, ${p.protagonist.split(' ')[0]}!`
+  )
+}
+
+function q2() {
+  const part1 = choose(
+    `Let's start at the beginning, shall we?`,
+    `Why don't we start by talking a little bit about your life before all this.`,
+  )
+
+  const part2 = choose(
+    `What was your life like growing up?`,
+    `What was your childhood like?`
+  )
+
+  return part1 + ' ' + part2
+}
+
+function q3(p) {
 
   const home = p.locations.home
 
@@ -46,7 +85,7 @@ function q2(p) {
       `How was it growing up on ${home.name}? Must have been strange, travelling ${home.region === 'core' ? 'the core' : 'the frontier'} in a trading fleet?`
     ],
     'station': [
-      `What was it like living on ${home.name} Station in the galaxy's ${home.region === 'core' ? 'core' : 'frontier'}?`,
+      `What was it like living on ${home.name} Station ${home.region === 'core' ? 'in the heart of the galaxy' : 'at the edge of the galaxy'}?`,
       `How was it growing up on ${home.name}, such a ${home.region === 'core' ? 'central' : 'remote'} orbital station?`
     ],
     'asteroid': [
@@ -58,25 +97,6 @@ function q2(p) {
   }
 
   return choose(options[home.type])
-}
-
-function q3(p) {
-  switch (p.plot) {
-    case 'lost homeworld':
-      return choose(
-        "Did you feel, growing up, like this was where you belonged?"
-      )
-    case 'rebellion':
-      return choose(
-        "Were you rebellious, growing up?",
-        "Did you respect authority as a child?",
-        "Did you follow the rules as a kid? Or were you a rebel?"
-      )
-    case 'explore':
-      return choose(
-        "Were you much of an explorer growing up, or did you prefer to stay close to home?"
-      )
-  }
 }
 
 function q4() {
@@ -112,19 +132,49 @@ function q5(p) {
   return `${part1} ${part2}`
 }
 
-
 // Someone else fails to embody the armature
 function q6(p) {
   const character = p.characters.childhood
-  const pronouns = {
+  const they = {
     male: 'he',
     female: 'she',
     neutral: 'they'
   }
-  switch (p.armature) {
-    case 'take risks':
-      return `Why didn't ${pronouns[character.gender]} take that chance? Did ${pronouns[character.gender]} think it was too risky?`
-    case 'tell the truth':
-      return `Why do you think ${pronouns[character.gender]} ${choose('lied to', 'misled')} you about that?`
+  const them = {
+    male: 'him',
+    female: 'her',
+    neutral: 'them'
+  }
+
+  const options = {
+    'take risks': [
+      `Why didn't you take that chance? Did you think it was too risky?`,
+      `Why didn't ${they[character.gender]} take that chance? Did ${they[character.gender]} think it was too risky?`,
+      `Why didn't they let you two take that chance?`
+    ],
+    'tell the truth': [
+      `Why did you ${choose('lie to', 'mislead')} ${them[character.gender]} about that?`,
+      `Why do you think ${they[character.gender]} ${choose('lied to', 'misled')} you about that?`,
+      `Why do you think they ${choose('lied to', 'misled')} the two of you about that?`,
+    ]
+  }
+  return choose(options[p.armature])
+}
+
+function q7(p) {
+  switch (p.plot) {
+    case 'lost homeworld':
+      return choose(
+        "Did you feel, growing up, like this was where you belonged?"
+      )
+    case 'rebellion':
+      return choose(
+        "Knowing what you ended up doing, I'd guess you were a bit of a rebel as a child as well. Is that true?",
+        "Did you follow the rules as a kid? Or were you a bit of a rebel even back then?"
+      )
+    case 'explore':
+      return choose(
+        "Were you much of an explorer growing up, or did you prefer to stay close to home?"
+      )
   }
 }

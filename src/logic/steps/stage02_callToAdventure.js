@@ -7,7 +7,7 @@ then experiences something that makes them want to act
 
 */
 
-import { choose } from "../helpers"
+import { choose, them } from "../helpers"
 
 function callToAdventure(p) {
   return [q1(p), q2(p), q3(p)]
@@ -25,7 +25,11 @@ function q1(p) {
       return `How did you first hear the rumours about the ${p.organisations.good}'s lost homeworld?`
     }
   } else if (p.plot === 'rebellion') {
-    return `When did you first get a glimpse of the oppressive rule of the ${p.organisations.evil}?`
+    return choose(
+      `When did you first get a glimpse of the oppressive rule of the ${p.organisations.evil}?`,
+      `When did you first realise that the ${p.organisations.evil} were not benevolent rulers?`,
+      `What was your first experience of the brutality of the ${p.organisations.evil}?`,
+    )
   } else if (p.plot === 'explore') {
     if (p.scope === 'individual') {
       return `Do you remember where you were when you first learnt about the ${p.locations.unexplored.name} that you would later be famous for exploring?`
@@ -57,17 +61,13 @@ function q2(p) {
   }
 }
 
-// TODO: An extra question, 'What really drove your anger towards the Syndicate?' or something. A straightforward 'What was your call to adventure?' question.
-
 function q3(p) {
-  if (p.plot === 'lost homeworld') {
-    return `What attracted you to this mystery?`
-  } else if (p.plot === 'explore') {
-    return `What gave you this drive to explore?`
-  } else if (p.plot === 'rebellion') {
+  if (p.plot === 'rebellion') {
     return choose(
-      `Why did this make you want to fight back?`,
-      `How did this change your view of the ${p.organisations.evil}?`
+      `Was this your first encounter with ${p.characters.enemy.title} ${p.characters.enemy.name} of the ${p.organisations.evil}?`,
+      `What did ${p.characters.enemy.title} ${p.characters.enemy.name} do to make you hate ${them(p.characters.enemy.gender)}, and the ${p.organisations.evil}, so much?`
     )
   }
+
+  return ''
 }

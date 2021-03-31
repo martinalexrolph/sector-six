@@ -40,13 +40,13 @@ a:hover, a:focus {
 }
 
 label {
-  width: 100px;
+  width: 130px;
   font-weight: 700;
   margin-right: 10px;
   display: block;
 }
 
-input, textarea, .outline {
+select, input, textarea, .outline {
   font-family: "Source Code Pro", monospace;
   border: 1px solid #fbfbfb;
   padding: 8px 10px;

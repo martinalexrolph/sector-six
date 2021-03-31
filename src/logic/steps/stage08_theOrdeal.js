@@ -40,9 +40,9 @@ function q4(p) {
   ]
   if (p.plot === 'lost homeworld') {
     if (p.scope === 'individual') {
-      options.push(`Did you find who you were looking for?`)
+      options.push(`Did you find what you were looking for?`)
     } else {
-      options.push(`Did this match up with the theories?`)
+      options.push(`Did your findings match up with the theories?`)
     }
   } else if (p.plot === 'rebellion') {
     options.push(`How was the base laid out?`)
@@ -62,25 +62,26 @@ function q5(p) {
     )
   } else if (p.plot === 'rebellion') {
     sentence1 = choose(
-      `So this... this was key to their whole operation, right in front of you!`
+      `So this... this was key to their whole operation, right in front of you!`,
+      `Here was where you could really strike back!`
     )
   } else if (p.plot === 'lost homeworld') {
     sentence1 = choose(
-      `So right here... this was where you could finally get the answers you needed.`
+      `So right here... this was where you could finally get the answers you needed.`,
+      `How incredible, to be the first people to set foot in this place for so long!`
     )
   }
   const sentence2 = choose(
     `What was the next step?`,
-    `What did you have to do?`,
-    `What was your goal?`
+    `What did you have to do next?`,
   )
   return `${sentence1} ${sentence2}`
 }
 
 function q6() {
   return choose(
-    `Did you succeed?`,
-    `Did you manage?`,
+    `How did you succeed?`,
+    `How did you manage?`,
   )
 }
 

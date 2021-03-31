@@ -26,7 +26,7 @@
 
       <h2>AN EXAMPLE QUESTION AND ANSWER</h2>
       <p>
-        For example, if the question is <b>"What happened when you arrived at Zeta IV?"</b> and the next question will be <b>"How did it feel to be betrayed like that?</b>, your answer to the question should involve some form of betrayal such that the follow-up question feels natural. For example you might say:
+        For example, if the question is <b>"What happened when you arrived at Zeta IV?"</b> and the next question will be <b>"How did it feel to be betrayed like that?"</b>, your answer to the question should involve some form of betrayal such that the follow-up question feels natural. For example you might say:
       </p>
       <p>
         <i>"The approach was easy, the forward team had managed to disable the defence grid in time which was lucky. But as soon as we landed, we were surrounded! A whole squad of imperial troopers jumped out of hiding, and Jen was out front, dressed in the finest imperial armour. She must have been a mole all along - and to think I trusted her completely!"</i>

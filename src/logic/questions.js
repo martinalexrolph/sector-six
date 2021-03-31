@@ -42,12 +42,12 @@ function homeworldQuestions() {
   return questions
 }
 
-function heroJourney({name, home}) {
+function heroJourney({name, home, gender}) {
   // New params:
   // home.type (planet, fleet, station, asteroid)
   // home.location (core, frontier)
 
-  const params = getParams({name, home});
+  const params = getParams({name, home, gender});
 
   const mentorAndThreshold = Math.random() < 0.5 ?
     [...theMentor(params), ...theFirstThreshold(params)] :

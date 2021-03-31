@@ -61,38 +61,47 @@ function q1(p) {
     'really changed things'
   )
   const actor = p.scope === 'individual' ? 'you' : `the ${p.organisations.good}`
-  return `The ${spark} of ${name} ${effect}. How did ${actor} respond?`
+  return `The ${spark} ${name} ${effect}. How did ${actor} respond?`
 }
+
+
 
 function q2(p) {
-  const pronouns = {
-    male: 'he',
-    female: 'she',
-    neutral: 'they'
-  }
-  return choose(
-    `It was during this that you met ${p.characters.ally.name}, right? How were they involved?`,
-    `How did ${p.characters.ally.name} help?`,
-    `${p.characters.ally.name} joined you for this, didn't ${pronouns[p.characters.ally.gender]}?`,
-  )
-}
-
-// Did another character live up to the armature?
-function q3(p) {
   const they = {
     male: 'he',
     female: 'she',
     neutral: 'they'
   }
+  const wereThey = {
+    male: 'was he',
+    female: 'was she',
+    neutral: 'were they'
+  }
+  return choose(
+    `It was during this that you met ${p.characters.ally.name}, right? How ${wereThey} involved?`,
+    `How did ${p.characters.ally.name} get involved?`,
+    `What was ${p.characters.ally.name}'s role in all this?`,
+    `Where did ${p.characters.ally.name} come in?`,
+    `${p.characters.ally.name} joined you for this, didn't ${they[p.characters.ally.gender]}?`,
+  )
+}
+
+function q3(p) {
+  const them = {
+    male: 'him',
+    female: 'her',
+    neutral: 'them'
+  }
 
   switch (p.armature) {
     case 'tell the truth':
-      return `That's quite a story! Was it true?`
+      return `Did you believe him?`
     case 'take risks':
-      return `Did ${they[p.characters.ally.gender]} take the leap?`
+      return `Were you worried about getting involved with ${them[p.characters.ally.gender]}?`
   }
 }
 
+// TODO: this is super abrupt!
 // The mentor is sidelined
 function q4(p) {
   return choose(
@@ -117,13 +126,16 @@ function q5(p) {
   }
 }
 
-
+// TODO: Make it really obvious that the enemy does not get killed here! Otherwise the resurrection doesn't make sense
+// TODO: Need more of your 'relationship' with the enemy so that they mean more to you.
 function q6(p) {
   return choose(
     `What was it like facing off against ${p.characters.enemy.title} ${p.characters.enemy.name}?`,
     `${p.characters.enemy.title} ${p.characters.enemy.name} was notioriously brutal. How did you escape?`,
   )
 }
+
+// TODO: needs more rounding off before the next question
 
 function q7(p) {
   if (p.plot === 'lost homeworld') {

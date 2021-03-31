@@ -21,7 +21,7 @@ export default {
   name: 'HelloWorld',
   data() {
     return {
-      questions: heroJourney({name: 'Martin Rolph', home: 'Earth'}).questions,
+      questions: heroJourney({name: 'Martin Rolph', home: 'Earth', gender: 'male'}).questions,
     }
   },
   methods: {

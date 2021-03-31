@@ -32,10 +32,10 @@ function q2(p) {
   if (p.plot === 'lost homeworld') {
     // Got to here!
     return choose(
-      `What was the significance of ${p.locations.climax.name}? so important?`,
-      `How did you learn that what you were looking for was on ${p.locations.climax.name}?`,
+      `How did you find ${p.locations.climax.name}?`,
+      `How did you learn that ${p.locations.climax.name} was the planet you were looking for?`,
       `Who worked out how to get to ${p.locations.climax.name}?`,
-      `Who had the idea to aim for ${p.locations.climax.name}?`
+      `Who worked out that ${p.locations.climax.name} was the lost homeworld?`
     )
   }
   return choose(

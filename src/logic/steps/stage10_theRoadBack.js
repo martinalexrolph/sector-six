@@ -19,6 +19,8 @@ function q2(p) {
   )
 }
 
+// TODO: hard to link these two questions together, another question in between to add more context
+
 // Another character failed to follow the armature, with serious consequences.
 function q3(p) {
   const questions = {
@@ -39,17 +41,28 @@ function q3(p) {
   return questions[p.plot][p.armature]
 }
 
+// TODO: Not a natural question
 function q4(p) {
   if (p.scope === 'individual') {
-    return `Did this cast your personal goals in a new light?`
+    return choose(
+      `Did this make you see things differently?`,
+      `Did this change your plans?`,
+      `Did this change how you saw the situation?`
+    )
   } else {
     return choose(
+      `Did this change how you saw the situation?`,
+      `Did this change your view of the ${p.organisations.good}?`,
       `Did this change how you felt about the ${p.organisations.good}?`,
       `Did this affect how you saw your place in the ${p.organisations.good}?`
     )
   }
 }
 
+// TODO: Sounds like therapy!
 function q5() {
-  return choose(`How did you overcome that?`)
+  return choose(
+    `How did you overcome that?`,
+    `How did you manage to ${choose('survive', 'break through', 'evade that')}?`
+  )
 }

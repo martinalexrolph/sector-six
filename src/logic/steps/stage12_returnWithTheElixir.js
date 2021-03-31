@@ -18,12 +18,14 @@ function q1(p) {
   }
 }
 
+// TODO: How could you not be changed by these events?!
 function q2() {
   return choose(
     `Do you think these events changed you?`
   )
 }
 
+// TODO: Another place where you reference the alliance when if the scope is 'individual' then you haven't actually met them yet!
 function q3(p) {
   return `Can you tell us a bit about the effect that your actions had on ${p.locations.home.name}, your home, and also the ${p.organisations.good} in general?`
 }

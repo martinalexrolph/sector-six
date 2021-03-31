@@ -18,12 +18,13 @@ armature:
 
 import { choose, character, location, evilTitle } from "./helpers";
 
-function getParams({name, home}) {
+function getParams({name, home, gender}) {
   const params = {
     protagonist: name,
+    gender: gender,
     // plot: choose('rebellion', 'explore', 'homeworld'),
     // Could add: defend, steal (or heist), rescue
-    plot: 'lost homeworld',
+    plot: 'rebellion',
     scope: choose('individual', 'organisation'),
     // scope: 'individual',
     armature: choose('take risks', 'tell the truth'),

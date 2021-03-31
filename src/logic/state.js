@@ -12,13 +12,14 @@ import { heroJourney } from "./questions"
 //       "Who was your first point of contact with the Rebellion?",
 //       "How hard was it to get in touch with them? I guess they must have been pretty secretive!"
 
-function newGameState(name, home) {
-  const {questions, params} = heroJourney({name, home})
+function newGameState(name, home, gender) {
+  const {questions, params} = heroJourney({name, home, gender})
+  const introduction = questions.shift()
   const firstQuestion = questions.shift()
 
   const titles = ['An Unlikely Hero', 'A Journey To Remember']
   if (params.plot === 'rebellion') {
-    titles.push('A rebellion With A Cause')
+    titles.push('A Rebel With A Cause')
     titles.push('Fighting the Power')
   } else if (params.plot === 'lost homeworld') {
     titles.push('Finding Home')
@@ -28,23 +29,12 @@ function newGameState(name, home) {
     titles.push('The True Frontier')
   }
 
-  let about = 'the part he played'
-  if (params.scope === 'individual') {
-    if (params.plot === 'rebellion') {
-      about = `the time he fought back against the ${params.organisations.evil}`
-    } else if (params.plot === 'lost homeworld') {
-      about = `his search for answers`
-    } else if (params.plot === 'explore') {
-      about = `his voyage into the ${params.locations.unexplored.name}`
-    }
-  }
-
   return {
     name: name,
     completed: false,
     introduction: {
       title: `Episode ${integer(3, 20)}: ${choose(titles)}`,
-      text: `This episode, to mark the ${choose(10, 15, 20, 25, 30)}th anniversary of the events at ${params.locations.climax.name}, we are interviewing ${name} about ${about}.`
+      text: introduction
     },
     messages: [{
       text: firstQuestion,

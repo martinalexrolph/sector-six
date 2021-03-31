@@ -119,6 +119,15 @@ function evilTitle() {
   )
 }
 
+function them(gender) {
+  if (gender === 'male') {
+    return 'him'
+  } else if (gender === 'female') {
+    return 'her'
+  } else if (gender === 'neutral') {
+    return 'them'
+  }
+}
 
 export {
   choose,
@@ -130,5 +139,6 @@ export {
   character,
   location,
   evilTitle,
-  locationName
+  locationName,
+  them
 }
