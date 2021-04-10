@@ -69,7 +69,7 @@ function q3(p) {
   if (p.scope === 'individual') {
     return choose(
       `${part1} Did you take action at that point?`,
-      'Did you start making plans then?',
+      `${part1} Did you start making plans then?`,
     )
   } else if (p.scope === 'organisation') {
     return choose(

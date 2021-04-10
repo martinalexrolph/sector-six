@@ -46,7 +46,18 @@ params = {
 // ]
 
 function testsAlliesEnemies(p) {
-  return [q1(p), q2(p), q3(p), q4(p), q5(p), q6(p), q7(p), q8(p), q9(p), q10(p)]
+  return [
+    q1(p),
+    q2(p),
+    q3(p),
+    q4(p),
+    q5(p),
+    theEnemyIsNotDead(p),
+    q6(p),
+    q7(p),
+    q8(p),
+    q9(p)
+  ]
 }
 
 export {testsAlliesEnemies}
@@ -78,7 +89,7 @@ function q2(p) {
     neutral: 'were they'
   }
   return choose(
-    `It was during this that you met ${p.characters.ally.name}, right? How ${wereThey} involved?`,
+    `It was during this that you met ${p.characters.ally.name}, right? How ${wereThey[p.characters.ally.gender]} involved?`,
     `How did ${p.characters.ally.name} get involved?`,
     `What was ${p.characters.ally.name}'s role in all this?`,
     `Where did ${p.characters.ally.name} come in?`,
@@ -101,18 +112,7 @@ function q3(p) {
   }
 }
 
-// TODO: this is super abrupt!
-// The mentor is sidelined
 function q4(p) {
-  return choose(
-    `Why couldn't ${p.characters.mentor.name} help you any more?`,
-    `How horrible, to lose ${p.characters.mentor.name} like that!`,
-    `What stopped ${p.characters.mentor.name} from getting involved any further?`,
-  )
-}
-
-
-function q5(p) {
   if (p.scope === 'individual') {
     if (p.plot === 'explore') {
       return `Were there any other difficulties you had to overcome before you could set off?`
@@ -128,27 +128,36 @@ function q5(p) {
 
 // TODO: Make it really obvious that the enemy does not get killed here! Otherwise the resurrection doesn't make sense
 // TODO: Need more of your 'relationship' with the enemy so that they mean more to you.
-function q6(p) {
+function q5(p) {
   return choose(
     `What was it like facing off against ${p.characters.enemy.title} ${p.characters.enemy.name}?`,
     `${p.characters.enemy.title} ${p.characters.enemy.name} was notioriously brutal. How did you escape?`,
   )
 }
 
-// TODO: needs more rounding off before the next question
+function theEnemyIsNotDead(p) {
+  return choose(
+    `Of course, that wasn't the last you'd see of each other - but we'll come back to that. Where did you go from there?`,
+    `How did the ${p.characters.enemy.title} survive?`,
+    `Anyone who has heard your story knows that this wasn't the tast time you crossed paths with the ${p.characters.enemy.title}. Did you suspect, at this point, that you'd meet each other again?`
+  )
+}
 
-function q7(p) {
+function q6(p) {
   if (p.plot === 'lost homeworld') {
     return `The discovery of ${p.locations.climax.name} was what made you and your team famous. But first you had one final challenge to overcome. Can you tell us a little about that?`
   } else if (p.plot === 'explore') {
     return `Obviously what you're really known for is what you did when the mission reached the ${p.locations.unexplored.name}. First you had to get there - can you tell us about the launch?`
   } else if (p.plot === 'rebellion') {
-    return `Obviously what you're really known for is what you did on ${p.locations.climax.name}. But before that could begin, you had one final challenge to overcome. Can you tell us a little about that?`
+    return choose(
+      `Obviously what you're really known for is what you did on ${p.locations.climax.name}. But before that could begin, you had one final challenge to overcome. Can you tell us a little about that?`,
+      `I'm sure everyone is looking forward to hearing you talk about the events on ${p.locations.climax.name}, but before that there was an incident that not so many people know about that nearly derailed everything. Can you tell us about that?`
+    )
   }
 }
 
 // Why didn't you follow the armature?
-function q8(p) {
+function q7(p) {
   const character = choose(p.characters.refusal, p.characters.ally)
   switch (p.armature) {
     case 'take risks':
@@ -158,11 +167,11 @@ function q8(p) {
   }
 }
 
-function q9() {
+function q8() {
   return `How did you fix the mess you'd made?`
 }
 
-function q10(p) {
+function q9(p) {
   if (p.locations.home.type === 'fleet') {
     return `That must have been especially difficult for someone who grew up on a spaceship rather than solid ground!`
   } else if (p.locations.home.type === 'planet') {

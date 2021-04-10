@@ -99,8 +99,16 @@ function q6(p) {
 }
 
 // TODO: write this question!
-function q7() {
-  return choose(
-    'How did this mission/event finish?'
-  )
+function q7(p) {
+  if (p.scope === 'individual') {
+    return choose(
+      `Phew! At least you managed to make contact, even if it was a close shave!`,
+      `It sounds like you were lucky to make it! How did it feel, meeting them?`
+    )
+  } else {
+    return choose(
+      `Phew! At least you got what you came for, even if it was a close shave!`,
+      `Phew! At least you managed to make contact, even if it was a close shave!`
+    )
+  }
 }

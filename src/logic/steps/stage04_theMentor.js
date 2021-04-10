@@ -1,4 +1,4 @@
-import { choose } from '../helpers'
+import { choose, them, they } from '../helpers'
 
 /*
 params = {
@@ -35,7 +35,7 @@ params = {
   // ]
 
 function theMentor(p) {
-  return [q1(p), q2(p), q3(p), q4(p), q5(p)]
+  return [q1(p), q2(p), q3(p), q4(p), q5(p), q6(p), q7(p)]
 }
 
 export {theMentor}
@@ -44,13 +44,13 @@ function q1(p) {
   if (p.scope === 'individual') {
     return choose(
       `Did you feel like you had the skills you needed?`,
-      `Did you feel that your life up to this point had prepared you for anything like this?`,
+      `Did you feel that you had enough experience for something like this?`,
     )
   } else {
     const group = p.plot === 'rebellion' ? 'rebels' : 'expedition'
     return choose(
-      `Did you feel equipped to join the ${group}, like you had useful skills to offer?`,
-      `Once you'd decided that you wanted to join the ${group}, did you feel that you had useful skills to offer?`,
+      `Did you feel like you had the skills you needed to contribute meaningfully to the ${group}?`,
+      `Did you feel that you had useful skills to offer the ${group}?`,
     )
   }
 }
@@ -58,7 +58,7 @@ function q1(p) {
 function q2() {
   return choose(
     `Ok, so you had a lot to learn there. Did you actively seek out a mentor?`,
-    `What was it you felt you really had to learn?`,
+    `What was it you felt you had to learn most? How did you find someone who could help?`,
     `How did you find someone to teach you?`,
   )
 }
@@ -72,7 +72,7 @@ function q3(p) {
   const mentor = p.characters.mentor
 
   return choose([
-    `It's interesting to me that so few people know about how much of a pivotal role ${mentor.name} played for you. What was so important about ${pronouns[mentor.gender]}?`,
+    `It's interesting to me that so few people know about how much of a pivotal role the late ${mentor.name} ${mentor.surname} played for you. What was so important about ${pronouns[mentor.gender]}?`,
     `That you trained under ${mentor.name} is well known, but can you share something that would surprise people who didn't get a chance to meet ${pronouns[mentor.gender]}?`
   ])
 }
@@ -109,5 +109,21 @@ function q5(p) {
     `Did ${choose(characters)} approve of you training with ${pronouns[p.characters.mentor.gender]}?`,
     `Why did ${choose(characters)} dislike ${pronouns[p.characters.mentor.gender]} so much?`,
     `What prompted ${choose(characters)} to join you in training?`,
+  )
+}
+
+function q6(p) {
+  return choose(
+    `How long did you spend training with ${p.characters.mentor.name}?`,
+    `When did your time with ${p.characters.mentor.name} end?`,
+    `Did you learn everything you needed from ${p.characters.mentor.name}?`,
+  )
+}
+
+function q7(p) {
+  return choose(
+    `Why couldn't ${they(p.characters.mentor.gender)} help you any more?`,
+    `How horrible, to lose ${them(p.characters.mentor.gender)} like that!`,
+    `What stopped ${them(p.characters.mentor.gender)} from getting involved any further?`,
   )
 }

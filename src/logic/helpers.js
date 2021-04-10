@@ -54,8 +54,9 @@ function place() {
 function character() {
   const gender = choose(['male', 'female', 'neutral'])
   const name = firstName(gender)
+  const surname = lastName()
 
-  return {gender, name}
+  return {gender, name, surname}
 }
 
 function locationName() {	
@@ -129,6 +130,16 @@ function them(gender) {
   }
 }
 
+function they(gender) {
+  if (gender === 'male') {
+    return 'he'
+  } else if (gender === 'female') {
+    return 'she'
+  } else if (gender === 'neutral') {
+    return 'they'
+  }
+}
+
 export {
   choose,
   integer,
@@ -140,5 +151,6 @@ export {
   location,
   evilTitle,
   locationName,
-  them
+  them,
+  they
 }
