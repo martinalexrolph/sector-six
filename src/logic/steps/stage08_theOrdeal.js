@@ -22,15 +22,29 @@ function theOrdeal(p) {
 export {theOrdeal}
 
 function q1(p) {
-  return `What happened when you arrived at ${p.locations.climax.name}?`
+  return choose(
+    `What happened when you arrived at ${p.locations.climax.name}?`,
+    `Who led the way to ${p.locations.climax.name}?`,
+    `How did you approach ${p.locations.climax.name}?`,
+    `Was ${p.locations.climax.name} hard to get to?`
+  )
 }
 
 function q2() {
-  return `How did you ${choose('survive', 'break through', 'evade that')}?`
+  return choose(
+    `How did you ${choose('survive', 'break through', 'evade that')}?`,
+    `What did you have to do to ${choose('get past', 'slip through', 'survive')}?`
+  )
 }
 
 function q3() {
-  return `What was the next step in the plan?`
+  return choose(
+    `What was the next step in the plan?`,
+    `Once you were there, what was the next step?`,
+    `Where did you need to go from there?`,
+    `What did you have to do then?`,
+    `Did the next step go to plan?`
+  )
 }
 
 function q4(p) {
@@ -62,6 +76,7 @@ function q5(p) {
     )
   } else if (p.plot === 'rebellion') {
     sentence1 = choose(
+      `You were right at the beating heart of the ${p.organisations.evil}!`,
       `So this... this was key to their whole operation, right in front of you!`,
       `Here was where you could really strike back!`
     )
@@ -74,6 +89,7 @@ function q5(p) {
   const sentence2 = choose(
     `What was the next step?`,
     `What did you have to do next?`,
+    `What was the plan?`,
   )
   return `${sentence1} ${sentence2}`
 }
@@ -82,6 +98,7 @@ function q6() {
   return choose(
     `How did you succeed?`,
     `How did you manage?`,
+    `Did you make it?`
   )
 }
 

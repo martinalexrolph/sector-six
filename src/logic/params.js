@@ -54,7 +54,7 @@ function getParams({name, home, gender}) {
         type: 'sector'
       },
       climax: location(),
-      resurrection: location(),
+      resurrection: choose('home', 'threshold', 'climax'),
     }
   };
 

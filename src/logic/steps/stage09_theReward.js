@@ -1,24 +1,24 @@
 import { choose } from '../helpers'
 
 function theReward(p) {
-  return [q1(p), q2(p), /*q3(p)*/]
+  return [q1(p)]
 }
 
 export {theReward}
 
-// TODO: bit of weird question
-function q1() {
-  return `So close! What was the final step?`
-}
-
-function q2(p) {
+function q1(p) {
+  if (p.plot === 'rebellion') {
+    return choose(
+      `Incredible! After enduring so much, how did it feel to cripple the ${p.organisations.evil}'s operation?`,
+      `You'd overcome so much, and now your actions had dealt a huge blow to the ${p.organisations.evil}. What were you thinking at that moment?`,
+      `After everything you'd endured, how did it feel to hit back at the ${p.organisations.evil} in such a powerful way?`,
+    )
+  }
+    
   const rewards = [
     'had reached your goal'
   ]
-  if (p.plot === 'rebellion') {
-    rewards.push(`could cripple the ${p.organisations.evil}, right here`)
-    rewards.push(`could deal a huge blow to the ${p.organisations.evil}`)
-  } else if (p.plot === 'lost homeworld') {
+  if (p.plot === 'lost homeworld') {
     rewards.push(`had the answer`)
     rewards.push(`knew`)
   } else if (p.plot === 'explore') {
@@ -30,5 +30,3 @@ function q2(p) {
     `You'd overcome so much, and now you ${choose(rewards)}. What were you thinking at that moment?`,
   )
 }
-
-// Perhaps need to underline that the 

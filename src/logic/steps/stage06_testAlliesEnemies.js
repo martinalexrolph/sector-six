@@ -151,7 +151,7 @@ function q6(p) {
   } else if (p.plot === 'rebellion') {
     return choose(
       `Obviously what you're really known for is what you did on ${p.locations.climax.name}. But before that could begin, you had one final challenge to overcome. Can you tell us a little about that?`,
-      `I'm sure everyone is looking forward to hearing you talk about the events on ${p.locations.climax.name}, but before that there was an incident that not so many people know about that nearly derailed everything. Can you tell us about that?`
+      `I'm sure everyone wants to hear you talk about the events on ${p.locations.climax.name}, but before that there was an incident that not so many people know about that nearly derailed everything. Can you tell us about that?`
     )
   }
 }

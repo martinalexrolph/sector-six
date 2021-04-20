@@ -1,5 +1,3 @@
-// import { choose, firstName, place } from '../helpers'
-
 import { choose } from "../helpers"
 
   // const theApproach = [
@@ -22,7 +20,11 @@ function q1(p) {
   if (p.plot === 'explore') {
     return `Can you tell us a little bit about why no-one had previously explored the ${p.locations.unexplored.name}?`
   } else if (p.plot === 'rebellion') {
-    return `The ${p.organisations.evil} had a fearsome reputation and you were going to strike right at their heart. How did that feel?`
+    return choose(
+      `Ok, so now lets talk about ${p.locations.climax.name}. The ${p.organisations.evil} had a fearsome reputation and you were going to strike right at their heart. How did that feel?`,
+      `That was the last major event before ${p.locations.climax.name}, right? How did it feel, knowing that you were about to invoke the full wrath of the ${p.organisations.evil}?`,
+      `Now I think we can finally start to talk about ${p.locations.climax.name}, which I think everyone has been looking forward to hearing about. What was going through your mind as you planned this?`
+    )
   } else if (p.plot === 'lost homeworld') {
     return `Why did the ${p.organisations.evil} want this hidden so badly? How did you find out?`
   }
@@ -30,7 +32,6 @@ function q1(p) {
 
 function q2(p) {
   if (p.plot === 'lost homeworld') {
-    // Got to here!
     return choose(
       `How did you find ${p.locations.climax.name}?`,
       `How did you learn that ${p.locations.climax.name} was the planet you were looking for?`,

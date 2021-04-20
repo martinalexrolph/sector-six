@@ -1,16 +1,35 @@
 import { choose } from "../helpers"
 
 function returnWithTheElixir(p) {
-  return [q1(p), q2(p), q3(p), q4(p)]
+  return [
+    whereDidYouGo(p),
+    goingBackHome(p),
+    lesson(p),
+    friends(p),
+    finalWords(p),
+    thanks(p)
+  ]
 }
 
 export {
   returnWithTheElixir
 }
 
-function q1(p) {
+function whereDidYouGo(p) {
+  return choose(
+    `Where did you go from here?`,
+    `How long before you could go back home?`,
+    `Did you return to ${p.locations.home.name}?`,
+    `How long before you could go back to ${p.locations.home.name}?`
+  )
+}
+
+function goingBackHome(p) {
   if (p.plot === 'rebellion') {
-    return `Of course the ${p.organisations.evil} weren't completely defeated, but how did it feel to be able to return home having struck such a critical blow?`
+    return choose(
+      `Of course the ${p.organisations.evil} weren't completely defeated, but how did it feel to be able to return having struck such a critical blow?`,
+      `What was it like going back? Did your ${choose('family', 'friends')} know the part you'd played?`,
+    )
   } else if (p.plot === 'lost homeworld') {
     return `Of course there were still more secrets yet to uncover, but how did it feel to return home with everything you had learnt?`
   } else if (p.plot === 'explore') {
@@ -18,18 +37,37 @@ function q1(p) {
   }
 }
 
-// TODO: How could you not be changed by these events?!
-function q2() {
+function lesson() {
   return choose(
-    `Do you think these events changed you?`
+    `What did you learn from all this?`,
+    `How do you think these events changed you?`,
+    `What was the biggest way that these events changed you?`,
+    `When you think back to the person you were before all this happened, what would you want to tell them?`,
+    `What advice would you give to your younger self, before this all started?`
   )
 }
 
-// TODO: Another place where you reference the alliance when if the scope is 'individual' then you haven't actually met them yet!
-function q3(p) {
-  return `Can you tell us a bit about the effect that your actions had on ${p.locations.home.name}, your home, and also the ${p.organisations.good} in general?`
+function friends() {
+  return choose(
+    `Of the people you met along the way, who are you most grateful for?`,
+    `Are you still in touch with the people you met along the way?`,
+    `Which of the people you met had the most impact on you, do you think?`,
+    `Are the people in your team still in touch wth each other? Are you still friends?`,
+  )
 }
 
-function q4() {
-  return `Thank you, both personally and on behalf of the University, for joining us and sharing your story!`
+function finalWords() {
+  return choose(
+    `Any final words for our listeners before we finish?`,
+    `Finally, if there was one piece of advice or encouragement that you could give to our listeners, what would it be?`,
+    `Any final reflections before we go? Anything else you'd like to share?`,
+  )
+}
+
+function thanks() {
+  return choose(
+    `Thank you, both personally and on behalf of the University, for joining us and sharing your story!`,
+    `I'm afraid that's all we have time for! Thanks again for joining us and sharing your experiences.`,
+    `And that's all we have time for! Thanks again for joining us, it was a pleasure talking with you.`,
+  )
 }

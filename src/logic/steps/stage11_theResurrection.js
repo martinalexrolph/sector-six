@@ -1,33 +1,56 @@
 import { choose } from "../helpers"
 
 function theResurrection(p) {
-  return [q1(p), q2(p), q3(p), q4(p), q5(p), q6(p)]
+  return [
+    changeInPlan(p),
+    newThreat(p),
+    graspTheArmature(p),
+    whatWasTheThreat(p),
+    newPlan(p),
+    fightTheEnemy(p),
+    finalSacrifice(p),
+    howDidItGo(p),
+    success(p),
+  ]
 }
 
 export {
   theResurrection
 }
 
-// TODO: Sounds forced/unnatural. If it's a rebellion, perhaps go back to the home planet/mmon/whatever rather than a new location?
-function q1(p) {
-  return `But this journey had one more obstacle in store... can you tell us about what happened on ${p.locations.resurrection.name}?`
+function changeInPlan() {
+  return choose(
+    `Why the change in plan?`,
+    `What stopped you?`,
+    `What happened? Where did you go instead?`
+  )
 }
 
-function q2(p) {
-  const questions = [`What was a ${p.organisations.evil} fleet doing there?`]
-
-  if (p.plot === 'lost homeworld' || p.plot === 'explore') {
-    questions.push(`Why did the ${p.organisations.evil} try to stop you returning?`)
-  } else if (p.plot === 'rebellion') {
-    questions.push(`How did the ${p.organisations.evil} know to ambush you here?`)
+function newThreat(p) {
+  if (p.locations.resurrection === 'home') {
+    return choose(
+      `Why was ${p.locations.home.name} under threat? Did the ${p.organisations.evil} know that was your home?`,
+      `Who told you that ${p.locations.home.name} was at risk?`,
+      `Why was ${p.locations.home.name} threatened?`,
+      `How did the ${p.organisations.evil} know to target ${p.locations.home.name}?`
+    )
+  } else if (p.locations.resurrection === 'threshold') {
+    return choose(
+      `Why was ${p.locations.threshold.name} under threat? Did ${p.organisations.evil} know what you had done there?`,
+      `Why was a ${p.organisations.evil} fleet gathering at ${p.locations.threshold.name}?`,
+      `Why did the ${p.organisations.evil} suddenly take an interest in ${p.locations.threshold.name}?`,
+      `How did the ${p.organisations.evil} know to target ${p.locations.home.name}?`
+    )
+  } else if (p.locations.resurrection === 'climax') {
+    return choose(
+      `What happened to make you turn back to ${p.locations.climax.name}?`,
+      `Why were the ${p.organisations.evil} gathering their forces at ${p.locations.climax.name}? Did you know what they were planning?`,
+      `You sound like you had no choice. Why did you have to head back to ${p.locations.climax.name}?`,
+    )
   }
-
-  return choose(questions)
 }
 
-// TODO: needs another question here, otherwise the previous answer gets too long
-
-function q3(p) {
+function graspTheArmature(p) {
   if (p.armature === 'take risks') {
     return `It must have taken such courage to try that, in the face of such danger!`
   } else if (p.armature === 'tell the truth') {
@@ -35,14 +58,25 @@ function q3(p) {
   }
 }
 
-// TODO: sounds like foraging for food! Perhaps just 'How did you survive?'
-
-function q4() {
-  return `What did you have to do to survive?`
+function whatWasTheThreat(p) {
+  return choose(
+    `What awaited you on ${p.locations[p.locations.resurrection].name}?`,
+    `What were the ${p.organisations.evil} doing when you arrived?`,
+    `Was it clear what the ${p.organisations.evil}'s plan was on ${p.locations[p.locations.resurrection].name}?`
+  )
 }
 
-// TODO: need to make more of a thing of the enemy earlier in the game so that they are actually a nemesis
-function q5(p) {
+function newPlan() {
+  return choose(
+    `So you needed a new plan! What did you have to do?`,
+    `How could you possibly go about stopping that from happening?`,
+    `Did you think you were going to be able to protect them? How?`,
+    `Did you have a plan for how to stop it?`
+  )
+}
+
+
+function fightTheEnemy(p) {
   if (p.plot === 'rebellion') {
     return `How did it feel to face off against ${p.characters.enemy.title} ${p.characters.enemy.name} one final time?`
   } else if (p.plot === 'lost homeworld') {
@@ -52,13 +86,44 @@ function q5(p) {
   }
 }
 
-// TODO: that's not going to work if it's just an individual as they won't know who the good guys are. And I can see it being a potential continuity problem. Maybe just drop the question?
-function q6(p) {
-  if (p.plot === 'rebellion') {
-    return `How did you make it back to the ${p.organisations.good}?`
-  } else if (p.plot === 'lost homeworld') {
-    return `How did you make it back to ${p.locations.home.name}?`
-  } else if (p.plot === 'explore') {
-    return `How did you make it out of the ${p.locations.unexplored.name}?`
+function finalSacrifice() {
+  return choose(
+    `Was ${choose('his', 'her', 'their')} sacrifice worth it?`,
+    `That's an incredible sacrifice to make. How did you find the courage?`,
+    `It's incredible that your team were willing to make that sacrifice. How did it play out?`
+  )
+}
+
+function howDidItGo() {
+  return choose(
+    `What happened?`,
+    `How did you manage that?`
+  )
+}
+
+function success(p) {
+  const options = {
+    'rebellion': {
+      'take risks': {
+        'individual': `Your victory here, against all the odds and at huge personal risk, was truly awe-inspiring. Did you realise the impact that your actions were going to have in terms of inspiring the nascent rebellion?`,
+        'organisation': `Without your actions, and without the risks that you and your team had to take, it seems likely that the ${p.organisations.good} might not have been able to defeat the ${p.organisations.evil} here. How did that feel?`
+      },
+      'tell the truth': {
+        'individual': `Your victory here really opened people's eyes to the oppressive rule of the ${p.organisations.evil} and helped people see past their endless lies and propoganda. Did you realise that this was the start of the rebellion?`,
+        'organisation': `Defeating the ${p.organisations.evil} here was a huge step forward for the ${p.organisations.good} and I think it really opened people's eyes to the truth about the ${p.organisations.evil}. How did it feel to be part of that?`
+      },
+    },
+    'find home': {
+      'take risks': {
+        'individual': '',
+        'organisation': ''
+      },
+      'tell the truth': {
+        'individual': '',
+        'organisation': ''
+      },
+    },
   }
+
+  return options[p.plot][p.armature][p.scope]
 }
