@@ -1,19 +1,17 @@
 import { choose } from './helpers'
 import { getParams } from './params'
 import { theOrdinaryWorld } from './steps/stage01_theOrdinaryWorld'
-import { callToAdventure } from './steps/stage02_callToAdventure'
-import { refusalOfTheCall } from './steps/stage03_refusalOfTheCall'
-import { theMentor } from './steps/stage04_theMentor'
-import { theFirstThreshold } from './steps/stage05_theFirstThreshold'
-import { testsAlliesEnemies } from './steps/stage06_testAlliesEnemies'
-import { approachInnermostCave } from './steps/stage07_approachInnermostCave'
-import { theOrdeal } from './steps/stage08_theOrdeal'
-import { theReward } from './steps/stage09_theReward'
-import { theRoadBack } from './steps/stage10_theRoadBack'
-import { theResurrection } from './steps/stage11_theResurrection'
-import { returnWithTheElixir } from './steps/stage12_returnWithTheElixir'
-// import { testsAlliesEnemies } from './steps/testAlliesEnemies'
-// import { approachInnermostCave } from './steps/approachInnermostCave'
+// import { callToAdventure } from './steps/stage02_callToAdventure'
+// import { refusalOfTheCall } from './steps/stage03_refusalOfTheCall'
+// import { theMentor } from './steps/stage04_theMentor'
+// import { theFirstThreshold } from './steps/stage05_theFirstThreshold'
+// import { testsAlliesEnemies } from './steps/stage06_testAlliesEnemies'
+// import { approachInnermostCave } from './steps/stage07_approachInnermostCave'
+// import { theOrdeal } from './steps/stage08_theOrdeal'
+// import { theReward } from './steps/stage09_theReward'
+// import { theRoadBack } from './steps/stage10_theRoadBack'
+// import { theResurrection } from './steps/stage11_theResurrection'
+// import { returnWithTheElixir } from './steps/stage12_returnWithTheElixir'
 
 function introductoryQuestions() {
   return firstQuestions().concat(homeworldQuestions())
@@ -49,33 +47,22 @@ function heroJourney({name, home, gender}) {
 
   const params = getParams({name, home, gender});
 
-  const mentorAndThreshold = Math.random() < 0.5 ?
-    [...theMentor(params), ...theFirstThreshold(params)] :
-    [...theFirstThreshold(params), ...theMentor(params)]
+  // const mentorAndThreshold = Math.random() < 0.5 ?
+  //   [...theMentor(params), ...theFirstThreshold(params)] :
+  //   [...theFirstThreshold(params), ...theMentor(params)]
 
   const questions = [
     ...theOrdinaryWorld(params),
-    ...callToAdventure(params),
-    ...refusalOfTheCall(params),
-    ...mentorAndThreshold,
-    ...testsAlliesEnemies(params),
-    ...approachInnermostCave(params),
-    ...theOrdeal(params),
-    ...theReward(params),
-    ...theRoadBack(params),
-    ...theResurrection(params),
-    ...returnWithTheElixir(params),
-    // ...step2.questions,
-    // ...step3.questions,
-    // ...step4.questions,
-    // ...step5.questions,
-    // ...step6.questions,
-    // ...step7.questions,
-    // ...theOrdeal,
-    // ...seizingTheSword,
-    // ...theRoadBack,
-    // ...resurrection,
-    // ...returnWithTheElixir
+    // ...callToAdventure(params),
+    // ...refusalOfTheCall(params),
+    // ...mentorAndThreshold,
+    // ...testsAlliesEnemies(params),
+    // ...approachInnermostCave(params),
+    // ...theOrdeal(params),
+    // ...theReward(params),
+    // ...theRoadBack(params),
+    // ...theResurrection(params),
+    // ...returnWithTheElixir(params),
   ]
 
   return {questions, params}

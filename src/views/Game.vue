@@ -14,9 +14,10 @@
       </div>
     </div>
     <Compose v-if="!gameState.completed" v-bind:onSubmit="submitAnswer" />
-    <NextQuestion v-if="!gameState.completed" v-bind:question="{text: gameState.questions[0]}"/>
+    <NextQuestion v-if="!gameState.completed" v-bind:questions="gameState.questions"/>
     <div class="outline game-complete" v-if="gameState.completed">
-      <b>Game complete!</b> Start a <router-link to='/new'>new game</router-link> or go to the <router-link to='/'>main menu</router-link>
+      <div class="interview-over">--- INTERVIEW OVER ---</div>
+      <div>Start a <router-link to='/new'>new game</router-link> or go to the <router-link to='/'>main menu</router-link></div>
     </div>
   </div>
 </template>
@@ -119,7 +120,7 @@ export default {
 .game-complete {
   width: 90%;
   max-width: 800px;
-  text-align: left;
+  text-align: center;
   margin: 0 auto 10px;
 }
 
@@ -127,6 +128,10 @@ export default {
   width: 400px;
   font-size: 20px;
   margin: 8px auto;
+}
+
+.interview-over {
+  margin-bottom: 12px;
 }
 
 @media screen and (max-width: 700px) {
