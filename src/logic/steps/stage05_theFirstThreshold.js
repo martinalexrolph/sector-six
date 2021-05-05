@@ -1,7 +1,7 @@
 import { choose, locationName } from '../helpers'
 
 function theFirstThreshold(p) {
-  return ['-- The First Threshold --', q1(p), q2(p), q3(p), q4(p), q5(p), q6(p), q7(p)]
+  return [q1(p), q2(p), q3(p), q4(p), q5(p), q6(p), q7(p)]
 }
 
 export {theFirstThreshold}

@@ -1,15 +1,30 @@
 <template>
-  <div class="compose">
+  <div class="compose" v-if="!showUndoConfirmation">
     <textarea
       class="textarea"
       @keypress.enter.prevent="submit(text)"
-      rows="4"
       v-model="text"
       enterkeyhint="send"
     />
-    <button class="submit" @click="submit(text)">
-      >
-    </button>
+    <div class="buttons">
+      <button class="button primary" @click="submit(text)">
+        SEND
+      </button>
+      <button class="button secondary" v-if="canUndo" @click="undo()">
+        <!-- &#9100; -->UNDO
+      </button>
+    </div>
+  </div>
+
+  <div class="compose" v-if="showUndoConfirmation">
+    <div class="outline undo-message">
+      <div><b>ARE YOU SURE YOU WANT TO UNDO?</b></div>
+      You will lose the answer you are writing and will be able to edit your previous answer.
+    </div>
+    <div class="buttons">
+      <button class="button primary" @click="confirmUndo()">YES</button>
+      <button class="button secondary" @click="cancelUndo()">NO</button>
+    </div>
   </div>
 </template>
 
@@ -19,6 +34,7 @@ export default {
   data: function() {
     return {
       text: '',
+      showUndoConfirmation: false
     }
   },
   
@@ -26,10 +42,23 @@ export default {
     submit(text) {
       this.text = ''
       this.onSubmit(text)
+    },
+    undo() {
+      this.showUndoConfirmation = true
+    },
+    cancelUndo() {
+      this.showUndoConfirmation = false
+    },
+    confirmUndo() {
+      this.showUndoConfirmation = false
+      console.log(this.showUndoConfirmation)
+      this.text = this.onUndo()
     }
   },
   props: {
-    onSubmit: Function
+    onSubmit: Function,
+    onUndo: Function,
+    canUndo: Boolean
   }
 }
 </script>
@@ -38,25 +67,54 @@ export default {
 <style scoped>
 .compose {
   width: 90%;
+  height: 122px;
   max-width: 800px;
   font-size: 20px;
   font-weight: 400;
   text-align: left;
-  margin: 0 auto 10px;
+  margin: 0 auto;
   display: flex;
 }
 
-.submit {
-  width: 50px;
+.buttons {
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.button {
+  width: 100%;
   font-size: 20px;
-  padding: 10px;
+  padding: 5px;
+  flex-grow: 1;
+  margin-bottom: 10px;
+}
+
+.button:last-child {
+  margin-bottom: 0;
+}
+
+.primary {
   font-weight: 700;
+  flex-grow: 1;
+}
+
+.secondary {
+  flex-grow: 0;
+  font-weight: 400;
 }
 
 .textarea {
   width: 100%;
   resize: none;
-  margin-right: 10px;
+}
+
+.undo-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
 }
 
 @media screen and (max-width: 700px) {

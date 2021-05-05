@@ -13,7 +13,7 @@
         <div class="end-of-messages"></div>
       </div>
     </div>
-    <Compose v-if="!gameState.completed" v-bind:onSubmit="submitAnswer" />
+    <Compose v-if="!gameState.completed" v-bind:onSubmit="submitAnswer" v-bind:onUndo="undo" v-bind:canUndo="gameState.messages.length > 2" />
     <NextQuestion v-if="!gameState.completed" v-bind:questions="gameState.questions"/>
     <div class="outline game-complete" v-if="gameState.completed">
       <div class="interview-over">--- INTERVIEW OVER ---</div>
@@ -73,6 +73,12 @@ export default {
       })
 
       saveGame(this.$route.params.gameId, this.gameState)
+    },
+    undo() {
+      const lastQuestion = this.gameState.messages.pop().text
+      const lastAnswer = this.gameState.messages.pop().text
+      this.gameState.questions.unshift(lastQuestion)
+      return lastAnswer
     },
     goHome() {
       this.$router.push({name: 'Home'})
