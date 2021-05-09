@@ -28,7 +28,7 @@ function introduction(p) {
   const options = {
     'rebellion': {
       'individual': `Everyone knows the story of the Great Uprising that toppled the ${p.organisations.evil}, but the early days of the rebellion are less well known. This week, we are talking to ${p.protagonist} about ${their[p.gender]} actions almost five years previously which played a small but significant role in bringing the rule of the ${p.organisations.evil} to an end.`,
-      'organisation': `This episode we're marking the ${choose(10, 15, 20, 25)}th anniversary of the ${p.organisations.good}'s victory over the ${p.organisations.evil} on ${p.locations.climax.name}. My guest is ${p.protagonist}, who played a key role in these events which led, ultimately, to the end of the rule of the ${p.organisations.evil}.`
+      'organisation': `In this episode we're marking the ${choose(10, 15, 20, 25)}th anniversary of the ${p.organisations.good}'s victory over the ${p.organisations.evil} on ${p.locations.climax.name}. My guest is ${p.protagonist}, who played a key role in these events which led, ultimately, to the end of the rule of the ${p.organisations.evil}.`
     },
     'find home': {
       'individual': '[unfinished]',
@@ -60,7 +60,7 @@ function q1(p) {
 function q2() {
   const part1 = choose(
     `Let's start at the beginning, shall we?`,
-    `Why don't we start by talking a little bit about your life before all this.`,
+    `Why don't we start by talking a little bit about your life before all this?`,
   )
 
   const part2 = choose(

@@ -131,7 +131,7 @@ function q4(p) {
 function q5(p) {
   return choose(
     `What was it like facing off against ${p.characters.enemy.title} ${p.characters.enemy.name}?`,
-    `${p.characters.enemy.title} ${p.characters.enemy.name} was notioriously brutal. How did you escape?`,
+    `${p.characters.enemy.title} ${p.characters.enemy.name} was notoriously brutal. How did you escape?`,
   )
 }
 
@@ -139,7 +139,7 @@ function theEnemyIsNotDead(p) {
   return choose(
     `Of course, that wasn't the last you'd see of each other - but we'll come back to that. Where did you go from there?`,
     `How did the ${p.characters.enemy.title} survive?`,
-    `Anyone who has heard your story knows that this wasn't the tast time you crossed paths with the ${p.characters.enemy.title}. Did you suspect, at this point, that you'd meet each other again?`
+    `Anyone who has heard your story knows that this wasn't the last time you crossed paths with the ${p.characters.enemy.title}. Did you suspect, at this point, that you'd meet each other again?`
   )
 }
 

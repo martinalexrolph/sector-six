@@ -27,13 +27,13 @@ function whereDidYouGo(p) {
 function goingBackHome(p) {
   if (p.plot === 'rebellion') {
     return choose(
-      `Of course the ${p.organisations.evil} weren't completely defeated, but how did it feel to be able to return having struck such a critical blow?`,
+      `Of course, the ${p.organisations.evil} weren't completely defeated, but how did it feel to be able to return having struck such a critical blow?`,
       `What was it like going back? Did your ${choose('family', 'friends')} know the part you'd played?`,
     )
   } else if (p.plot === 'lost homeworld') {
-    return `Of course there were still more secrets yet to uncover, but how did it feel to return home with everything you had learnt?`
+    return `Of course, there were still more secrets yet to uncover, but how did it feel to return home with everything you had learnt?`
   } else if (p.plot === 'explore') {
-    return `Of course the ${p.locations.unexplored.name} still hid plenty of secrets, but how did it feel to return home having made such an important discovery?`
+    return `Of course, the ${p.locations.unexplored.name} still hid plenty of secrets, but how did it feel to return home having made such an important discovery?`
   }
 }
 
@@ -52,7 +52,7 @@ function friends() {
     `Of the people you met along the way, who are you most grateful for?`,
     `Are you still in touch with the people you met along the way?`,
     `Which of the people you met had the most impact on you, do you think?`,
-    `Are the people in your team still in touch wth each other? Are you still friends?`,
+    `Are the people in your team still in touch with each other? Are you still friends?`,
   )
 }
 

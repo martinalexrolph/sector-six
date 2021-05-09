@@ -90,7 +90,7 @@ function q6(p) {
   const part2 = choose(
     `How did you evade detection?`,
     `How did you get past them?`,
-    `How did you to get past?`,
+    `How did you get past?`,
     `Did you have to kill anyone to get through?`,
     `Were you injured?`
   )

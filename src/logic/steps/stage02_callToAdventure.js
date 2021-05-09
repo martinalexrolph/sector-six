@@ -55,8 +55,8 @@ function q2(p) {
   } else if (p.plot === 'rebellion') {
     return choose(
       `What was it like to experience that first-hand?`,
-      `What did you see? Did they know you witnesed that?`,
-      `Who witnessed that? Was it someone close to you?`
+      `Did they know you witnessed that?`,
+      `That's a remarkable claim - what made you believe then when they said they witnessed that?`
     )
   }
 }

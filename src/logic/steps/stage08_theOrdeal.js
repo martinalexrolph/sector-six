@@ -105,8 +105,8 @@ function q6() {
 // Good thing you followed the armature
 function q7(p) {
   if (p.armature === 'tell the truth') {
-    return `Thank goodness you admitted the truth! Otherwise the consequences could have been catastrophic!`
+    return `Thank goodness you admitted the truth! Otherwise, the consequences could have been catastrophic!`
   } else if (p.armature === 'take risks') {
-    return `Good thing you took that risk! Otherwise I can't imagine you could have succeeded.`
+    return `Good thing you took that risk! Otherwise, I can't imagine you could have succeeded.`
   }
 }

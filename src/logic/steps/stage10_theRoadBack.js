@@ -37,7 +37,7 @@ function celebration() {
   return choose(
     'Did you allow yourself a moment of celebration?',
     'Were the rest of the team as happy as you?',
-    'What did you success mean to you and the team?',
+    'What did your success mean to you and the team?',
     'Did you success give you a sense of confidence?'
   )
 }
