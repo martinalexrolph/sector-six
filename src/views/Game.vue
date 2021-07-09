@@ -13,6 +13,7 @@
         <div class="end-of-messages"></div>
       </div>
     </div>
+    <ThisQuestion v-if="!gameState.completed" v-bind:question="gameState.questions[0]"/>
     <Compose v-if="!gameState.completed" v-bind:onSubmit="submitAnswer" v-bind:onUndo="undo" v-bind:canUndo="gameState.messages.length > 2" />
     <NextQuestion v-if="!gameState.completed" v-bind:questions="gameState.questions"/>
     <div class="outline game-complete" v-if="gameState.completed">
@@ -28,6 +29,7 @@ import { saveGame, loadGame } from '../logic/saving'
 import Question from '../components/Question'
 import Answer from '../components/Answer'
 import Compose from '../components/Compose'
+import ThisQuestion from '../components/ThisQuestion'
 import NextQuestion from '../components/NextQuestion'
 import Introduction from '../components/Introduction'
 
@@ -88,7 +90,7 @@ export default {
 
   },
   components: {
-    Question, Answer, Compose, NextQuestion, Introduction
+    Question, Answer, Compose, NextQuestion, ThisQuestion, Introduction
   }
 }
 </script>
@@ -99,6 +101,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow: hidden;
 }
 
 .messages {

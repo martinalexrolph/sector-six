@@ -63,6 +63,15 @@ select, input, textarea, .outline {
   transition: background-color 0.15s ease-in-out;
 }
 
+.no-outline {
+  border: none;
+  padding: none;
+  border-radius: 0;
+  box-shadow: none;
+  outline: none;
+  
+}
+
 input:focus, textarea:focus {
   background: rgb(46, 51, 45);
 }

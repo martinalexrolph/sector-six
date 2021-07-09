@@ -1,23 +1,15 @@
 <template>
   <div class="next-question outline">
-    <div class="heading">Next questions</div>
-    <div class="first-question" v-if="questions[0]">
-      <b>- {{ questions[0] }}</b>
-    </div>
-    <div v-if="questions[1]">
-      <b>- {{ questions[1] }}</b>
-    </div>
-    <div class="end-of-interview" v-if="!questions[1]">
-      --- END OF INTERVIEW ---
-    </div>
+    <div class="heading">Question:</div>
+    <b>- {{ question }}</b>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'NextQuestion',
+  name: 'ThisQuestion',
   props: {
-    questions: Array
+    question: String
   }
 }
 </script>
@@ -28,8 +20,7 @@ export default {
   width: 90%;
   max-width: 800px;
   text-align: left;
-  margin: 10px auto -20px;
-  padding-bottom: 30px;
+  margin: 10px auto;
 }
 
 .first-question {

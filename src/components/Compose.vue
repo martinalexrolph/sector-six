@@ -77,7 +77,7 @@ export default {
 }
 
 .buttons {
-  width: 80px;
+  width: 90px;
   display: flex;
   flex-direction: column;
   margin-left: 10px;
