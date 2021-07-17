@@ -66,13 +66,11 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .compose {
-  width: 90%;
-  height: 122px;
-  max-width: 800px;
+  width: 100%;
+  height: 180px;
   font-size: 20px;
   font-weight: 400;
   text-align: left;
-  margin: 0 auto;
   display: flex;
 }
 

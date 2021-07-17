@@ -1,11 +1,11 @@
 <template>
   <div class="next-question outline">
-    <div class="heading">Next questions</div>
+    <div class="heading">Upcoming questions</div>
     <div class="first-question" v-if="questions[0]">
-      <b>- {{ questions[0] }}</b>
+      <b>{{ questions[0] }}</b>
     </div>
     <div v-if="questions[1]">
-      <b>- {{ questions[1] }}</b>
+      <b>{{ questions[1] }}</b>
     </div>
     <div class="end-of-interview" v-if="!questions[1]">
       --- END OF INTERVIEW ---
@@ -25,15 +25,13 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .next-question {
-  width: 90%;
-  max-width: 800px;
+  width: 100%;
   text-align: left;
-  margin: 10px auto -20px;
-  padding-bottom: 30px;
+  margin: 10px auto;
 }
 
 .first-question {
-  margin-bottom: 6px;
+  margin-bottom: 15px;
 }
 
 .end-of-interview {
@@ -41,7 +39,7 @@ export default {
 }
 
 .heading {
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   font-size: 14px;
   background: #222;
   width: 200px;

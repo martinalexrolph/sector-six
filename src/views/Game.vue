@@ -3,7 +3,8 @@
     <button class="home-button" @click="goHome()">
       &lt; HOME
     </button>
-    <div class="main-container">
+
+    <div class="main-container outline">
       <div class="messages">
         <Introduction v-bind:introduction="gameState.introduction"/>
         <div v-for="(message, index) in gameState.messages" v-bind:key="index">
@@ -13,12 +14,15 @@
         <div class="end-of-messages"></div>
       </div>
     </div>
-    <ThisQuestion v-if="!gameState.completed" v-bind:question="gameState.questions[0]"/>
-    <Compose v-if="!gameState.completed" v-bind:onSubmit="submitAnswer" v-bind:onUndo="undo" v-bind:canUndo="gameState.messages.length > 2" />
-    <NextQuestion v-if="!gameState.completed" v-bind:questions="gameState.questions"/>
-    <div class="outline game-complete" v-if="gameState.completed">
-      <div class="interview-over">--- INTERVIEW OVER ---</div>
-      <div>Start a <router-link to='/new'>new game</router-link> or go to the <router-link to='/'>main menu</router-link></div>
+
+    <div class="controls">
+      <ThisQuestion v-if="!gameState.completed" v-bind:question="gameState.questions[0]"/>
+      <Compose v-if="!gameState.completed" v-bind:onSubmit="submitAnswer" v-bind:onUndo="undo" v-bind:canUndo="gameState.messages.length > 2" />
+      <NextQuestion v-if="!gameState.completed" v-bind:questions="gameState.questions"/>
+      <div class="outline game-complete" v-if="gameState.completed">
+        <div class="interview-over">--- INTERVIEW OVER ---</div>
+        <div>Start a <router-link to='/new'>new game</router-link> or go to the <router-link to='/'>main menu</router-link></div>
+      </div>
     </div>
   </div>
 </template>
@@ -99,23 +103,23 @@ export default {
 .game {
   height: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: space-evenly;
   overflow: hidden;
 }
 
 .messages {
   font-size: 20px;
-  width: 90%;
-  max-width: 800px;
-  margin: 0 auto;
+  width: 100%;
 }
 
 .main-container {
   width: 100%;
+  max-width: 750px;
+  height: calc(100vh - 60px);
+  margin: 30px;
   overflow: auto;
   flex-grow: 1;
-  padding-top: 80px;
   padding-bottom: 20px;
 }
 
@@ -141,6 +145,14 @@ export default {
 
 .interview-over {
   margin-bottom: 12px;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 550px;
+  margin-right: 30px;
 }
 
 @media screen and (max-width: 700px) {

@@ -1,7 +1,7 @@
 <template>
   <div class="next-question outline">
-    <div class="heading">Question:</div>
-    <b>- {{ question }}</b>
+    <div class="heading">Current question:</div>
+    <b>{{ question }}</b>
   </div>
 </template>
 
@@ -17,8 +17,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .next-question {
-  width: 90%;
-  max-width: 800px;
+  width: 100%;
   text-align: left;
   margin: 10px auto;
 }
@@ -32,7 +31,7 @@ export default {
 }
 
 .heading {
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   font-size: 14px;
   background: #222;
   width: 200px;
