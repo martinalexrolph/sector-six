@@ -1,25 +1,38 @@
 <template>
   <div class="container">
+    <div class="title-container">
+      <div>
+        <div class="title-1">STORIES FROM</div>
+        <div class="title-2" style="font-weight: 500;">SECTOR</div>
+        <div class="title-2">SIX</div>
+      </div>
+
+      <div class="overview">
+        <p>
+          A solo journalling RPG by Martin Rolph
+        </p>
+        <p>
+          Somewhere between a game and a creative-writing exercise, in Stories from Sector Six the goal is simply to create a memorable character and story. Follow the prompts and create a retrospective interview about your character's involvement in an important moment in the history of Sector Six.  
+        </p>
+      </div>
+    </div>
+
     <div>
-      <div class="title-1">STORIES FROM</div>
-      <div class="title-2" style="font-weight: 500; margin-bottom: -25px;">SECTOR</div>
-      <div class="title-2">SIX</div>
-    </div>
+      <div class="primary-button">
+        <button class="button" @click="learnToPlay()">LEARN TO PLAY</button>
+      </div>
 
-    <div class="primary-button">
-      <button class="button" @click="learnToPlay()">LEARN TO PLAY</button>
-    </div>
+      <div class="secondary-buttons">
+        <button class="button" @click="newGame()">NEW GAME</button>
+        <button class="button" @click="loadGame()">LOAD GAME</button>
+        <button class="button" @click="completedGames()">COMPLETED GAMES</button>
+        <button class="button" @click="goTo('All Questions')">TEST ALL QUESTIONS</button>
+        <!-- <button class="button">OPTIONS</button> -->
+      </div>
 
-    <div class="secondary-buttons">
-      <button class="button" @click="newGame()">NEW GAME</button>
-      <button class="button" @click="loadGame()">LOAD GAME</button>
-      <button class="button" @click="completedGames()">COMPLETED GAMES</button>
-      <button class="button" @click="goTo('All Questions')">TEST ALL QUESTIONS</button>
-      <!-- <button class="button">OPTIONS</button> -->
-    </div>
-
-    <div class="secondary-buttons">
-      <button class="button" @click="exit()">EXIT</button>
+      <div class="secondary-buttons">
+        <button class="button" @click="exit()">EXIT</button>
+      </div>
     </div>
   </div>
 </template>
@@ -57,31 +70,34 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .container {
-  width: 800px;
+  width: 1000px;
   max-width: calc(100% - 20px);
-  height: 100%;
+  min-height: 100vh;
   text-align: center;
   padding: 50px 10px;
   border-radius: 4px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-around;
+  align-items: center;
   margin: 0 auto;
 }
 
 .title-1 {
-  font-size: 35px;
+  font-size: 25px;
   line-height: 1;
   font-weight: 400;
-  margin-bottom: -10px;
+  text-align: left;
 }
 
 .title-2 {
-  font-size: 120px;
-  line-height: 1;
+  font-size: 100px;
+  line-height: 0.75;
   font-weight: 700;
   letter-spacing: -5px;
   margin-bottom: 7px;
+  text-align: left;
+  margin-left: -8px;
 }
 
 .button {
@@ -96,58 +112,24 @@ export default {
   margin: 8px auto;
 }
 
-@media screen and (max-height: 700px) {
-  .primary-button .button {
-    font-size: 26px;
-  }
+.secondary-buttons {
+  margin: 30px 0;
+}
 
-  .button {
-    padding-top: 4px;
-    padding-bottom: 4px;
-  }
+.title-container {
+  max-width: 400px;
+}
 
-  .title-1 {
-    font-size: 18px;
-  }
+.overview {
+  font-size: 18px;
+  text-align: left;
+  margin-top: 40px;
+}
 
-  .title-2 {
-    font-size: 80px;
-    line-height: 0.9;
-    margin-bottom: 4px;
-  }
-
+@media screen and (max-width: 900px) {
   .container {
-    padding: 15px 10px;
+    flex-direction: column;
+    overflow: scroll;
   }
 }
-
-@media screen and (max-width: 700px) {
-  .primary-button .button {
-    font-size: 26px;
-  }
-
-  .title-1 {
-    font-size: 20px;
-  }
-
-  .title-2 {
-    font-size: 90px;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .primary-button .button {
-    font-size: 18px;
-  }
-
-  .title-1 {
-    font-size: 16px;
-  }
-
-  .title-2 {
-    font-size: 70px;
-  }
-}
-
-
 </style>
