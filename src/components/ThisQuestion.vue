@@ -1,7 +1,9 @@
 <template>
-  <div class="next-question outline">
+  <div class="next-question">
     <div class="heading">Current question:</div>
-    <b>{{ question }}</b>
+    <div class="outline">
+      <b>{{ question }}</b>
+    </div>
   </div>
 </template>
 

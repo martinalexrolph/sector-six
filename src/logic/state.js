@@ -14,8 +14,7 @@ import { heroJourney } from "./questions"
 
 function newGameState(name, home, gender) {
   const {questions, params} = heroJourney({name, home, gender})
-  const introduction = questions.shift()
-  const firstQuestion = questions.shift()
+  const introduction = questions.shift();
 
   const titles = ['An Unlikely Hero', 'A Journey To Remember']
   if (params.plot === 'rebellion') {
@@ -36,10 +35,7 @@ function newGameState(name, home, gender) {
       title: `Episode ${integer(3, 20)}: ${choose(titles)}`,
       text: introduction
     },
-    messages: [{
-      text: firstQuestion,
-      type: 'question'
-    },],
+    messages: [],
     questions: questions
   }
 }

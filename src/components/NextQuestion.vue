@@ -1,14 +1,11 @@
 <template>
-  <div class="next-question outline">
-    <div class="heading">Upcoming questions</div>
-    <div class="first-question" v-if="questions[0]">
-      <b>{{ questions[0] }}</b>
-    </div>
-    <div v-if="questions[1]">
+  <div class="next-question">
+    <div class="heading" v-if="questions[1]">Upcoming questions</div>
+    <div class="first-question outline" v-if="questions[1]">
       <b>{{ questions[1] }}</b>
     </div>
-    <div class="end-of-interview" v-if="!questions[1]">
-      --- END OF INTERVIEW ---
+    <div v-if="questions[2]" class="outline">
+      <b>{{ questions[2] }}</b>
     </div>
   </div>
 </template>

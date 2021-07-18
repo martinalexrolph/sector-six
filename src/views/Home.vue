@@ -30,7 +30,7 @@
         <!-- <button class="button">OPTIONS</button> -->
       </div>
 
-      <div class="secondary-buttons">
+      <div class="secondary-buttons" v-if="isElectron">
         <button class="button" @click="exit()">EXIT</button>
       </div>
     </div>
@@ -43,6 +43,14 @@ export default {
   name: 'Question',
   props: {
     question: Object
+  },
+  data() {
+    return {
+      isElectron: false
+    }
+  },
+  async mounted() {
+    this.isElectron = /electron/i.test(navigator.userAgent)
   },
   methods: {
     newGame() {

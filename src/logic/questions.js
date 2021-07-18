@@ -51,7 +51,7 @@ function heroJourney({name, home, gender}) {
     [...theMentor(params), ...theFirstThreshold(params)] :
     [...theFirstThreshold(params), ...theMentor(params)]
 
-  const questions = [
+  let questions = [
     ...theOrdinaryWorld(params),
     ...callToAdventure(params),
     ...refusalOfTheCall(params),
@@ -64,6 +64,8 @@ function heroJourney({name, home, gender}) {
     ...theResurrection(params),
     ...returnWithTheElixir(params),
   ]
+
+  // questions = theOrdinaryWorld(params);
 
   return {questions, params}
 }

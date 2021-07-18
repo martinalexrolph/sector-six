@@ -1,18 +1,21 @@
 <template>
-  <div class="compose" v-if="!showUndoConfirmation">
-    <textarea
-      class="textarea"
-      @keypress.enter.prevent="submit(text)"
-      v-model="text"
-      enterkeyhint="send"
-    />
-    <div class="buttons">
-      <button class="button primary" @click="submit(text)">
-        SEND
-      </button>
-      <button class="button secondary" v-if="canUndo" @click="undo()">
-        <!-- &#9100; -->UNDO
-      </button>
+  <div class="heading">Your answer:</div>
+  <div v-if="!showUndoConfirmation">
+    <div class="compose" >
+      <textarea
+        class="textarea"
+        @keypress.enter.prevent="submit(text)"
+        v-model="text"
+        enterkeyhint="send"
+      />
+      <div class="buttons">
+        <button class="button primary" @click="submit(text)">
+          SEND
+        </button>
+        <button class="button secondary" v-if="canUndo" @click="undo()">
+          <!-- &#9100; -->UNDO
+        </button>
+      </div>
     </div>
   </div>
 
@@ -74,11 +77,21 @@ export default {
   display: flex;
 }
 
+.heading {
+  margin-bottom: 8px;
+  font-size: 14px;
+  background: #222;
+  width: 200px;
+  font-style: italic;
+  text-align: left;
+}
+
 .buttons {
-  width: 90px;
+  width: 75px;
   display: flex;
   flex-direction: column;
   margin-left: 10px;
+  flex-shrink: 0;
 }
 
 .button {

@@ -17,11 +17,15 @@
 
     <div class="controls">
       <ThisQuestion v-if="!gameState.completed" v-bind:question="gameState.questions[0]"/>
-      <Compose v-if="!gameState.completed" v-bind:onSubmit="submitAnswer" v-bind:onUndo="undo" v-bind:canUndo="gameState.messages.length > 2" />
+      <Compose v-if="!gameState.completed" v-bind:onSubmit="submitAnswer" v-bind:onUndo="undo" v-bind:canUndo="gameState.messages.length > 1" />
       <NextQuestion v-if="!gameState.completed" v-bind:questions="gameState.questions"/>
-      <div class="outline game-complete" v-if="gameState.completed">
+      <div class="game-complete" v-if="gameState.completed">
         <div class="interview-over">--- INTERVIEW OVER ---</div>
-        <div>Start a <router-link to='/new'>new game</router-link> or go to the <router-link to='/'>main menu</router-link></div>
+        
+        <div>
+          <router-link class="button" to='/new'>NEW GAME</router-link>
+          <router-link class="button" to='/'>MAIN MENU</router-link>
+        </div>
       </div>
     </div>
   </div>
@@ -57,12 +61,8 @@ export default {
   },
   methods: {
     submitAnswer(text) {
-      this.gameState.messages.push({
-        text: text,
-        type: 'answer'
-      })
-
-      if (this.gameState.questions.length) {
+      console.log(this.gameState.questions);
+      if (this.gameState.questions.length > 1) {
         this.gameState.messages.push({
           text: this.gameState.questions.shift(),
           type: 'question'
@@ -70,6 +70,11 @@ export default {
       } else {
         this.gameState.completed = true
       }
+
+      this.gameState.messages.push({
+        text: text,
+        type: 'answer'
+      })
 
       this.$nextTick(function() {
         const el = this.$el.getElementsByClassName('end-of-messages')[0];
@@ -81,8 +86,8 @@ export default {
       saveGame(this.$route.params.gameId, this.gameState)
     },
     undo() {
-      const lastQuestion = this.gameState.messages.pop().text
       const lastAnswer = this.gameState.messages.pop().text
+      const lastQuestion = this.gameState.messages.pop().text
       this.gameState.questions.unshift(lastQuestion)
       return lastAnswer
     },
@@ -144,7 +149,9 @@ export default {
 }
 
 .interview-over {
-  margin-bottom: 12px;
+  margin-bottom: 18px;
+  font-size: 30px;
+  font-weight: 700;
 }
 
 .controls {
