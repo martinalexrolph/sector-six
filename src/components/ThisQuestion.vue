@@ -1,5 +1,5 @@
 <template>
-  <div class="next-question">
+  <div class="next-question" v-bind:class="{'walkthrough-highlight': highlighted}">
     <div class="heading">Current question:</div>
     <div class="outline">
       <b>{{ question }}</b>
@@ -11,7 +11,8 @@
 export default {
   name: 'ThisQuestion',
   props: {
-    question: String
+    question: String,
+    highlighted: Boolean
   }
 }
 </script>
@@ -35,7 +36,6 @@ export default {
 .heading {
   margin-bottom: 8px;
   font-size: 14px;
-  background: #222;
   width: 200px;
   font-style: italic;
 }

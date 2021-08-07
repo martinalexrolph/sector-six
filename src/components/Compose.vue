@@ -1,32 +1,34 @@
 <template>
-  <div class="heading">Your answer:</div>
-  <div v-if="!showUndoConfirmation">
-    <div class="compose" >
-      <textarea
-        class="textarea"
-        @keypress.enter.prevent="submit(text)"
-        v-model="text"
-        enterkeyhint="send"
-      />
-      <div class="buttons">
-        <button class="button primary" @click="submit(text)">
-          SEND
-        </button>
-        <button class="button secondary" v-if="canUndo" @click="undo()">
-          <!-- &#9100; -->UNDO
-        </button>
+  <div v-bind:class="{'walkthrough-highlight': highlighted}">
+    <div class="heading">Your answer:</div>
+    <div v-if="!showUndoConfirmation">
+      <div class="compose" >
+        <textarea
+          class="textarea"
+          @keypress.enter.prevent="submit(text)"
+          v-model="text"
+          enterkeyhint="send"
+        />
+        <div class="buttons">
+          <button class="button primary" @click="submit(text)">
+            SEND
+          </button>
+          <button class="button secondary" v-if="canUndo" @click="undo()">
+            <!-- &#9100; -->UNDO
+          </button>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="compose" v-if="showUndoConfirmation">
-    <div class="outline undo-message">
-      <div><b>ARE YOU SURE YOU WANT TO UNDO?</b></div>
-      You will lose the answer you are writing and will be able to edit your previous answer.
-    </div>
-    <div class="buttons">
-      <button class="button primary" @click="confirmUndo()">YES</button>
-      <button class="button secondary" @click="cancelUndo()">NO</button>
+    <div class="compose" v-if="showUndoConfirmation">
+      <div class="outline undo-message">
+        <div><b>ARE YOU SURE YOU WANT TO UNDO?</b></div>
+        You will lose the answer you are writing and will be able to edit your previous answer.
+      </div>
+      <div class="buttons">
+        <button class="button primary" @click="confirmUndo()">YES</button>
+        <button class="button secondary" @click="cancelUndo()">NO</button>
+      </div>
     </div>
   </div>
 </template>
@@ -61,7 +63,8 @@ export default {
   props: {
     onSubmit: Function,
     onUndo: Function,
-    canUndo: Boolean
+    canUndo: Boolean,
+    highlighted: Boolean,
   }
 }
 </script>
@@ -80,7 +83,6 @@ export default {
 .heading {
   margin-bottom: 8px;
   font-size: 14px;
-  background: #222;
   width: 200px;
   font-style: italic;
   text-align: left;

@@ -1,5 +1,5 @@
 <template>
-  <div class="next-question">
+  <div class="next-question" v-bind:class="{'walkthrough-highlight': highlighted}">
     <div class="heading" v-if="questions[1]">Upcoming questions</div>
     <div class="first-question outline" v-if="questions[1]">
       <b>{{ questions[1] }}</b>
@@ -14,7 +14,8 @@
 export default {
   name: 'NextQuestion',
   props: {
-    questions: Array
+    questions: Array,
+    highlighted: Boolean
   }
 }
 </script>
@@ -38,7 +39,6 @@ export default {
 .heading {
   margin-bottom: 8px;
   font-size: 14px;
-  background: #222;
   width: 200px;
   font-style: italic;
 }

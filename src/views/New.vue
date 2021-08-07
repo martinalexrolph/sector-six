@@ -29,7 +29,7 @@
       </div>
     </div>
 
-    <div class="secondary-buttons">
+    <div class="row-of-buttons">
       <button class="button" @click="goHome()">&lt; MAIN MENU</button>
       <button class="button" :disabled="!name" @click="newGame()">BEGIN ></button>
     </div>
@@ -78,17 +78,4 @@ export default {
   font-weight: 700;
   padding-right: 2px;
 }
-
-
-.button {
-  width: 300px;
-  max-width: calc(50% - 10px);
-  margin: 0 5px;
-}
-
-.secondary-buttons {
-  display: flex;
-  justify-content: center;
-}
-
 </style>

@@ -18,6 +18,10 @@ button, .button {
   text-decoration: none;
 }
 
+.button-narrow {
+  width: 300px;
+}
+
 button:hover, .button:hover {
   background: rgb(46, 51, 45); 
 }
@@ -142,6 +146,17 @@ html, body {
   }
 }
 
+.row-of-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.row-of-buttons > .button {
+  width: 300px;
+  max-width: calc(50% - 10px);
+  margin: 0 5px;
+}
+
 /* ::-webkit-scrollbar {     
   background-color: none;
   width: 6px;
@@ -153,3 +168,8 @@ html, body {
   border-radius: 3px;
   margin: 1px;
 } */
+
+.walkthrough-highlight {
+  box-shadow: 0 0 3px 3px #222, 0 0 10px 8px #5cea6070;
+  border-radius: 4px;
+}
