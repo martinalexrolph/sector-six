@@ -1,4 +1,4 @@
-# the-rebellion
+# Sector Six
 
 ## Project setup
 ```
