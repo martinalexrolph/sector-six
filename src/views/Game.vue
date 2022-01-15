@@ -5,15 +5,17 @@
     </button>
 
     <div class="main-container outline">
-      <div v-if="showWalkthrough" style="padding: 50px">
+      <div v-if="showWalkthrough" class="walkthrough">
         <h1>{{walkthrough[step].title}}</h1>
         <p>{{walkthrough[step].text}}</p>
 
         <div class="row-of-buttons">
           <button v-if="step !== 0" class="button" @click="changeStep(-1)">&lt; GO BACK</button>
           <button v-if="step < walkthrough.length - 1" class="button" @click="changeStep(1)">CONTINUE ></button>
-          <button v-if="step === 0" class="button" @click="skipWalkthrough()">SKIP EXPLANATION >>></button>
           <button v-if="step === walkthrough.length - 1" class="button" @click="skipWalkthrough()">START INTERVIEW ></button>
+        </div>
+        <div>
+          <button v-if="step === 0" class="button button-link" @click="skipWalkthrough()">SKIP EXPLANATION >>></button>
         </div>
       </div>
       <div v-if="!showWalkthrough" class="messages">
@@ -189,8 +191,6 @@ export default {
 }
 
 .button {
-  width: 400px;
-  font-size: 20px;
   margin: 8px auto;
 }
 
@@ -208,9 +208,19 @@ export default {
   margin-right: 30px;
 }
 
+.walkthrough {
+  padding: 50px;
+}
+
 @media screen and (max-width: 700px) {
+  .game {
+    display: block;
+  }
+
   .main-container {
-    padding-top: 40px;
+    width: calc(100% - 60px);
+    height: auto;
+    min-height: 400px;
   }
 
   .messages {
@@ -227,6 +237,10 @@ export default {
     width: calc(100% - 20px);
     font-size: 16px;
     margin: 0 10px 10px;
+  }
+
+  .walkthrough {
+    padding: 20px;
   }
 }
 </style>

@@ -1,3 +1,11 @@
+h2 {
+  font-size: 30px;
+}
+
+p {
+  font-size: 20px;
+}
+
 button, .button {
   font-family: "Source Code Pro", monospace;
   background: #222;
@@ -20,6 +28,11 @@ button, .button {
 
 .button-narrow {
   width: 300px;
+}
+
+.button-link {
+  border: none;
+  box-shadow: none;
 }
 
 button:hover, .button:hover {
@@ -45,7 +58,7 @@ a:hover, a:focus {
 }
 
 label {
-  width: 130px;
+  width: 145px;
   font-weight: 700;
   margin-right: 10px;
   display: block;
@@ -172,4 +185,28 @@ html, body {
 .walkthrough-highlight {
   box-shadow: 0 0 3px 3px #222, 0 0 10px 8px #5cea6070;
   border-radius: 4px;
+}
+
+@media screen and (max-width: 500px) {
+  h2 {
+    font-size: 20px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  .button, select, input, textarea, .outline, label {
+    font-size: 14px;
+  }
+
+  .input-row {
+    flex-direction: column;
+  }
+
+  .input-row label, .input-row input {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 4px;
+  }
 }

@@ -17,7 +17,7 @@
       </div>
     </div>
 
-    <div>
+    <div style="max-width: 100%">
       <div class="primary-button">
         <button class="button" @click="learnToPlay()">LEARN TO PLAY</button>
       </div>
@@ -108,8 +108,14 @@ export default {
   margin-left: -8px;
 }
 
+
+
 .button {
   width: 400px;
+}
+
+.primary-button {
+  max-width: 100%;
 }
 
 .primary-button .button {
@@ -122,6 +128,7 @@ export default {
 
 .secondary-buttons {
   margin: 30px 0;
+  max-width: 100%;
 }
 
 .title-container {
@@ -134,10 +141,32 @@ export default {
   margin-top: 40px;
 }
 
+@media screen and (max-width: 500px) {
+  .title-1 {
+    font-size: 20px;
+  }
+
+  .title-2 {
+    font-size: 70px;
+  }
+
+  .overview {
+    font-size: 14px;
+  }
+
+  .primary-button .button {
+    font-size: 20px;
+  }
+}
+
 @media screen and (max-width: 900px) {
   .container {
     flex-direction: column;
     overflow: scroll;
+  }
+
+  .primary-button {
+    margin-top: 20px;
   }
 }
 </style>

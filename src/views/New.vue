@@ -78,4 +78,10 @@ export default {
   font-weight: 700;
   padding-right: 2px;
 }
+
+@media screen and (max-width: 500px) {
+  .title-1 {
+    font-size: 20px;
+  }
+}
 </style>
