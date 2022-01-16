@@ -6,10 +6,10 @@
 
     <div class="main-container outline">
       <div v-if="showWalkthrough" class="walkthrough">
-        <h1>{{walkthrough[step].title}}</h1>
+        <h2>{{walkthrough[step].title}}</h2>
         <p>{{walkthrough[step].text}}</p>
 
-        <div class="row-of-buttons">
+        <div class="row-of-buttons" style="margin-top: 30px">
           <button v-if="step !== 0" class="button" @click="changeStep(-1)">&lt; GO BACK</button>
           <button v-if="step < walkthrough.length - 1" class="button" @click="changeStep(1)">CONTINUE ></button>
           <button v-if="step === walkthrough.length - 1" class="button" @click="skipWalkthrough()">START INTERVIEW ></button>
@@ -162,7 +162,7 @@ export default {
 }
 
 .messages {
-  font-size: 20px;
+  font-size: 18px;
   width: 100%;
 }
 
@@ -209,7 +209,9 @@ export default {
 }
 
 .walkthrough {
-  padding: 50px;
+  padding: 10px;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 @media screen and (max-width: 700px) {
@@ -218,9 +220,16 @@ export default {
   }
 
   .main-container {
-    width: calc(100% - 60px);
+    width: calc(100% - 40px);
     height: auto;
     min-height: 400px;
+    margin: 20px;
+  }
+
+  .main-container.outline {
+    border: none;
+    padding: 0;
+    box-shadow: none;
   }
 
   .messages {
@@ -241,6 +250,11 @@ export default {
 
   .walkthrough {
     padding: 20px;
+  }
+
+  .controls {
+    width: calc(100% - 40px);
+    margin: 20px;
   }
 }
 </style>

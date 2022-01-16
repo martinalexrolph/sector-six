@@ -74,7 +74,7 @@ export default {
 .compose {
   width: 100%;
   height: 180px;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 400;
   text-align: left;
   display: flex;
@@ -133,7 +133,6 @@ export default {
 @media screen and (max-width: 700px) {
   .compose {
     width: 100%;
-    padding: 0 10px;
     margin-bottom: 0;
   }
 

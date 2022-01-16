@@ -45,7 +45,7 @@
   margin: 0;
   min-height: 100%;
   line-height: 1.3;
-  font-size: 20px;
+  font-size: 18px;
   background: #222;
   color: #fbfbfb;
   text-shadow: 0px 0px 8px #49ff4e90;
