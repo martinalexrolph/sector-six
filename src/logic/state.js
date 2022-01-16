@@ -1,4 +1,4 @@
-import { choose, integer } from "./helpers"
+import { choose } from "./helpers"
 import { heroJourney } from "./questions"
 
 //       "Before all this started you were working in the Outer Rim - what did you parents do?",
@@ -32,7 +32,7 @@ function newGameState(name, home, gender) {
     name: name,
     completed: false,
     introduction: {
-      title: `Episode ${integer(3, 20)}: ${choose(titles)}`,
+      title: choose(titles),
       text: introduction
     },
     messages: [],

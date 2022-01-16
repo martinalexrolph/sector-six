@@ -19,7 +19,6 @@ export default {
   width: 100%;
   font-weight: 700;
   text-align: left;
-  padding: 10px;
   border-radius: 4px;
   margin: 10px 0;
 }

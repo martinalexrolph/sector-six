@@ -12,7 +12,7 @@
         <div class="row-of-buttons" style="margin-top: 30px">
           <button v-if="step !== 0" class="button" @click="changeStep(-1)">&lt; GO BACK</button>
           <button v-if="step < walkthrough.length - 1" class="button" @click="changeStep(1)">CONTINUE ></button>
-          <button v-if="step === walkthrough.length - 1" class="button" @click="skipWalkthrough()">START INTERVIEW ></button>
+          <button v-if="step === walkthrough.length - 1" class="button" @click="skipWalkthrough()">START GAME ></button>
         </div>
         <div>
           <button v-if="step === 0" class="button button-link" @click="skipWalkthrough()">SKIP EXPLANATION >>></button>
@@ -173,7 +173,7 @@ export default {
   margin: 30px;
   overflow: auto;
   flex-grow: 1;
-  padding-bottom: 20px;
+  padding: 20px;
 }
 
 .home-button {
@@ -224,6 +224,7 @@ export default {
     height: auto;
     min-height: 400px;
     margin: 20px;
+    margin-top: 50px;
   }
 
   .main-container.outline {
