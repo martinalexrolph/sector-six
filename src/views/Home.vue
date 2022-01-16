@@ -26,7 +26,7 @@
         <button class="button" @click="newGame()">NEW GAME</button>
         <button class="button" @click="loadGame()">LOAD GAME</button>
         <button class="button" @click="completedGames()">COMPLETED GAMES</button>
-        <button class="button" @click="goTo('All Questions')">TEST ALL QUESTIONS</button>
+        <!-- <button class="button" @click="goTo('All Questions')">TEST ALL QUESTIONS</button> -->
         <!-- <button class="button">OPTIONS</button> -->
       </div>
 
