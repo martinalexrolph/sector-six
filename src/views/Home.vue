@@ -9,7 +9,7 @@
 
       <div class="overview">
         <p>
-          A solo journalling RPG by Martin Rolph.
+           A solo journalling RPG by Martin Rolph.
         </p>
         <p>
           Somewhere between a game and a creative-writing exercise, in Stories from Sector Six the goal is simply to create a memorable character and story. Follow the prompts and create a retrospective interview about your character's involvement in an important moment in the history of Sector Six.  

@@ -12,6 +12,7 @@ import { theReward } from './steps/stage09_theReward'
 import { theRoadBack } from './steps/stage10_theRoadBack'
 import { theResurrection } from './steps/stage11_theResurrection'
 import { returnWithTheElixir } from './steps/stage12_returnWithTheElixir'
+import { shortGame } from './shortGame'
 
 function introductoryQuestions() {
   return firstQuestions().concat(homeworldQuestions())
@@ -70,9 +71,15 @@ function heroJourney({name, home, gender}) {
   return {questions, params}
 }
 
+function quickInterview({name, home, gender}) {
+  const params = getParams({name, home, gender})
+  return {questions: shortGame(params), params}
+}
+
 export {
   introductoryQuestions,
-  heroJourney
+  heroJourney,
+  quickInterview
 }
 
 /*

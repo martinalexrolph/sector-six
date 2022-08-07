@@ -14,14 +14,16 @@
 </template>
 
 <script>
-import { heroJourney } from '../logic/questions'
+import {quickInterview } from '../logic/questions'
+// import {heroJourney } from '../logic/questions'
 import Question from '../components/Question'
 
 export default {
   name: 'HelloWorld',
   data() {
     return {
-      questions: heroJourney({name: 'Martin Rolph', home: 'Earth', gender: 'male'}).questions,
+      // questions: heroJourney({name: 'Martin Rolph', home: 'Earth', gender: 'male'}).questions,
+      questions: quickInterview({name: 'Martin Rolph', home: 'Earth', gender: 'male'}).questions,
     }
   },
   methods: {

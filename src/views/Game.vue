@@ -104,12 +104,12 @@ export default {
   methods: {
     submitAnswer(text) {
       console.log(this.gameState.questions);
-      if (this.gameState.questions.length > 1) {
-        this.gameState.messages.push({
-          text: this.gameState.questions.shift(),
-          type: 'question'
-        })
-      } else {
+      this.gameState.messages.push({
+        text: this.gameState.questions.shift(),
+        type: 'question'
+      })
+      
+      if (this.gameState.questions.length === 0) {
         this.gameState.completed = true
       }
 

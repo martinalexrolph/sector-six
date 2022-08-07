@@ -27,6 +27,15 @@
           <option value='neutral'>they/them</option>
         </select>
       </div>
+
+      <h2>Options</h2>
+      <div class="input-row">
+        <label>LENGTH:</label>
+        <select v-model="length">
+          <option value='short'>Short interview (~15-20 minutes playtime)</option>
+          <option value='long'>Long interview (~1-2 hour playtime)</option>
+        </select>
+      </div>
     </div>
 
     <div class="row-of-buttons">
@@ -53,12 +62,13 @@ export default {
       name: `${firstName(gender)} ${lastName()}`,
       home: location().name,
       age: integer(16, 40),
-      gender: gender
+      gender: gender,
+      length: 'short'
     }
   },
   methods: {
     async newGame() {
-      const gameState = newGameState(this.name, this.home, this.gender)
+      const gameState = newGameState(this.name, this.home, this.gender, this.length)
       const gameId = nanoid(10)
       await saveGame(gameId, gameState)
       this.$router.push({name: 'Game', params: {gameId: gameId}})

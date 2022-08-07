@@ -1,5 +1,5 @@
 import { choose } from "./helpers"
-import { heroJourney } from "./questions"
+import { heroJourney, quickInterview } from "./questions"
 
 //       "Before all this started you were working in the Outer Rim - what did you parents do?",
 //       "What was your experience of the Empire growing up?",
@@ -12,8 +12,10 @@ import { heroJourney } from "./questions"
 //       "Who was your first point of contact with the Rebellion?",
 //       "How hard was it to get in touch with them? I guess they must have been pretty secretive!"
 
-function newGameState(name, home, gender) {
-  const {questions, params} = heroJourney({name, home, gender})
+function newGameState(name, home, gender, length) {
+  const {questions, params} = length === 'short'
+    ? quickInterview({name, home, gender})
+    : heroJourney({name, home, gender})
   const introduction = questions.shift();
 
   const titles = ['An Unlikely Hero', 'A Journey To Remember']

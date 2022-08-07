@@ -31,7 +31,7 @@ function getParams({name, home, gender}) {
     // armature: 'take risks',
     organisations: {
       evil: choose('Regime', 'Authority', 'Imperium', 'Alliance', 'Dynasty', 'Administration', 'Syndicate'),
-      good: choose('Alliance', 'Collective', 'Senate', 'Union')
+      good: choose('Alliance', 'Collective', 'Union')
     },
     characters: {
       childhood: character(),
