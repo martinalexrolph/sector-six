@@ -12,9 +12,9 @@ function shortGame(p) {
     plan(p),
     arrival(p),
     breakthrough(p),
+    next(p),
     complication(p),
     overcome(p),
-    opportunity(p),
     success(p),
     escape(p),
     reaction(p)
@@ -88,16 +88,19 @@ function breakthrough() {
   )
 }
 
-// TODO: what if the plan didn't involve them landing?
+function next() {
+  return choose(
+    `What was the next step?`,
+    `What did you have to do next?`,
+    `What was the plan then?`,
+  )
+}
+
 function complication(p) {
   return choose(
     `Did you realise ${p.characters.enemy.title} ${p.characters.enemy.name} would be there?`,
     `Oh no... ${p.characters.enemy.title} ${p.characters.enemy.name} is one of the most feared pilots in the sector!`,
     `How did the presence of ${p.characters.enemy.title} ${p.characters.enemy.name} change the plan?`,
-    // `Where did the signal lead you?`,
-    // `How did you manage to land?`,
-    // `How was the base laid out?`,
-    // `What was your target?`,
   )
 }
 
@@ -114,25 +117,10 @@ function overcome(p) {
   )
 }
 
-function opportunity(p) {
-  const sentence1 = choose(
-    `You were right at the beating heart of the ${p.organisations.evil}!`,
-    `So this... this was key to their whole operation, right in front of you!`,
-    `Here was where you could really strike back!`
-  )
-  
-  const sentence2 = choose(
-    `What was the next step?`,
-    `What did you have to do next?`,
-    `What was the plan?`,
-  )
-  return `${sentence1} ${sentence2}`
-}
-
+// TODO: 
 function success() {
   return choose(
-    `How did you succeed?`,
-    `Did it go to plan?`,
+    `Did that go to plan?`,
     `How on earth did you manage that?!`,
   )
 }

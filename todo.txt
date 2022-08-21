@@ -17,3 +17,13 @@
 [ ] Show you the next two questions, not just one
 [ ] Save As (or Export)
 [ ] Some way to search in your story
+
+
+
+
+From Seb's feedback
+
+[ ] Get rid of the long game entirely
+[ ] Only three character attributes
+[ ] Radio buttons not dropdown for pronouns
+[ ] Rework the question currently labelled 'success'
